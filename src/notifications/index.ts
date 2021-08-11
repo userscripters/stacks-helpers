@@ -1,3 +1,4 @@
+import { makeStacksIcon } from "../icons/index";
 import { StacksCommonOptions } from "../index";
 
 export type StacksToastType =
@@ -65,6 +66,12 @@ export const makeStacksToast = (
     dismissBtn.setAttribute("aria-label", "Dismiss");
     buttons.push(dismissBtn);
 
+    const [dismissIcon] = makeStacksIcon(
+        "iconClearSm",
+        "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z"
+    );
+    dismissBtn.append(dismissIcon);
+
     btnWrap.append(...buttons);
     msgWrap.append(message, btnWrap);
     aside.append(msgWrap);
@@ -84,7 +91,7 @@ export const toggleToast = (target: string | Element, show?: boolean) => {
     const isShown = toast?.getAttribute("aria-hidden") !== "true";
     toast.setAttribute(
         "aria-hidden",
-        (show !== void 0 ? show : isShown).toString()
+        (show !== void 0 ? !show : isShown).toString()
     );
 
     return toast;

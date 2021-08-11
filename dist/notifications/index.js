@@ -1,3 +1,4 @@
+import { makeStacksIcon } from "../icons/index";
 /**
  * @see https://stackoverflow.design/product/components/notices/
  * @summary builder for Stacks notifications
@@ -27,6 +28,8 @@ export const makeStacksToast = (id, text, { buttons = [], classes = [], msgClass
     dismissBtn.classList.add("s-btn", "s-notice--btn");
     dismissBtn.setAttribute("aria-label", "Dismiss");
     buttons.push(dismissBtn);
+    const [dismissIcon] = makeStacksIcon("iconClearSm", "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z");
+    dismissBtn.append(dismissIcon);
     btnWrap.append(...buttons);
     msgWrap.append(message, btnWrap);
     aside.append(msgWrap);
@@ -41,7 +44,7 @@ export const toggleToast = (target, show) => {
     if (!toast)
         throw new ReferenceError(`missing toast: ${target}`);
     const isShown = (toast === null || toast === void 0 ? void 0 : toast.getAttribute("aria-hidden")) !== "true";
-    toast.setAttribute("aria-hidden", (show !== void 0 ? show : isShown).toString());
+    toast.setAttribute("aria-hidden", (show !== void 0 ? !show : isShown).toString());
     return toast;
 };
 /**
