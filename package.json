@@ -6,6 +6,10 @@
     "name": "Oleg Valter",
     "email": "oleg.a.valter@gmail.com"
   },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc"
+  },
   "contributors": [],
   "devDependencies": {
     "@types/chai": "^4.2.21",
