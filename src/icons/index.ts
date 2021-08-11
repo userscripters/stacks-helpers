@@ -1,5 +1,6 @@
-import { StacksIconOptions } from "./types";
+import { StacksCommonOptions } from "../index";
 
+export type StacksIconOptions = StacksCommonOptions & {};
 /**
  * @see https://stackoverflow.design/product/resources/icons/
  * @summary makes Stacks 18 x 18 icon

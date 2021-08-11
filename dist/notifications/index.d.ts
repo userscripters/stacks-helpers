@@ -1,4 +1,11 @@
-import { StacksToastOptions } from "./types";
+import { StacksCommonOptions } from "../index";
+export declare type StacksToastType = "info" | "success" | "warning" | "danger" | "none";
+export declare type StacksToastOptions = StacksCommonOptions & Partial<{
+    buttons: HTMLButtonElement[];
+    msgClasses: string[];
+    important: boolean;
+    type: StacksToastType;
+}>;
 /**
  * @see https://stackoverflow.design/product/components/notices/
  * @summary builder for Stacks notifications
