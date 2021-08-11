@@ -1,0 +1,22 @@
+{
+  "name": "@userscripters/stacks-helpers",
+  "description": "A collection of helper functions to work with Stacks design",
+  "version": "0.1.0",
+  "author": {
+    "name": "Oleg Valter",
+    "email": "oleg.a.valter@gmail.com"
+  },
+  "contributors": [],
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/chai-as-promised": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@userscripters/generate-headers": "^1.6.4",
+    "@userscripters/generate-readme": "^1.1.0",
+    "@userscripters/stackexchange-global-types": "^1.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^9.0.3",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  }
+}

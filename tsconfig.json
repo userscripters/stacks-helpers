@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "skipLibCheck": true,
+        "strictNullChecks": true,
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "target": "es2019",
+        "outDir": "dist",
+        "declaration": true,
+        "types": ["@userscripters/stackexchange-global-types", "jquery"]
+    },
+    "include": ["src"],
+    "exclude": ["dist"]
+}
