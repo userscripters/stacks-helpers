@@ -8,7 +8,15 @@
   },
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean && tsc"
+    "build": "npm run clean && tsc",
+    "readme": "generate-readme"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:userscripters/stacks-helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/userscripters/stacks-helpers/issues"
   },
   "contributors": [],
   "devDependencies": {
