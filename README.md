@@ -5,8 +5,8 @@
 | :----------- | :----------------------- |
 | Name | @userscripters/stacks-helpers |
 | Description | A collection of helper functions to work with Stacks design |
-| License | Not adopted (see [GitHub default grant](https://docs.github.com/en/github/site-policy/github-terms-of-service#5-license-grant-to-other-users)) |
-| Version | 0.1.0 |
+| License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
+| Version | 0.1.1 |
 
 # Support
 
