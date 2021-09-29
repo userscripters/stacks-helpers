@@ -1,7 +1,7 @@
 {
     "name": "@userscripters/stacks-helpers",
     "description": "A collection of helper functions to work with Stacks design",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "author": {
         "name": "Oleg Valter",
         "email": "oleg.a.valter@gmail.com"
@@ -9,7 +9,8 @@
     "scripts": {
         "clean": "rm -rf dist",
         "build": "npm run clean && tsc",
-        "readme": "generate-readme"
+        "readme": "generate-readme",
+        "postversion": "bash ./scripts/postversion.sh"
     },
     "repository": {
         "type": "git",
