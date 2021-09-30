@@ -12,7 +12,7 @@ export const makeStacksIcon = (
     name: string,
     pathConfig: string,
     { classes = [], width = 14, height = width }: StacksIconOptions = {}
-) => {
+): [SVGSVGElement, SVGPathElement] => {
     const ns = "http://www.w3.org/2000/svg";
 
     const svg = document.createElementNS(ns, "svg");
