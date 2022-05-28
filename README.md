@@ -8,6 +8,7 @@
 | License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
 | Version | 0.1.3 |
 
+
 # Support
 
 Bug reports for the project should be [submitted here](https://github.com/userscripters/stacks-helpers/issues).
