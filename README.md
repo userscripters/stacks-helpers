@@ -3,11 +3,11 @@
 
 | Author       | Oleg Valter<br>[oleg.a.valter@gmail.com](mailto:oleg.a.valter@gmail.com) |
 | :----------- | :----------------------- |
+| Contributors | double beep<br>[https://github.com/double-beep](https://github.com/double-beep) |
 | Name | @userscripters/stacks-helpers |
 | Description | A collection of helper functions to work with Stacks design |
 | License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
 | Version | 0.2.0 |
-
 
 # Support
 

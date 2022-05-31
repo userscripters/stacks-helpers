@@ -19,7 +19,12 @@
     "bugs": {
         "url": "https://github.com/userscripters/stacks-helpers/issues"
     },
-    "contributors": [],
+    "contributors": [
+        {
+            "name": "double beep",
+            "url": "https://github.com/double-beep"
+        }
+    ],
     "license": "GPL-3.0-or-later",
     "devDependencies": {
         "@userscripters/generate-readme": "^2.3.1",
