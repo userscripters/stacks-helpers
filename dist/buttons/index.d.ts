@@ -1,8 +1,9 @@
 import { StacksCommonOptions } from "../index.js";
+export declare type ButtonType = "outlined" | "link" | "filled";
 export declare type StacksIconButtonOptions = StacksCommonOptions & {
     title?: string;
     muted?: boolean;
-    type?: "outlined" | "filled";
+    type?: ButtonType;
     primary?: boolean;
     danger?: boolean;
     loading?: boolean;
