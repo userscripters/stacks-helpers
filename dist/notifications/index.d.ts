@@ -14,12 +14,12 @@ export declare const makeStacksToast: (id: string, text: string, { buttons, clas
 /**
  * @summary toggles the Stacks toast visibility
  */
-export declare const toggleToast: (target: string | Element, show?: boolean | undefined) => Element;
+export declare const toggleToast: (target: string | Element, show?: boolean) => Element;
 /**
  * @summary hides the Stacks toast
  */
-export declare const hideToast: (target: string | Element, hideFor?: number | undefined) => void;
+export declare const hideToast: (target: string | Element, hideFor?: number) => void;
 /**
  * @summary shows the Stacks toast
  */
-export declare const showToast: (target: string | Element, showFor?: number | undefined) => void;
+export declare const showToast: (target: string | Element, showFor?: number) => void;
