@@ -10,7 +10,8 @@
         "clean": "rm -rf dist",
         "build": "npm run clean && tsc",
         "readme": "generate-readme",
-        "postversion": "bash ./scripts/postversion.sh"
+        "postversion": "bash ./scripts/postversion.sh",
+        "test": ""
     },
     "repository": {
         "type": "git",
