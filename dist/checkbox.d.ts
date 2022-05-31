@@ -13,7 +13,7 @@ export declare type StacksCheckboxes = {
  *
  * @summary creates a Stacks checkbox
  * @param {StacksCheckboxes[]} checkboxes the checkboxes to create
- * @param {StacksCheckboxOption} checkboxOptions checkbox configuration
+ * @param {StacksCheckboxOption} options checkbox configuration
  * @returns {HTMLFieldSetElement}
  */
 export declare const makeStacksCheckboxes: (checkboxes: StacksCheckboxes[], options?: StacksCheckboxOption) => HTMLFieldSetElement;
