@@ -10,7 +10,7 @@ import { Label } from "./index";
 export const makeStacksCheckboxes = (checkboxes, options) => {
     const fieldset = document.createElement("fieldset");
     fieldset.classList.add("d-flex", "gs8", "gsy", "fd-column");
-    checkboxes.forEach(checkbox => {
+    checkboxes.forEach((checkbox) => {
         const container = document.createElement("div");
         container.classList.add("flex--item");
         const parent = document.createElement("div");

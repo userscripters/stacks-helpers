@@ -34,4 +34,4 @@ export const makeStacksToggle = (
     container.append(label, toggleParent);
 
     return container;
-}
+};

@@ -11,7 +11,7 @@ export type StacksLabelOptions = StacksCommonOptions & {
 
 /**
  * @see https://stackoverflow.com/product/components/labels/
- * 
+ *
  * @summary creates a Stacks label
  * @param {string} forId the label htmlFor attribute
  * @param {StacksLabelOptions} labelOptions label configuration
@@ -68,4 +68,4 @@ export const makeStacksLabel = (
 
         return label;
     }
-}
+};

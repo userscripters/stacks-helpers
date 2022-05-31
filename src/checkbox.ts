@@ -5,7 +5,7 @@ export type StacksCheckboxOption = {
     legendDescription?: string;
 }
 
-export type StacksCheckboxes =  {
+export type StacksCheckboxes = {
     id: string;
     label: string;
     state: boolean;
@@ -14,7 +14,7 @@ export type StacksCheckboxes =  {
 
 /**
  * @see https://stackoverflow.design/product/components/checkbox/
- * 
+ *
  * @summary creates a Stacks checkbox
  * @param {StacksCheckboxes[]} checkboxes the checkboxes to create
  * @param {StacksCheckboxOption} checkboxOptions checkbox configuration
@@ -27,7 +27,7 @@ export const makeStacksCheckboxes = (
     const fieldset = document.createElement("fieldset");
     fieldset.classList.add("d-flex", "gs8", "gsy", "fd-column");
 
-    checkboxes.forEach(checkbox => {
+    checkboxes.forEach((checkbox) => {
         const container = document.createElement("div");
         container.classList.add("flex--item");
 
@@ -80,4 +80,4 @@ export const makeStacksCheckboxes = (
     }
 
     return fieldset;
-}
+};

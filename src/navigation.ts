@@ -74,4 +74,4 @@ const createNavItem = (
     li.append(wrapper);
 
     return li;
-}
+};

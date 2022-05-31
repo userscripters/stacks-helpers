@@ -8,7 +8,8 @@
     },
     "scripts": {
         "clean": "rm -rf dist",
-        "build": "npm run clean && tsc",
+        "lint": "eslint src --fix --ext .js,.ts",
+        "build": "npm run lint && tsc",
         "readme": "generate-readme",
         "postversion": "bash ./scripts/postversion.sh",
         "test": ""
@@ -28,7 +29,10 @@
     ],
     "license": "GPL-3.0-or-later",
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.27.0",
+        "@typescript-eslint/parser": "^5.27.0",
         "@userscripters/generate-readme": "^2.3.1",
+        "eslint": "^8.16.0",
         "typescript": "^4.7.2"
     }
 }
