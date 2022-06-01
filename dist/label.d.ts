@@ -7,7 +7,7 @@ export declare type StacksLabelOptions = StacksCommonOptions & {
     statusType?: "optional" | "required" | "new" | "beta";
 };
 /**
- * @see https://stackoverflow.com/product/components/labels/
+ * @see https://stackoverflow.design/product/components/labels/
  *
  * @summary creates a Stacks label
  * @param {string} forId the label htmlFor attribute

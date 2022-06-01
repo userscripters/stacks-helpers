@@ -7,7 +7,7 @@ export type StacksAvatarOptions = StacksCommonOptions & {
 };
 
 /**
- * @see https://stackoverflow.com/product/components/avatar/
+ * @see https://stackoverflow.design/product/components/avatar/
  *
  * @summary creates a Stacks avatar
  * @param {StacksAvatarOptions} options configuration
