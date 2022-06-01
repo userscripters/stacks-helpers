@@ -2,15 +2,19 @@ import { StacksCommonOptions } from "./index";
 
 export type StacksBadgesOptions = StacksCommonOptions & {
     // https://stackoverflow.design/product/components/badges/#badges-default
+    /** The type of the bling */
     blingColor?: "gold" | "silver" | "bronze";
 
+    /** The type of the badge */
     type?: "gold" | "silver" | "bronze"
          | "bounty" | "votes" | "answered" | "rep" | "rep-down" | "important"
          | "admin" | "moderator" | "staff";
 
     // https://stackoverflow.design/product/components/badges/#badge-sizes
+    /** The size of the badge (SMall or eXtra Small) */
     size?: "sm" | "xs";
 
+    /** The text in the badge */
     text: string;
 };
 

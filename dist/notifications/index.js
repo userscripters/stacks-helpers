@@ -1,7 +1,10 @@
 import { makeStacksIcon } from "../icons/index";
 /**
  * @see https://stackoverflow.design/product/components/notices/
+ *
  * @summary builder for Stacks notifications
+ * @param {string} id the toast id
+ * @param {string} text the message text
  */
 export const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = [], type = "none", important = false, } = {}) => {
     const wrap = document.createElement("div");

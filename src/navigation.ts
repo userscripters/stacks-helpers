@@ -1,8 +1,11 @@
 import { StacksCommonOptions } from "./index";
 
 export type StacksNavItems = StacksCommonOptions & {
+    /** The item text */
     text: string;
+    /** The item id */
     id: string;
+    /** The id of the element the item controls */
     ariaControls?: string;
 };
 

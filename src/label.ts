@@ -1,11 +1,16 @@
 import { StacksCommonOptions } from "./index";
 
 export type StacksLabelOptions = StacksCommonOptions & {
+    /** The text of the label */
     text: string;
+    /** An optional description */
     description?: string;
+    /** Classes applied to the label container */
     parentClasses?: string[];
 
+    /** The text of the optional badge after the label */
     statusText?: string;
+    /** The style of the optional badge after the label */
     statusType?: "optional" | "required" | "new" | "beta";
 }
 

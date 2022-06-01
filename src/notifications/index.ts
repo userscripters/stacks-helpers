@@ -10,15 +10,22 @@ export type StacksToastType =
 
 export type StacksToastOptions = StacksCommonOptions &
     Partial<{
+        /** Action buttons on the toast */
         buttons: HTMLButtonElement[];
+        /** Classes applied to the message element */
         msgClasses: string[];
+        /** Whether the toast should be styled as important */
         important: boolean;
+        /** The type of the toast */
         type: StacksToastType;
     }>;
 
 /**
  * @see https://stackoverflow.design/product/components/notices/
+ *
  * @summary builder for Stacks notifications
+ * @param {string} id the toast id
+ * @param {string} text the message text
  */
 export const makeStacksToast = (
     id: string,

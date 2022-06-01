@@ -1,13 +1,18 @@
 import { StacksCommonOptions } from "./index";
 import { Links } from "./index";
-declare type NavItem = Omit<Links.StacksLinksOptions, "isButton"> | {
-    type: "divider" | "title";
-    text?: string;
+declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & {
+    /** The type of the separator (divider or title) */
+    separatorType: "divider" | "title";
+    /** The title (pass only if `type` is `title`) */
+    separatorText?: string;
 };
 export declare type StacksMenuOptions = StacksCommonOptions & {
+    /** The type of the menu items */
     itemsType?: "a" | "button";
+    /** Classes applied to all the menu items */
     childrenClasses?: string[];
-    navItems: NavItem[];
+    /** The menu items */
+    navItems: MenuItem[];
 };
 /**
  * @see https://stackoverflow.design/product/components/menus/

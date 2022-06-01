@@ -1,12 +1,18 @@
 export declare type StacksCheckboxOption = {
+    /** The checkboxes legend title */
     legendText?: string;
+    /** A legend optional description */
     legendDescription?: string;
 };
 export declare type StacksCheckboxes = {
+    /** The checkbox id */
     id: string;
+    /** The attached label text */
     label: string;
-    state: boolean;
-    disabled: boolean;
+    /** Whether the checkbox should be selected */
+    state?: boolean;
+    /** Whether the checkbox should be disabled */
+    disabled?: boolean;
 };
 /**
  * @see https://stackoverflow.design/product/components/checkbox/

@@ -2,15 +2,20 @@ import { StacksCommonOptions } from "./index";
 import { Links } from "./index";
 
 // either a nav item, a divider or a title
-type NavItem = Omit<Links.StacksLinksOptions, "isButton"> | {
-    type: "divider" | "title";
-    text?: string;
+type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & {
+    /** The type of the separator (divider or title) */
+    separatorType: "divider" | "title";
+    /** The title (pass only if `type` is `title`) */
+    separatorText?: string;
 };
 
 export type StacksMenuOptions = StacksCommonOptions & {
+    /** The type of the menu items */
     itemsType?: "a" | "button";
+    /** Classes applied to all the menu items */
     childrenClasses?: string[];
-    navItems: NavItem[];
+    /** The menu items */
+    navItems: MenuItem[];
 }
 
 /**
@@ -37,12 +42,17 @@ export const makeMenu = (
     // TODO
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
-        if (navItem.type) {
+        if (navItem.separatorType) {
+            const {
+                separatorType,
+                separatorText
+            } = navItem;
+
             const element = document.createElement("li");
             element.setAttribute("role", "separator");
-            element.classList.add(`s-menu--${navItem.type}`);
+            element.classList.add(`s-menu--${separatorType}`);
 
-            if (navItem.text) element.innerText = navItem.text;
+            if (separatorText) element.innerText = separatorText;
 
             menu.append(element);
 

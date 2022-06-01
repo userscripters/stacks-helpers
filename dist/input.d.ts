@@ -1,8 +1,12 @@
 import { StacksCommonOptions, Label } from "./index";
 export declare type StacksInputOptions = StacksCommonOptions & {
+    /** The value of the input */
     value?: string;
+    /** The title attached to the input */
     title?: string;
+    /** The placeholder of the input */
     placeholder?: string;
+    /** Whether the input is a search input */
     isSearch?: boolean;
 };
 /**

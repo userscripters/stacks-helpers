@@ -1,14 +1,21 @@
 import { StacksCommonOptions } from "../index";
 export declare type StacksToastType = "info" | "success" | "warning" | "danger" | "none";
 export declare type StacksToastOptions = StacksCommonOptions & Partial<{
+    /** Action buttons on the toast */
     buttons: HTMLButtonElement[];
+    /** Classes applied to the message element */
     msgClasses: string[];
+    /** Whether the toast should be styled as important */
     important: boolean;
+    /** The type of the toast */
     type: StacksToastType;
 }>;
 /**
  * @see https://stackoverflow.design/product/components/notices/
+ *
  * @summary builder for Stacks notifications
+ * @param {string} id the toast id
+ * @param {string} text the message text
  */
 export declare const makeStacksToast: (id: string, text: string, { buttons, classes, msgClasses, type, important, }?: StacksToastOptions) => HTMLDivElement;
 /**

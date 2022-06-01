@@ -15,12 +15,13 @@ export const makeMenu = (options = {}) => {
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         var _a;
-        if (navItem.type) {
+        if (navItem.separatorType) {
+            const { separatorType, separatorText } = navItem;
             const element = document.createElement("li");
             element.setAttribute("role", "separator");
-            element.classList.add(`s-menu--${navItem.type}`);
-            if (navItem.text)
-                element.innerText = navItem.text;
+            element.classList.add(`s-menu--${separatorType}`);
+            if (separatorText)
+                element.innerText = separatorText;
             menu.append(element);
             return;
         }

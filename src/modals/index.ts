@@ -1,7 +1,9 @@
 import { StacksCommonOptions } from "../index";
 
 export type StacksModalOptions = StacksCommonOptions & {
+    /** Whether to style the modal as dangerous */
     danger?: boolean;
+    /** Whether to increase the modal's width */
     fullscreen?: boolean;
 };
 

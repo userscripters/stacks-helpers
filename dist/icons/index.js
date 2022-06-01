@@ -1,6 +1,9 @@
 /**
  * @see https://stackoverflow.design/product/resources/icons/
+ *
  * @summary makes Stacks 18 x 18 icon
+ * @param {string} name the name of the icon
+ * @param {string} pathConfig the SVG's `path` attribute
  */
 export const makeStacksIcon = (name, pathConfig, { classes = [], width = 14, height = width } = {}) => {
     const ns = "http://www.w3.org/2000/svg";

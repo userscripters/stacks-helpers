@@ -23,8 +23,8 @@ export const makeStacksCheckboxes = (checkboxes, options) => {
         input.classList.add("s-checkbox");
         input.type = "checkbox";
         input.id = checkbox.id;
-        input.checked = checkbox.state;
-        input.disabled = checkbox.disabled;
+        input.checked = checkbox.state || false;
+        input.disabled = checkbox.disabled || false;
         inputParent.append(input);
         const label = Label.makeStacksLabel(checkbox.id, {
             classes: ["fw-normal"],

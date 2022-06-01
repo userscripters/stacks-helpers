@@ -1,8 +1,11 @@
 import { StacksCommonOptions } from "./index";
 
 export type StacksIndicatorOptions = StacksCommonOptions & {
+    /** The type of the indicator. Default is "info" (not passed) */
     type?: "success" | "warning" | "danger";
+    /** The text inside the indicator */
     text?: string;
+    /** Text visible to screen readers */
     hiddenText?: string;
 };
 

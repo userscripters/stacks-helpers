@@ -1,15 +1,21 @@
 import { Label } from "./index";
 
 export type StacksCheckboxOption = {
+    /** The checkboxes legend title */
     legendText?: string;
+    /** A legend optional description */
     legendDescription?: string;
 }
 
 export type StacksCheckboxes = {
+    /** The checkbox id */
     id: string;
+    /** The attached label text */
     label: string;
-    state: boolean;
-    disabled: boolean;
+    /** Whether the checkbox should be selected */
+    state?: boolean;
+    /** Whether the checkbox should be disabled */
+    disabled?: boolean;
 }
 
 /**
@@ -42,8 +48,8 @@ export const makeStacksCheckboxes = (
         input.classList.add("s-checkbox");
         input.type = "checkbox";
         input.id = checkbox.id;
-        input.checked = checkbox.state;
-        input.disabled = checkbox.disabled;
+        input.checked = checkbox.state || false;
+        input.disabled = checkbox.disabled || false;
 
         inputParent.append(input);
 

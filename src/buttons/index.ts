@@ -3,11 +3,17 @@ import { StacksCommonOptions } from "../index.js";
 export type ButtonType = "outlined" | "link" | "filled";
 
 export type StacksIconButtonOptions = StacksCommonOptions & {
+    /** The title attached to the button */
     title?: string;
+    /** Whether the button should be muted */
     muted?: boolean;
+    /** The style of the button */
     type?: ButtonType;
+    /** Whether the button is primary or secondary */
     primary?: boolean;
+    /** Whether to style the button as dangerous */
     danger?: boolean;
+    /** Whether to attach a loading icon to the button */
     loading?: boolean;
 };
 
