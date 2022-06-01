@@ -7,6 +7,7 @@ export declare type StacksLinksOptions = StacksCommonOptions & {
     blockLink?: {
         border?: "left" | "right";
         selected: boolean;
+        danger?: boolean;
     };
 };
 /**

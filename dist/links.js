@@ -22,6 +22,9 @@ export const makeLink = (options = {}) => {
         if (blockLink.selected) {
             anchor.classList.add("is-selected");
         }
+        if (blockLink.danger) {
+            anchor.classList.add("s-block-link__danger");
+        }
     }
     if (href && anchor instanceof HTMLAnchorElement) {
         anchor.href = href;

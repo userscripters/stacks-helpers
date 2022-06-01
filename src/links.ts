@@ -8,6 +8,7 @@ export type StacksLinksOptions = StacksCommonOptions & {
     blockLink?: {
         border?: "left" | "right";
         selected: boolean;
+        danger?: boolean;
     }
 }
 
@@ -48,6 +49,10 @@ export const makeLink = (
 
         if (blockLink.selected) {
             anchor.classList.add("is-selected");
+        }
+
+        if (blockLink.danger) {
+            anchor.classList.add("s-block-link__danger");
         }
     }
 
