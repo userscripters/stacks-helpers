@@ -5,7 +5,12 @@ export * as Indicator from "./indicator";
 export * as Input from "./input";
 export * as Label from "./label";
 export * as Links from "./links";
+export * as Menu from "./menus";
 export * as Navigation from "./navigation";
+export * as Pagination from "./pagination";
+export * as Spinner from "./spinner";
+export * as Tag from "./tags";
+export * as Textarea from "./textarea";
 export * as Toggle from "./toggle";
 
 export * as Buttons from "./buttons";

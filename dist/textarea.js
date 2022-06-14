@@ -1,0 +1,107 @@
+import { Label, Icons } from "./index";
+const validationIcons = {
+    warning: [
+        "iconAlert",
+        "M7.95 2.71c.58-.94 1.52-.94 2.1 0l7.69 12.58c.58.94.15 1.71-.96 1.71H1.22C.1 17-.32 16.23.26 15.29L7.95 2.71ZM8 6v5h2V6H8Zm0 7v2h2v-2H8Z"
+    ],
+    error: [
+        "iconAlertCircle",
+        "M9 17c-4.36 0-8-3.64-8-8 0-4.36 3.64-8 8-8 4.36 0 8 3.64 8 8 0 4.36-3.64 8-8 8ZM8 4v6h2V4H8Zm0 8v2h2v-2H8Z"
+    ],
+    success: [
+        "iconCheckmark",
+        "M16 4.41 14.59 3 6 11.59 2.41 8 1 9.41l5 5 10-10Z"
+    ]
+};
+/**
+ * @see https://stackoverflow.design/product/components/textarea/
+ *
+ * @summary creates a Stacks textarea
+ * @param {string} id the textarea id
+ * @param {StacksTextareaOptions} textareaOptions textarea configuration
+ * @param {Label.StacksLabelOptions} [labelOptions] label configuration
+ * @returns {HTMLDivElement}
+ */
+export const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
+    const { value = "", classes = [], placeholder = "", title = "", size, validation, } = textareaOptions;
+    const textareaParent = document.createElement("div");
+    textareaParent.classList.add("d-flex", "fd-column", "gs4", "gsy", ...classes);
+    if (labelOptions) {
+        const label = Label.makeStacksLabel(id, labelOptions);
+        textareaParent.append(label);
+    }
+    const textarea = document.createElement("textarea");
+    textarea.classList.add("flex--item", "s-textarea");
+    textarea.id = id;
+    textarea.placeholder = placeholder;
+    textarea.value = value;
+    textarea.title = title;
+    if (size) {
+        textarea.classList.add(`s-textarea__${size}`);
+    }
+    textareaParent.append(textarea);
+    if (validation) {
+        toggleValidation(textareaParent, validation);
+    }
+    return textareaParent;
+};
+/**
+ * @see https://stackoverflow.design/product/components/textarea/#validation-states
+ *
+ * @summary Toggles validation styling to a textarea
+ * @param {HTMLDivElement} textareaParent the textarea's container
+ * @param {StacksTextareaOptions["validation"]} validation configuration
+ * @returns {void}
+ */
+export const toggleValidation = (textareaParent, validation) => {
+    var _a, _b;
+    textareaParent.classList.remove("has-success", "has-warning", "has-error");
+    const oldTextarea = textareaParent.querySelector(".s-textarea");
+    if (!validation) {
+        // toggle off all styles
+        (_a = textareaParent.querySelector(".s-input-icon")) === null || _a === void 0 ? void 0 : _a.remove();
+        (_b = textareaParent.querySelector(".s-input-message")) === null || _b === void 0 ? void 0 : _b.remove();
+        const validationContainer = oldTextarea.parentElement;
+        validationContainer === null || validationContainer === void 0 ? void 0 : validationContainer.replaceWith(oldTextarea);
+        return;
+    }
+    const { state, description } = validation;
+    textareaParent.classList.add(`has-${state}`);
+    const [iconName, iconPath] = validationIcons[state];
+    const [icon] = Icons.makeStacksIcon(iconName, iconPath, {
+        classes: ["s-input-icon"],
+        width: 18,
+    });
+    // switch validation
+    if (oldTextarea.nextElementSibling) {
+        oldTextarea.nextElementSibling.replaceWith(icon);
+        const inputMessage = textareaParent.querySelector(".s-input-message");
+        if (description) {
+            if (inputMessage) {
+                inputMessage.innerHTML = description;
+            }
+            else {
+                createAndAppendDescription(description, textareaParent);
+            }
+        }
+        else if (!description && inputMessage) {
+            inputMessage.remove();
+        }
+    }
+    else {
+        // create validation
+        const validationContainer = document.createElement("div");
+        validationContainer.classList.add("d-flex", "ps-relative");
+        validationContainer.append(oldTextarea, icon);
+        textareaParent.append(validationContainer);
+        if (description) {
+            createAndAppendDescription(description, textareaParent);
+        }
+    }
+};
+const createAndAppendDescription = (description, appendTo) => {
+    const message = document.createElement("p");
+    message.classList.add("flex--item", "s-input-message");
+    message.innerHTML = description;
+    appendTo.append(message);
+};

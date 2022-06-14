@@ -1,4 +1,5 @@
-export declare type StacksCheckboxOption = {
+import { StacksCommonOptions } from "./index";
+export declare type StacksCheckboxOption = StacksCommonOptions & {
     /** The checkboxes legend title */
     legendText?: string;
     /** A legend optional description */

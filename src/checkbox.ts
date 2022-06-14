@@ -1,6 +1,6 @@
-import { Label } from "./index";
+import { StacksCommonOptions, Label } from "./index";
 
-export type StacksCheckboxOption = {
+export type StacksCheckboxOption = StacksCommonOptions & {
     /** The checkboxes legend title */
     legendText?: string;
     /** A legend optional description */
@@ -68,7 +68,10 @@ export const makeStacksCheckboxes = (
         const {
             legendText = "",
             legendDescription = "",
+            classes = [],
         } = options;
+
+        fieldset.classList.add(...classes);
 
         const legend = document.createElement("legend");
         legend.classList.add("flex--item", "s-label");

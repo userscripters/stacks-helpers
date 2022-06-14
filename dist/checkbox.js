@@ -35,7 +35,8 @@ export const makeStacksCheckboxes = (checkboxes, options) => {
         fieldset.append(container);
     });
     if (options) {
-        const { legendText = "", legendDescription = "", } = options;
+        const { legendText = "", legendDescription = "", classes = [], } = options;
+        fieldset.classList.add(...classes);
         const legend = document.createElement("legend");
         legend.classList.add("flex--item", "s-label");
         legend.innerText = legendText;
