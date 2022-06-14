@@ -1,7 +1,7 @@
 /**
  * @see https://stackoverflow.design/product/resources/icons/
  *
- * @summary makes Stacks 18 x 18 icon
+ * @summary makes Stacks icon
  * @param {string} name the name of the icon
  * @param {string} pathConfig the SVG's `path` attribute
  */
