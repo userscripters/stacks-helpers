@@ -1,4 +1,9 @@
 import { StacksCommonOptions } from "../index";
+export declare const validationIcons: {
+    warning: string[];
+    error: string[];
+    success: string[];
+};
 export declare type StacksIconOptions = StacksCommonOptions & {
     /** The width of the icon */
     width?: number;

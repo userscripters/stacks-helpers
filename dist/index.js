@@ -20,6 +20,8 @@ import * as Pagination_1 from "./pagination";
 export { Pagination_1 as Pagination };
 import * as Progress_1 from "./progress";
 export { Progress_1 as Progress };
+import * as Select_1 from "./select";
+export { Select_1 as Select };
 import * as Spinner_1 from "./spinner";
 export { Spinner_1 as Spinner };
 import * as Tag_1 from "./tags";

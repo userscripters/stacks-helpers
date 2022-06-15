@@ -54,9 +54,9 @@ export declare type SteppedBarItem = {
  * @see https://stackoverflow.design/product/components/progress-bars/#stepped
  *
  * @summary Create a Stacks stepped progress bar
- * @param id - the id of the progress bar
- * @param items - the items to display
- * @param options - configuration
+ * @param {string} id - the id of the progress bar
+ * @param {SteppedBarItem[]} items - the items to display
+ * @param {StacksCommonOptions} options - configuration
  * @returns {HTMLDivElement}
  */
 export declare const makeSteppedBar: (id: string, items: SteppedBarItem[], options?: StacksCommonOptions) => HTMLDivElement;
