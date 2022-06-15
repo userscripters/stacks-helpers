@@ -16,6 +16,8 @@ export type StacksTagsOptions = StacksCommonOptions & {
     muted?: boolean;
     /** Whether the tag is a required tag */
     required?: boolean;
+    /** Whether to add an eye SVG next to the tag name */
+    watched?: boolean;
 
     /** Sponsor information */
     sponsor?: {
@@ -39,8 +41,6 @@ export type StacksTagsOptions = StacksCommonOptions & {
     onDismiss?: (tag: HTMLDivElement, event: MouseEvent) => void;
 };
 
-// TODO add icon SVG support
-
 /**
  * @see https://stackoverflow.design/product/components/tags/
  *
@@ -63,6 +63,7 @@ export const makeStacksTag = (
         sponsor = null,
         dismissable = false,
         onDismiss = null,
+        watched = false
     } = options;
 
     const tag = document.createElement("a");
@@ -88,6 +89,10 @@ export const makeStacksTag = (
 
     if (required) {
         tag.classList.add("s-tag__required");
+    }
+
+    if (watched) {
+        tag.classList.add("s-tag__watched");
     }
 
     if (sponsor) {

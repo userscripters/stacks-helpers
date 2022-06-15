@@ -14,6 +14,8 @@ export declare type StacksTagsOptions = StacksCommonOptions & {
     muted?: boolean;
     /** Whether the tag is a required tag */
     required?: boolean;
+    /** Whether to add an eye SVG next to the tag name */
+    watched?: boolean;
     /** Sponsor information */
     sponsor?: {
         /** The image URL */
