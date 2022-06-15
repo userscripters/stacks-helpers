@@ -7,7 +7,7 @@ import { Icons } from "./index";
  * @returns {AnchorElement}
  */
 export const makeStacksTag = (options) => {
-    const { classes = [], name, href = "#", moderator = false, selected = false, size = "", muted = false, required = false, sponsor = null, dismissable = false, onDismiss = null, watched = false } = options;
+    const { classes = [], name, href = "#", moderator = false, selected = false, size = "", muted = false, required = false, sponsor = null, dismissable = false, onDismiss = null, watched = false, ignored = false, } = options;
     const tag = document.createElement("a");
     tag.classList.add("s-tag", ...classes);
     tag.href = href;
@@ -29,6 +29,9 @@ export const makeStacksTag = (options) => {
     }
     if (watched) {
         tag.classList.add("s-tag__watched");
+    }
+    else if (ignored) {
+        tag.classList.add("s-tag__ignored");
     }
     if (sponsor) {
         const { imgUrl, width = 18, height = 16, alt = "" } = sponsor;

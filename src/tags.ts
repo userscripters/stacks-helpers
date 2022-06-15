@@ -16,8 +16,10 @@ export type StacksTagsOptions = StacksCommonOptions & {
     muted?: boolean;
     /** Whether the tag is a required tag */
     required?: boolean;
-    /** Whether to add an eye SVG next to the tag name */
+    /** Whether to add an Eye SVG next to the tag name */
     watched?: boolean;
+    /** Whether to add an EyeOff SVG next to the tag name */
+    ignored?: boolean;
 
     /** Sponsor information */
     sponsor?: {
@@ -63,7 +65,8 @@ export const makeStacksTag = (
         sponsor = null,
         dismissable = false,
         onDismiss = null,
-        watched = false
+        watched = false,
+        ignored = false,
     } = options;
 
     const tag = document.createElement("a");
@@ -93,6 +96,8 @@ export const makeStacksTag = (
 
     if (watched) {
         tag.classList.add("s-tag__watched");
+    } else if (ignored) {
+        tag.classList.add("s-tag__ignored");
     }
 
     if (sponsor) {
