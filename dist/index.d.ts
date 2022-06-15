@@ -8,6 +8,7 @@ export * as Links from "./links";
 export * as Menu from "./menus";
 export * as Navigation from "./navigation";
 export * as Pagination from "./pagination";
+export * as Progress from "./progress";
 export * as Spinner from "./spinner";
 export * as Tag from "./tags";
 export * as Textarea from "./textarea";

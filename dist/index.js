@@ -18,6 +18,8 @@ import * as Navigation_1 from "./navigation";
 export { Navigation_1 as Navigation };
 import * as Pagination_1 from "./pagination";
 export { Pagination_1 as Pagination };
+import * as Progress_1 from "./progress";
+export { Progress_1 as Progress };
 import * as Spinner_1 from "./spinner";
 export { Spinner_1 as Spinner };
 import * as Tag_1 from "./tags";
