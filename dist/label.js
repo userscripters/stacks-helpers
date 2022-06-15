@@ -13,11 +13,11 @@ export const makeStacksLabel = (forId, labelOptions) => {
     const label = document.createElement("label");
     label.classList.add("s-label", ...classes);
     label.htmlFor = forId;
-    label.innerText = text;
+    label.innerHTML = text;
     // https://stackoverflow.design/product/components/labels/#status
     if (statusText && statusType) {
         const status = document.createElement("span");
-        status.innerText = statusText;
+        status.innerHTML = statusText;
         status.classList.add("s-label--status");
         if (statusType !== "optional") {
             status.classList.add(`s-label--status__${statusType}`);
@@ -27,7 +27,7 @@ export const makeStacksLabel = (forId, labelOptions) => {
     if (description) {
         const p = document.createElement("p");
         p.classList.add("s-description", "mt2");
-        p.innerText = description;
+        p.innerHTML = description;
         // if there's a description, the label
         // must have a d-block class
         label.classList.add("d-block");
