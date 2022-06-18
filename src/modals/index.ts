@@ -1,84 +1,140 @@
-import { StacksCommonOptions } from "../index";
+import { Icons, StacksCommonOptions } from "../index";
 
 export type StacksModalOptions = StacksCommonOptions & {
     /** Whether to style the modal as dangerous */
     danger?: boolean;
     /** Whether to increase the modal's width */
     fullscreen?: boolean;
+    /** Celebratory modal styling */
+    celebratory?: boolean;
+
+    /** Title configuration */
+    title: {
+        /** Title text (HTML allowed) */
+        text: string | HTMLElement;
+        /** Title id */
+        id?: string;
+        /** Classes applied to the title h1 element */
+        classes?: string[];
+    };
+
+    /** Body configuration */
+    body: {
+        /** Body HTML */
+        bodyHtml: string | HTMLElement;
+        /** Body id */
+        id?: string;
+        /** Classes applied to the body element */
+        classes?: string[];
+    };
+
+    /** Footer configuration */
+    footer: {
+        /** Buttons appended to the modal's footer */
+        buttons: {
+            /** The button element */
+            element: HTMLButtonElement;
+            /** Whether to hide modal when that button is clicked */
+            hideOnClick?: boolean;
+        }[];
+        /** Classes applied to the footer element */
+        classes?: string[];
+    };
 };
 
 /**
  * @see https://stackoverflow.design/product/components/modals/
  *
  * @summary creates a Stacks modal
- * @param {string} id id of the modal
- * @param {string} title modal title
- * @param {StacksModalOptions} options modal configuration
+ * @param {string} id the id of the modal
+ * @param {StacksModalOptions} options configuration
  * @returns {HTMLElement}
  */
-
-export const makeConfigView = (
+export const makeStacksModal = (
     id: string,
-    title: string,
-    {
+    options: StacksModalOptions
+): HTMLElement => {
+    const {
         classes = [],
         danger = false,
         fullscreen = false,
-    }: StacksModalOptions = {}
-): HTMLElement => {
-    const ariaLabelId = "modal-title";
-    const ariaDescrId = "modal-description";
+        celebratory = false,
 
-    const wrap = document.createElement("aside");
-    wrap.classList.add("s-modal", ...classes);
-    wrap.id = id;
-    wrap.tabIndex = -1;
-    wrap.setAttribute("role", "dialog");
-    wrap.setAttribute("aria-labelledby", ariaLabelId);
-    wrap.setAttribute("aria-describeddy", ariaDescrId);
-    wrap.setAttribute("aria-hidden", "true");
+        title: { text, id: titleId, classes: titleClasses = [] },
+        body: { bodyHtml, id: bodyId, classes: bodyClasses = [] },
+        footer: { buttons, classes: footerClasses = [] },
+    } = options;
 
-    if (danger) wrap.classList.add("s-modal__danger");
+    const modal = document.createElement("aside");
+    modal.id = id;
+    modal.classList.add("s-modal", ...classes);
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("data-controller", "s-modal");
+    modal.setAttribute("data-s-modal-target", "modal");
 
-    const { dataset } = wrap;
-    dataset.sModalTarget = "modal";
-    dataset.controller = "s-modal";
+    if (danger) {
+        modal.classList.add("s-modal__danger");
+    }
 
-    const doc = document.createElement("div");
-    doc.classList.add("s-modal--dialog", "ps-relative", "hmx6");
-    doc.setAttribute("role", "document");
-    doc.id = `${id}-document`;
+    if (celebratory) {
+        modal.classList.add("s-modal__celebration");
+    }
 
-    if (fullscreen) doc.classList.add("s-modal__full");
+    const dialog = document.createElement("div");
+    dialog.classList.add("s-modal--dialog");
+    dialog.setAttribute("role", "document");
 
-    const ttl = document.createElement("h1");
-    ttl.classList.add("s-modal--header");
-    ttl.id = ariaLabelId;
-    ttl.textContent = title;
+    if (fullscreen) {
+        dialog.classList.add("s-modal__full");
+    }
+
+    const header = document.createElement("h1");
+    header.classList.add("s-modal--header", ...titleClasses);
+    header.append(text);
+
+    if (titleId) {
+        header.id = titleId;
+        modal.setAttribute("aria-labelledby", titleId);
+    }
+
+    const body = document.createElement("p");
+    body.classList.add("s-modal--body", ...bodyClasses);
+    body.append(bodyHtml);
+
+    if (bodyId) {
+        body.id = bodyId;
+        modal.setAttribute("aria-describedby", bodyId);
+    }
+
+    const footer = document.createElement("div");
+    footer.classList.add("d-flex", "gs8", "gsx", "s-modal--footer", ...footerClasses);
+
+    buttons.forEach((button) => {
+        const { element, hideOnClick } = button;
+        element.classList.add("flex--item");
+
+        if (hideOnClick) {
+            element.setAttribute("data-action", "s-modal#hide");
+        }
+
+        footer.append(element);
+    });
+
+    const [iconClear] = Icons.makeStacksIcon(
+        "iconClear",
+        "M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z",
+        { width: 18 }
+    );
 
     const close = document.createElement("button");
     close.classList.add("s-modal--close", "s-btn", "s-btn__muted");
-    close.type = "button";
-    close.dataset.action = "s-modal#hide";
+    close.setAttribute("type", "button");
+    close.setAttribute("aria-label", "Close");
+    close.setAttribute("data-action", "s-modal#hide");
+    close.append(iconClear);
 
-    const svgNS = "http://www.w3.org/2000/svg";
+    dialog.append(header, body, footer, close);
+    modal.append(dialog);
 
-    const closeIcon = document.createElementNS(svgNS, "svg");
-    closeIcon.setAttribute("aria-hidden", "true");
-    closeIcon.setAttribute("viewBox", "0 0 14 14");
-    closeIcon.setAttribute("width", "14");
-    closeIcon.setAttribute("height", "14");
-    closeIcon.classList.add("svg-icon", "iconClearSm");
-
-    const iconPath = document.createElementNS(svgNS, "path");
-    iconPath.setAttribute(
-        "d",
-        "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z"
-    );
-
-    closeIcon.append(iconPath);
-    close.append(closeIcon);
-    doc.append(ttl, close);
-    wrap.append(doc);
-    return wrap;
+    return modal;
 };
