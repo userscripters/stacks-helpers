@@ -5,7 +5,7 @@ export type StacksCheckboxOption = StacksCommonOptions & {
     legendText?: string;
     /** A legend optional description */
     legendDescription?: string;
-}
+};
 
 export type StacksCheckboxes = {
     /** The checkbox id */
@@ -16,7 +16,7 @@ export type StacksCheckboxes = {
     state?: boolean;
     /** Whether the checkbox should be disabled */
     disabled?: boolean;
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/checkbox/

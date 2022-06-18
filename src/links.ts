@@ -18,7 +18,7 @@ export type StacksLinksOptions = StacksCommonOptions & {
         /** Whether to style the link as dangerous */
         danger?: boolean;
     }
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/links/

@@ -9,7 +9,7 @@ export type StacksBaseBarOptions = StacksCommonOptions & {
     width: number;
     /** Optional colour variation */
     coloring?: "brand" | "info";
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/progress-bars/#base-style

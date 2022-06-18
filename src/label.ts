@@ -12,7 +12,7 @@ export type StacksLabelOptions = StacksCommonOptions & {
     statusText?: string;
     /** The style of the optional badge after the label */
     statusType?: "optional" | "required" | "new" | "beta";
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/labels/

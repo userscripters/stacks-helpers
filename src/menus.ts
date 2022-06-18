@@ -16,7 +16,7 @@ export type StacksMenuOptions = StacksCommonOptions & {
     childrenClasses?: string[];
     /** The menu items */
     navItems: MenuItem[];
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/menus/

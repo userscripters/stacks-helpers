@@ -62,6 +62,7 @@
                 "checksVoidReturn": false
             }
         ],
+        "@typescript-eslint/semi": ["error"],
         "func-call-spacing": "error",
         "no-param-reassign": "error",
         "no-tabs": "error",

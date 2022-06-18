@@ -7,7 +7,7 @@ export type SelectOption = {
     text: string;
     /** Whether the option is selected */
     selected?: boolean;
-}
+};
 
 export type StacksSelectOptions = StacksCommonOptions & {
     /** Whether the select is disabled */
@@ -16,7 +16,7 @@ export type StacksSelectOptions = StacksCommonOptions & {
     size?: "sm" | "md" | "lg" | "xl";
     /** The validation state */
     validation?: "success" | "warning" | "error";
-}
+};
 
 /**
  * @see https://stackoverflow.design/product/components/select/
