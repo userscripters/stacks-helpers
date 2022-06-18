@@ -1,14 +1,17 @@
 import { StacksCommonOptions } from "./index";
 
+type BadgeTypes = "gold" | "silver" | "bronze"
+                | "bounty" | "votes" | "answered" | "rep" | "rep-down" | "important"
+                | "admin" | "moderator" | "staff"
+                | "muted" | "filled" | "info" | "warning" | "danger";
+
 export type StacksBadgesOptions = StacksCommonOptions & {
     // https://stackoverflow.design/product/components/badges/#badges-default
     /** The type of the bling */
     blingColor?: "gold" | "silver" | "bronze";
 
     /** The type of the badge */
-    type?: "gold" | "silver" | "bronze"
-         | "bounty" | "votes" | "answered" | "rep" | "rep-down" | "important"
-         | "admin" | "moderator" | "staff";
+    type?: BadgeTypes[];
 
     // https://stackoverflow.design/product/components/badges/#badge-sizes
     /** The size of the badge (SMall or eXtra Small) */
@@ -16,6 +19,9 @@ export type StacksBadgesOptions = StacksCommonOptions & {
 
     /** The text in the badge */
     text: string;
+
+    /** SVG icon attached to the badge */
+    icon?: HTMLElement;
 };
 
 /**
@@ -25,7 +31,7 @@ export type StacksBadgesOptions = StacksCommonOptions & {
  * @param {StacksBadgesOptions} options configuration
  * @returns {HTMLSpanElement}
  */
-export const makeBadge = (
+export const makeStacksBadge = (
     options: StacksBadgesOptions
 ): HTMLSpanElement => {
     const {
@@ -34,17 +40,25 @@ export const makeBadge = (
         type = "",
         size = "",
         text,
+        icon,
     } = options;
 
     const badge = document.createElement("span");
     badge.classList.add("s-badge", ...classes);
 
     if (type) {
-        badge.classList.add(`s-badge__${type}`);
+        const typeClasses = type.map((name) => `s-badge__${name}`);
+
+        badge.classList.add(...typeClasses);
     }
 
     if (size) {
         badge.classList.add(`s-badge__${size}`);
+    }
+
+    if (icon) {
+        badge.classList.add("s-badge__icon");
+        badge.append(icon, " ");
     }
 
     if (blingColor) {
@@ -54,7 +68,7 @@ export const makeBadge = (
 
         badge.append(bling);
     } else {
-        badge.innerText = text;
+        badge.append(text);
     }
 
     return badge;

@@ -5,15 +5,20 @@
  * @param {StacksBadgesOptions} options configuration
  * @returns {HTMLSpanElement}
  */
-export const makeBadge = (options) => {
-    const { classes = [], blingColor = "", type = "", size = "", text, } = options;
+export const makeStacksBadge = (options) => {
+    const { classes = [], blingColor = "", type = "", size = "", text, icon, } = options;
     const badge = document.createElement("span");
     badge.classList.add("s-badge", ...classes);
     if (type) {
-        badge.classList.add(`s-badge__${type}`);
+        const typeClasses = type.map((name) => `s-badge__${name}`);
+        badge.classList.add(...typeClasses);
     }
     if (size) {
         badge.classList.add(`s-badge__${size}`);
+    }
+    if (icon) {
+        badge.classList.add("s-badge__icon");
+        badge.append(icon, " ");
     }
     if (blingColor) {
         const bling = document.createElement("span");
@@ -22,7 +27,7 @@ export const makeBadge = (options) => {
         badge.append(bling);
     }
     else {
-        badge.innerText = text;
+        badge.append(text);
     }
     return badge;
 };
