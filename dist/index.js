@@ -1,5 +1,7 @@
 import * as Avatar_1 from "./avatar";
 export { Avatar_1 as Avatar };
+import * as ButtonGroup_1 from "./button-groups";
+export { ButtonGroup_1 as ButtonGroup };
 import * as Badges_1 from "./badges";
 export { Badges_1 as Badges };
 import * as Checkbox_1 from "./checkbox";
