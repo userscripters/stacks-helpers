@@ -1,18 +1,33 @@
-import { StacksCommonOptions } from "../index.js";
-export declare type ButtonType = "outlined" | "link" | "filled";
+import { StacksCommonOptions } from "../index";
+export declare type ButtonType = "outlined" | "link" | "filled" | "muted" | "danger" | "dropdown" | "unset" | "link" | "facebook" | "google" | "github";
 export declare type StacksIconButtonOptions = StacksCommonOptions & {
     /** The title attached to the button */
     title?: string;
-    /** Whether the button should be muted */
-    muted?: boolean;
-    /** The style of the button */
-    type?: ButtonType;
+    /** The style(s) of the button */
+    type?: ButtonType[];
     /** Whether the button is primary or secondary */
     primary?: boolean;
-    /** Whether to style the button as dangerous */
-    danger?: boolean;
     /** Whether to attach a loading icon to the button */
     loading?: boolean;
+    /** Whether to visually activate the selected state of the button */
+    selected?: boolean;
+    /** Whether to style the button as disabled */
+    disabled?: boolean;
+    /** The number of an optionally appended appropriately-styled badge */
+    badge?: number;
+    /** The size of the button */
+    size?: "xs" | "sm" | "md";
+    /** Configuration of an optionally prepended SVG icon */
+    iconConfig?: {
+        /** The name of the SVG */
+        name: string;
+        /** The path of the SVG */
+        path: string;
+        /** The width of the SVG */
+        width?: number;
+        /** The height of the SVG */
+        height?: number;
+    };
 };
 /**
  * @see https://stackoverflow.design/product/components/buttons/
@@ -23,4 +38,4 @@ export declare type StacksIconButtonOptions = StacksCommonOptions & {
  * @param {StacksIconButtonOptions} [options] configuration
  * @returns {HTMLButtonElement}
  */
-export declare const makeStacksButton: (id: string, text: string, { classes, title, danger, loading, muted, primary, type, }?: StacksIconButtonOptions) => HTMLButtonElement;
+export declare const makeStacksButton: (id: string, text: string, options?: StacksIconButtonOptions) => HTMLButtonElement;

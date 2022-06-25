@@ -10,6 +10,7 @@ export * as Menu from "./menus";
 export * as Navigation from "./navigation";
 export * as Pagination from "./pagination";
 export * as Progress from "./progress";
+export * as Popover from "./popover";
 export * as Select from "./select";
 export * as Spinner from "./spinner";
 export * as Tag from "./tags";
