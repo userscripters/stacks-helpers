@@ -20,4 +20,12 @@ export declare type StacksBadgesOptions = StacksCommonOptions & {
  * @returns {HTMLSpanElement}
  */
 export declare const makeStacksBadge: (options: StacksBadgesOptions) => HTMLSpanElement;
+/**
+ * @summary Creates gold/silver/bronze bling
+ * @param {keyof HTMLElementTagNameMap} elementType The type of the container element
+ * @param {"gold" | "silver" | "bronze"} color The badge colour
+ * @param {string} count The badge count
+ * @returns {HTMLElement}
+ */
+export declare const makeBling: (elementType: keyof HTMLElementTagNameMap, color: "gold" | "silver" | "bronze", count: string) => HTMLElement;
 export {};

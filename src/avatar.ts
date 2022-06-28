@@ -17,8 +17,9 @@ export type StacksAvatarOptions = StacksCommonOptions & {
  * @returns {HTMLAnchorElement}
  */
 export const makeAvatar = (
-    options = {} as StacksAvatarOptions
-): HTMLAnchorElement => {
+    options = {} as StacksAvatarOptions,
+    elementType: keyof HTMLElementTagNameMap = "a"
+): HTMLElement => {
     const {
         size = "",
         href = "",
@@ -26,22 +27,22 @@ export const makeAvatar = (
         classes = []
     } = options;
 
-    const anchor = document.createElement("a");
-    anchor.classList.add("s-avatar", ...classes);
+    const avatar = document.createElement(elementType);
+    avatar.classList.add("s-avatar", ...classes);
 
     if (size) { // default 16px
-        anchor.classList.add(`s-avatar__${size}`);
+        avatar.classList.add(`s-avatar__${size}`);
     }
 
-    if (href) {
-        anchor.href = href;
+    if (href && avatar instanceof HTMLAnchorElement) {
+        avatar.href = href;
     }
 
     const img = document.createElement("img");
     img.classList.add("s-avatar--image");
     img.src = src;
 
-    anchor.append(img);
+    avatar.append(img);
 
-    return anchor;
+    return avatar;
 };

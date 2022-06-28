@@ -16,6 +16,7 @@ export * as Spinner from "./spinner";
 export * as Tag from "./tags";
 export * as Textarea from "./textarea";
 export * as Toggle from "./toggle";
+export * as UserCard from "./usercards";
 export * as Buttons from "./buttons";
 export * as Icons from "./icons";
 export * as Modals from "./modals";

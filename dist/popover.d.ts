@@ -37,5 +37,13 @@ export declare type StacksPopoverOptions = StacksCommonOptions & {
         hidden: (event: Event) => void;
     };
 };
+/**
+ * @see https://stackoverflow.design/product/components/popovers
+ *
+ * @summary Creates a Stacks popover
+ * @param {string} id The id of the popover
+ * @param {HTMLElement} controller The controller element
+ * @param {StacksPopoverOptions} options Popover configuration
+ */
 export declare const makeStacksPopover: (id: string, controller: HTMLElement, options: StacksPopoverOptions) => HTMLDivElement;
 export {};

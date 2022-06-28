@@ -34,6 +34,8 @@ import * as Textarea_1 from "./textarea";
 export { Textarea_1 as Textarea };
 import * as Toggle_1 from "./toggle";
 export { Toggle_1 as Toggle };
+import * as UserCard_1 from "./usercards";
+export { UserCard_1 as UserCard };
 import * as Buttons_1 from "./buttons";
 export { Buttons_1 as Buttons };
 import * as Icons_1 from "./icons";

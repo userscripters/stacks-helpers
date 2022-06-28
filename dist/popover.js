@@ -1,4 +1,11 @@
-// TODO investigate Stacks.attachPopover options and add to TS types
+/**
+ * @see https://stackoverflow.design/product/components/popovers
+ *
+ * @summary Creates a Stacks popover
+ * @param {string} id The id of the popover
+ * @param {HTMLElement} controller The controller element
+ * @param {StacksPopoverOptions} options Popover configuration
+ */
 export const makeStacksPopover = (id, controller, options) => {
     const { referenceSelector, toggleClass, placement, toggle, autoShow, hideOnOutsideClick, manualArrowPositioning, callbacks, contentHtml, classes = [], } = options;
     controller.setAttribute("data-controller", "popover");

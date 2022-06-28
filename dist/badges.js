@@ -21,13 +21,24 @@ export const makeStacksBadge = (options) => {
         badge.append(icon, " ");
     }
     if (blingColor) {
-        const bling = document.createElement("span");
-        bling.classList.add("s-award-bling", `s-award-bling__${blingColor}`);
-        bling.innerText = text;
+        const bling = makeBling("span", blingColor, text);
         badge.append(bling);
     }
     else {
         badge.append(text);
     }
     return badge;
+};
+/**
+ * @summary Creates gold/silver/bronze bling
+ * @param {keyof HTMLElementTagNameMap} elementType The type of the container element
+ * @param {"gold" | "silver" | "bronze"} color The badge colour
+ * @param {string} count The badge count
+ * @returns {HTMLElement}
+ */
+export const makeBling = (elementType, color, count) => {
+    const element = document.createElement(elementType);
+    element.classList.add("s-award-bling", `s-award-bling__${color}`);
+    element.innerText = count;
+    return element;
 };

@@ -14,4 +14,4 @@ export declare type StacksAvatarOptions = StacksCommonOptions & {
  * @param {StacksAvatarOptions} options configuration
  * @returns {HTMLAnchorElement}
  */
-export declare const makeAvatar: (options?: StacksAvatarOptions) => HTMLAnchorElement;
+export declare const makeAvatar: (options?: StacksAvatarOptions, elementType?: keyof HTMLElementTagNameMap) => HTMLElement;
