@@ -13,6 +13,7 @@ export * as Notice from "./notices";
 export * as Pagination from "./pagination";
 export * as Progress from "./progress";
 export * as Popover from "./popover";
+export * as Radio from "./radio";
 export * as Select from "./select";
 export * as Spinner from "./spinner";
 export * as Tag from "./tags";

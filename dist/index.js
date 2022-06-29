@@ -28,6 +28,8 @@ import * as Progress_1 from "./progress";
 export { Progress_1 as Progress };
 import * as Popover_1 from "./popover";
 export { Popover_1 as Popover };
+import * as Radio_1 from "./radio";
+export { Radio_1 as Radio };
 import * as Select_1 from "./select";
 export { Select_1 as Select };
 import * as Spinner_1 from "./spinner";
