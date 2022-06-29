@@ -7,9 +7,9 @@ import { Icons } from "./index";
  * @returns {HTMLElement}
  */
 export const makeStacksBanner = (options) => {
-    const { style, text, important = false, pinned = false, icon, } = options;
+    const { style, text, important = false, pinned = false, icon, classes = [], } = options;
     const banner = document.createElement("aside");
-    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner");
+    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner", ...classes);
     banner.setAttribute("role", "alert");
     if (important) {
         banner.classList.add("s-banner__important");

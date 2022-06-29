@@ -9,6 +9,7 @@ export * as Label from "./label";
 export * as Links from "./links";
 export * as Menu from "./menus";
 export * as Navigation from "./navigation";
+export * as Notice from "./notices";
 export * as Pagination from "./pagination";
 export * as Progress from "./progress";
 export * as Popover from "./popover";

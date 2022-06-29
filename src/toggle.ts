@@ -9,15 +9,17 @@ export type StacksToggleOptions = Pick<Label.StacksLabelOptions, "text">;
  * @param {string} id the switch id
  * @param {StacksToggleOptions} labelOptions attached label configuration
  * @param {boolean} on the state of the switch
+ * @param {string[]} classes the classes to apply to the container of the switch
  * @returns {HTMLDivElement}
  */
 export const makeStacksToggle = (
     id: string,
     labelOptions: StacksToggleOptions,
-    on = false
+    on = false,
+    ...classes: string[]
 ): HTMLDivElement => {
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs8", "ai-center");
+    container.classList.add("d-flex", "gs8", "ai-center", ...classes);
 
     const label = Label.makeStacksLabel(id, labelOptions);
 

@@ -29,10 +29,11 @@ export const makeStacksBanner = (
         important = false,
         pinned = false,
         icon,
+        classes = [],
     } = options;
 
     const banner = document.createElement("aside");
-    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner");
+    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner", ...classes);
     banner.setAttribute("role", "alert");
 
     if (important) {

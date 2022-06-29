@@ -7,6 +7,7 @@ export declare type StacksToggleOptions = Pick<Label.StacksLabelOptions, "text">
  * @param {string} id the switch id
  * @param {StacksToggleOptions} labelOptions attached label configuration
  * @param {boolean} on the state of the switch
+ * @param {string[]} classes the classes to apply to the container of the switch
  * @returns {HTMLDivElement}
  */
-export declare const makeStacksToggle: (id: string, labelOptions: StacksToggleOptions, on?: boolean) => HTMLDivElement;
+export declare const makeStacksToggle: (id: string, labelOptions: StacksToggleOptions, on?: boolean, ...classes: string[]) => HTMLDivElement;

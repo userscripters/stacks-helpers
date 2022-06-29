@@ -20,6 +20,8 @@ import * as Menu_1 from "./menus";
 export { Menu_1 as Menu };
 import * as Navigation_1 from "./navigation";
 export { Navigation_1 as Navigation };
+import * as Notice_1 from "./notices";
+export { Notice_1 as Notice };
 import * as Pagination_1 from "./pagination";
 export { Pagination_1 as Pagination };
 import * as Progress_1 from "./progress";

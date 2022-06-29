@@ -6,11 +6,12 @@ import { Label } from "./index";
  * @param {string} id the switch id
  * @param {StacksToggleOptions} labelOptions attached label configuration
  * @param {boolean} on the state of the switch
+ * @param {string[]} classes the classes to apply to the container of the switch
  * @returns {HTMLDivElement}
  */
-export const makeStacksToggle = (id, labelOptions, on = false) => {
+export const makeStacksToggle = (id, labelOptions, on = false, ...classes) => {
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs8", "ai-center");
+    container.classList.add("d-flex", "gs8", "ai-center", ...classes);
     const label = Label.makeStacksLabel(id, labelOptions);
     const toggleParent = document.createElement("div");
     toggleParent.classList.add("flex--item", "s-toggle-switch");
