@@ -1,6 +1,7 @@
 export * as Avatar from "./avatar";
 export * as Badges from "./badges";
 export * as Banners from "./banners";
+export * as Breadcrumb from "./breadcrumb";
 export * as ButtonGroup from "./button-groups";
 export * as Checkbox from "./checkbox";
 export * as Indicator from "./indicator";

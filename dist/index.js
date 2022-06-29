@@ -4,6 +4,8 @@ import * as Badges_1 from "./badges";
 export { Badges_1 as Badges };
 import * as Banners_1 from "./banners";
 export { Banners_1 as Banners };
+import * as Breadcrumb_1 from "./breadcrumb";
+export { Breadcrumb_1 as Breadcrumb };
 import * as ButtonGroup_1 from "./button-groups";
 export { ButtonGroup_1 as ButtonGroup };
 import * as Checkbox_1 from "./checkbox";
