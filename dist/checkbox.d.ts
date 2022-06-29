@@ -1,26 +1,28 @@
-import { StacksCommonOptions } from "./index";
+import { StacksCommonOptions, Label } from "./index";
 export declare type StacksCheckboxOption = StacksCommonOptions & {
     /** The checkboxes legend title */
     legendText?: string;
     /** A legend optional description */
     legendDescription?: string;
+    /** Whether the checkboxes should be aligned vertically or horizontally (default vertical) */
+    group: "horizontal" | "vertical";
 };
 export declare type StacksCheckboxes = {
     /** The checkbox id */
     id: string;
     /** The attached label text */
-    label: string;
+    labelConfig: Label.StacksLabelOptions;
     /** Whether the checkbox should be selected */
-    state?: boolean;
+    selected?: boolean;
     /** Whether the checkbox should be disabled */
     disabled?: boolean;
 };
 /**
  * @see https://stackoverflow.design/product/components/checkbox/
  *
- * @summary creates a Stacks checkbox
- * @param {StacksCheckboxes[]} checkboxes the checkboxes to create
- * @param {StacksCheckboxOption} options checkbox configuration
+ * @summary Creates a Stacks checkbox
+ * @param {StacksCheckboxes[]} checkboxes The checkboxes to create
+ * @param {StacksCheckboxOption} [options] checkbox configuration
  * @returns {HTMLFieldSetElement}
  */
 export declare const makeStacksCheckboxes: (checkboxes: StacksCheckboxes[], options?: StacksCheckboxOption) => HTMLFieldSetElement;
