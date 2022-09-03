@@ -28,6 +28,13 @@ export declare type StacksIconButtonOptions = StacksCommonOptions & {
         /** The height of the SVG */
         height?: number;
     };
+    /** `click` listener configuration */
+    click?: {
+        /** Handler called when the button is clicked */
+        handler: (this: HTMLButtonElement, ev: MouseEvent) => void;
+        /** The third argument to `.addEventListener()` */
+        options?: boolean | AddEventListenerOptions;
+    };
 };
 /**
  * @see https://stackoverflow.design/product/components/buttons/

@@ -9,7 +9,7 @@ import { Icons } from "../index";
  * @returns {HTMLButtonElement}
  */
 export const makeStacksButton = (id, text, options = {}) => {
-    const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, classes = [], } = options;
+    const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, click, classes = [], } = options;
     const btn = document.createElement("button");
     btn.id = id;
     btn.textContent = text;
@@ -49,6 +49,10 @@ export const makeStacksButton = (id, text, options = {}) => {
         const { name, path, width, height } = iconConfig;
         const [icon] = Icons.makeStacksIcon(name, path, { width, height });
         btn.prepend(icon, " ");
+    }
+    if (click) {
+        const { handler, options } = click;
+        btn.addEventListener("click", handler, options);
     }
     return btn;
 };
