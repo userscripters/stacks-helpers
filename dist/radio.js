@@ -5,7 +5,7 @@ import { Input } from "./index";
  * @summary Creates a Stacks radio
  * @param {Input.StacksInputTypes[]} radios The radios to create
  * @param {Input.StacksRadioCheckboxOptions} [options] radio configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]}
  */
 export const makeStacksRadios = (radios, groupName, options) => {
     radios.forEach((radio) => {

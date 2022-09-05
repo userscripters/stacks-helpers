@@ -47,13 +47,16 @@ export const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
  * @summary Creates a Stacks input
  * @param {StacksInputTypes[]} inputs The checkboxes to create
  * @param {StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]} The checkboxes with or without the wrapper
  */
-export const makeStacksRadiosOrCheckboxes = (inputs, type, options) => {
+export const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
-    fieldset.classList.add("d-flex", "gs8", "gsy", "fd-column");
+    fieldset.classList.add(`s-${type}-group`);
     if (options) {
-        const { legendText = "", legendDescription = "", classes = [], } = options;
+        const { legendText = "", legendDescription = "", horizontal, classes = [], } = options;
+        if (horizontal) {
+            fieldset.classList.add(`s-${type}-group__horizontal`);
+        }
         fieldset.classList.add(...classes);
         const legend = document.createElement("legend");
         legend.classList.add("flex--item", "s-label");
@@ -66,38 +69,24 @@ export const makeStacksRadiosOrCheckboxes = (inputs, type, options) => {
         }
         fieldset.append(legend);
     }
-    const elements = inputs.map((inputType) => makeRadioCheckboxContainer(inputType, type));
-    const group = (options === null || options === void 0 ? void 0 : options.group) || "vertical";
-    if (group === "horizontal") {
-        const flexItem = document.createElement("div");
-        flexItem.classList.add("flex--item");
-        const horizontalParent = document.createElement("div");
-        horizontalParent.classList.add("d-flex", "gs16");
-        horizontalParent.append(...elements);
-        flexItem.append(horizontalParent);
-        fieldset.append(flexItem);
+    const items = inputs.map((inputType) => makeFormContainer(inputType, type));
+    if (withoutFieldset) {
+        return items;
     }
     else {
-        fieldset.append(...elements);
+        fieldset.append(...items);
+        return [fieldset, ...items];
     }
-    return fieldset;
 };
 /**
  * @summary Helper for creating a checkbox/radio container
  * @param {StacksInputTypes} radioCheckbox input configuration
  * @returns {HTMLDivElement}
  */
-const makeRadioCheckboxContainer = (radioCheckbox, type) => {
+const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");
-    container.classList.add("flex--item");
-    const parent = document.createElement("div");
-    parent.classList.add("d-flex", "gs8", "gsx");
-    if (disabled) {
-        parent.classList.add("is-disabled");
-    }
-    const inputParent = document.createElement("div");
-    inputParent.classList.add("flex--item");
+    container.classList.add(`s-${type}-control`);
     const input = document.createElement("input");
     input.classList.add(`s-${type}`);
     input.type = type;
@@ -107,11 +96,7 @@ const makeRadioCheckboxContainer = (radioCheckbox, type) => {
     if (name) {
         input.name = name;
     }
-    inputParent.append(input);
-    (labelConfig.classes || (labelConfig.classes = [])).push("fw-normal");
-    (labelConfig.parentClasses || (labelConfig.parentClasses = [])).push("flex--item");
     const label = Label.makeStacksLabel(id, labelConfig);
-    parent.append(inputParent, label);
-    container.append(parent);
+    container.append(input, label);
     return container;
 };

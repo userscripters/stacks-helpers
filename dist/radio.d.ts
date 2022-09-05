@@ -5,6 +5,6 @@ import { Input } from "./index";
  * @summary Creates a Stacks radio
  * @param {Input.StacksInputTypes[]} radios The radios to create
  * @param {Input.StacksRadioCheckboxOptions} [options] radio configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]}
  */
-export declare const makeStacksRadios: (radios: Input.StacksInputTypes[], groupName: string, options?: Input.StacksRadioCheckboxOptions) => HTMLFieldSetElement;
+export declare const makeStacksRadios: (radios: Input.StacksInputTypes[], groupName: string, options?: Input.StacksRadioCheckboxOptions) => HTMLElement[];

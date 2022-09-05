@@ -5,6 +5,6 @@ import { Input } from "./index";
  * @summary Creates a Stacks checkbox
  * @param {Input.StacksInputTypes[]} checkboxes The checkboxes to create
  * @param {Input.StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]}
  */
-export declare const makeStacksCheckboxes: (checkboxes: Input.StacksInputTypes[], options?: Input.StacksRadioCheckboxOptions) => HTMLFieldSetElement;
+export declare const makeStacksCheckboxes: (checkboxes: Input.StacksInputTypes[], options?: Input.StacksRadioCheckboxOptions) => HTMLElement[];

@@ -24,8 +24,10 @@ export declare type StacksRadioCheckboxOptions = StacksCommonOptions & {
     legendText?: string;
     /** An optional legend description */
     legendDescription?: string;
-    /** Whether the checkboxes/radios should be aligned vertically or horizontally (default vertical) */
-    group: "horizontal" | "vertical";
+    /** Whether the align the checkboxes/radios horizontally */
+    horizontal?: boolean;
+    /** Whether to just return the checkboxes or wrap them in a `<fieldset>` element */
+    withoutFieldset?: boolean;
 };
 export declare type StacksInputTypes = {
     /** The checkbox id */
@@ -46,6 +48,6 @@ export declare type StacksInputTypes = {
  * @summary Creates a Stacks input
  * @param {StacksInputTypes[]} inputs The checkboxes to create
  * @param {StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]} The checkboxes with or without the wrapper
  */
-export declare const makeStacksRadiosOrCheckboxes: (inputs: StacksInputTypes[], type: "radio" | "checkbox", options?: StacksRadioCheckboxOptions) => HTMLFieldSetElement;
+export declare const makeStacksRadiosOrCheckboxes: (inputs: StacksInputTypes[], type: "radio" | "checkbox", options?: StacksRadioCheckboxOptions, withoutFieldset?: boolean) => HTMLElement[];

@@ -84,8 +84,10 @@ export type StacksRadioCheckboxOptions = StacksCommonOptions & {
     legendText?: string;
     /** An optional legend description */
     legendDescription?: string;
-    /** Whether the checkboxes/radios should be aligned vertically or horizontally (default vertical) */
-    group: "horizontal" | "vertical";
+    /** Whether the align the checkboxes/radios horizontally */
+    horizontal?: boolean;
+    /** Whether to just return the checkboxes or wrap them in a `<fieldset>` element */
+    withoutFieldset?: boolean;
 };
 
 export type StacksInputTypes = {
@@ -108,22 +110,28 @@ export type StacksInputTypes = {
  * @summary Creates a Stacks input
  * @param {StacksInputTypes[]} inputs The checkboxes to create
  * @param {StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLFieldSetElement}
+ * @returns {HTMLElement[]} The checkboxes with or without the wrapper
  */
 export const makeStacksRadiosOrCheckboxes = (
     inputs: StacksInputTypes[],
     type: "radio" | "checkbox",
     options?: StacksRadioCheckboxOptions,
-): HTMLFieldSetElement => {
+    withoutFieldset?: boolean
+): HTMLElement[] => {
     const fieldset = document.createElement("fieldset");
-    fieldset.classList.add("d-flex", "gs8", "gsy", "fd-column");
+    fieldset.classList.add(`s-${type}-group`);
 
     if (options) {
         const {
             legendText = "",
             legendDescription = "",
+            horizontal,
             classes = [],
         } = options;
+
+        if (horizontal) {
+            fieldset.classList.add(`s-${type}-group__horizontal`);
+        }
 
         fieldset.classList.add(...classes);
 
@@ -142,26 +150,15 @@ export const makeStacksRadiosOrCheckboxes = (
         fieldset.append(legend);
     }
 
-    const elements = inputs.map((inputType) => makeRadioCheckboxContainer(inputType, type));
+    const items = inputs.map((inputType) => makeFormContainer(inputType, type));
 
-    const group = options?.group || "vertical";
-
-    if (group === "horizontal") {
-        const flexItem = document.createElement("div");
-        flexItem.classList.add("flex--item");
-
-        const horizontalParent = document.createElement("div");
-        horizontalParent.classList.add("d-flex", "gs16");
-
-        horizontalParent.append(...elements);
-        flexItem.append(horizontalParent);
-
-        fieldset.append(flexItem);
+    if (withoutFieldset) {
+        return items;
     } else {
-        fieldset.append(...elements);
-    }
+        fieldset.append(...items);
 
-    return fieldset;
+        return [fieldset, ...items];
+    }
 };
 
 /**
@@ -169,7 +166,7 @@ export const makeStacksRadiosOrCheckboxes = (
  * @param {StacksInputTypes} radioCheckbox input configuration
  * @returns {HTMLDivElement}
  */
-const makeRadioCheckboxContainer = (
+const makeFormContainer = (
     radioCheckbox: StacksInputTypes,
     type: "radio" | "checkbox",
 ): HTMLDivElement => {
@@ -182,17 +179,7 @@ const makeRadioCheckboxContainer = (
     } = radioCheckbox;
 
     const container = document.createElement("div");
-    container.classList.add("flex--item");
-
-    const parent = document.createElement("div");
-    parent.classList.add("d-flex", "gs8", "gsx");
-
-    if (disabled) {
-        parent.classList.add("is-disabled");
-    }
-
-    const inputParent = document.createElement("div");
-    inputParent.classList.add("flex--item");
+    container.classList.add(`s-${type}-control`);
 
     const input = document.createElement("input");
     input.classList.add(`s-${type}`);
@@ -205,14 +192,9 @@ const makeRadioCheckboxContainer = (
         input.name = name;
     }
 
-    inputParent.append(input);
-
-    (labelConfig.classes ||= []).push("fw-normal");
-    (labelConfig.parentClasses ||= []).push("flex--item");
     const label = Label.makeStacksLabel(id, labelConfig);
 
-    parent.append(inputParent, label);
-    container.append(parent);
+    container.append(input, label);
 
     return container;
 };
