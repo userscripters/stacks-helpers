@@ -17,6 +17,13 @@ export type StacksLinksOptions = StacksCommonOptions & {
         selected: boolean;
         /** Whether to style the link as dangerous */
         danger?: boolean;
+    },
+    /** `click` listener configuration */
+    click?: {
+        /** Handler called when the anchor is clicked */
+        handler: EventListenerOrEventListenerObject;
+        /** The third argument to `.addEventListener()` */
+        options?: boolean | AddEventListenerOptions;
     }
 };
 
@@ -36,6 +43,7 @@ export const makeLink = (
         type = "",
         blockLink = null,
         text,
+        click,
         classes = []
     } = options;
 
@@ -66,6 +74,12 @@ export const makeLink = (
 
     if (href && anchor instanceof HTMLAnchorElement) {
         anchor.href = href;
+    }
+
+    if (click) {
+        const { handler, options } = click;
+
+        anchor.addEventListener("click", handler, options);
     }
 
     return anchor;

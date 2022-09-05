@@ -17,6 +17,13 @@ export declare type StacksLinksOptions = StacksCommonOptions & {
         /** Whether to style the link as dangerous */
         danger?: boolean;
     };
+    /** `click` listener configuration */
+    click?: {
+        /** Handler called when the anchor is clicked */
+        handler: EventListenerOrEventListenerObject;
+        /** The third argument to `.addEventListener()` */
+        options?: boolean | AddEventListenerOptions;
+    };
 };
 /**
  * @see https://stackoverflow.design/product/components/links/

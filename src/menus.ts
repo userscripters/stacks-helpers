@@ -1,5 +1,4 @@
-import { StacksCommonOptions } from "./index";
-import { Links } from "./index";
+import { StacksCommonOptions, Links } from "./index";
 
 // either a nav item, a divider or a title
 type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & {

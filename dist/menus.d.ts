@@ -1,5 +1,4 @@
-import { StacksCommonOptions } from "./index";
-import { Links } from "./index";
+import { StacksCommonOptions, Links } from "./index";
 declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";

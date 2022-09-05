@@ -6,7 +6,7 @@
  * @returns {HTMLAnchorElement | HTMLButtonElement}
  */
 export const makeLink = (options = {}) => {
-    const { href = "", isButton = false, type = "", blockLink = null, text, classes = [] } = options;
+    const { href = "", isButton = false, type = "", blockLink = null, text, click, classes = [] } = options;
     const anchor = document.createElement(isButton ? "button" : "a");
     anchor.classList.add("s-link", ...classes);
     anchor.innerText = text;
@@ -28,6 +28,10 @@ export const makeLink = (options = {}) => {
     }
     if (href && anchor instanceof HTMLAnchorElement) {
         anchor.href = href;
+    }
+    if (click) {
+        const { handler, options } = click;
+        anchor.addEventListener("click", handler, options);
     }
     return anchor;
 };
