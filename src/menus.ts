@@ -1,7 +1,7 @@
 import { StacksCommonOptions, Links } from "./index";
 
 // either a nav item, a divider or a title
-type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & {
+type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
@@ -41,7 +41,7 @@ export const makeMenu = (
     // TODO
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
-        if (navItem.separatorType) {
+        if ("separatorType" in navItem) {
             const {
                 separatorType,
                 separatorText

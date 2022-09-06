@@ -15,7 +15,7 @@ export const makeMenu = (options = {}) => {
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         var _a;
-        if (navItem.separatorType) {
+        if ("separatorType" in navItem) {
             const { separatorType, separatorText } = navItem;
             const element = document.createElement("li");
             element.setAttribute("role", "separator");
