@@ -1,7 +1,7 @@
 {
     "name": "@userscripters/stacks-helpers",
     "description": "A collection of helper functions to work with Stacks design",
-    "version": "1.0.0-beta.5",
+    "version": "1.0.0-beta.6",
     "author": {
         "name": "Oleg Valter",
         "email": "oleg.a.valter@gmail.com"
