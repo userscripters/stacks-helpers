@@ -1,5 +1,4 @@
 import { Checkbox, Links } from "./index";
-;
 /**
  * @see https://stackoverflow.design/product/components/menus/
  *
@@ -17,6 +16,12 @@ export const makeMenu = (options = {}) => {
     navItems.forEach((navItem) => {
         var _a;
         const li = document.createElement("li");
+        if ("popover" in navItem && navItem.popover) {
+            const { position = "auto", html, } = navItem.popover;
+            Stacks.setTooltipHtml(li, html, {
+                placement: position
+            });
+        }
         if ("separatorType" in navItem) {
             const { separatorType, separatorText } = navItem;
             li.setAttribute("role", "separator");

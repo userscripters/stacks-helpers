@@ -1,7 +1,35 @@
 import { StacksCommonOptions, Checkbox, Input, Links } from "./index";
 
+type BasicPlacement = "auto" | "top" | "right" | "bottom" | "left";
+type AllPlacements =
+    | BasicPlacement
+    | `${BasicPlacement}-start`
+    | `${BasicPlacement}-end`;
+
+declare global {
+    namespace Stacks {
+        function setTooltipHtml(
+            element: Element,
+            html: string,
+            options?: {
+                placement: AllPlacements;
+            }
+        ): void;
+    }
+}
+
+export type MenuItemPopover = {
+    /** Attached popover config */
+    popover?: {
+        /** Stringified HTML/text to append */
+        html: string;
+        /** The popover's position */
+        position?: AllPlacements;
+    } ;
+};
+
 // either a nav item, a divider or a title
-export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
+export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & MenuItemPopover | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
@@ -11,7 +39,7 @@ export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
     checkbox: Input.StacksInputTypes;
     /** Input config */
     checkboxOptions?: Input.StacksRadioCheckboxOptions;
-};;
+} & MenuItemPopover;
 
 export type StacksMenuOptions = StacksCommonOptions & {
     /** The type of the menu items */
@@ -47,6 +75,17 @@ export const makeMenu = (
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         const li = document.createElement("li");
+
+        if ("popover" in navItem && navItem.popover) {
+            const {
+                position = "auto",
+                html,
+            } = navItem.popover;
+
+            Stacks.setTooltipHtml(li, html, {
+                placement: position
+            });
+        }
 
         if ("separatorType" in navItem) {
             const {
