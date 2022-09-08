@@ -1,9 +1,14 @@
-import { StacksCommonOptions, Links } from "./index";
-declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
+import { StacksCommonOptions, Input, Links } from "./index";
+export declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
     separatorText?: string;
+} | {
+    /** Checkbox info */
+    checkbox: Input.StacksInputTypes;
+    /** Input config */
+    checkboxOptions?: Input.StacksRadioCheckboxOptions;
 };
 export declare type StacksMenuOptions = StacksCommonOptions & {
     /** The type of the menu items */
@@ -21,4 +26,3 @@ export declare type StacksMenuOptions = StacksCommonOptions & {
  * @returns {HTMLUListElement}
  */
 export declare const makeMenu: (options?: StacksMenuOptions) => HTMLUListElement;
-export {};

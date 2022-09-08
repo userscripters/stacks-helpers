@@ -1,4 +1,5 @@
-import { Links } from "./index";
+import { Checkbox, Links } from "./index";
+;
 /**
  * @see https://stackoverflow.design/product/components/menus/
  *
@@ -15,18 +16,25 @@ export const makeMenu = (options = {}) => {
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         var _a;
+        const li = document.createElement("li");
         if ("separatorType" in navItem) {
             const { separatorType, separatorText } = navItem;
-            const element = document.createElement("li");
-            element.setAttribute("role", "separator");
-            element.classList.add(`s-menu--${separatorType}`);
+            li.setAttribute("role", "separator");
+            li.classList.add(`s-menu--${separatorType}`);
             if (separatorText)
-                element.innerText = separatorText;
-            menu.append(element);
+                li.innerText = separatorText;
+            menu.append(li);
+            return;
+        }
+        else if ("checkbox" in navItem) {
+            const { checkbox, checkboxOptions } = navItem;
+            // one checkbox returned, fetch second item of the array
+            const [, input] = Checkbox.makeStacksCheckboxes([checkbox], checkboxOptions);
+            li.append(input);
+            menu.append(li);
             return;
         }
         (_a = navItem.classes) === null || _a === void 0 ? void 0 : _a.push(...childrenClasses);
-        const li = document.createElement("li");
         li.setAttribute("role", "menuitem");
         const item = Links.makeLink(Object.assign({
             isButton: itemsType === "button",

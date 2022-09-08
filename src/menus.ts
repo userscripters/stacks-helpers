@@ -1,12 +1,17 @@
-import { StacksCommonOptions, Links } from "./index";
+import { StacksCommonOptions, Checkbox, Input, Links } from "./index";
 
 // either a nav item, a divider or a title
-type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
+export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
     separatorText?: string;
-};
+} | {
+    /** Checkbox info */
+    checkbox: Input.StacksInputTypes;
+    /** Input config */
+    checkboxOptions?: Input.StacksRadioCheckboxOptions;
+};;
 
 export type StacksMenuOptions = StacksCommonOptions & {
     /** The type of the menu items */
@@ -41,26 +46,42 @@ export const makeMenu = (
     // TODO
     // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
+        const li = document.createElement("li");
+
         if ("separatorType" in navItem) {
             const {
                 separatorType,
                 separatorText
             } = navItem;
 
-            const element = document.createElement("li");
-            element.setAttribute("role", "separator");
-            element.classList.add(`s-menu--${separatorType}`);
+            li.setAttribute("role", "separator");
+            li.classList.add(`s-menu--${separatorType}`);
 
-            if (separatorText) element.innerText = separatorText;
+            if (separatorText) li.innerText = separatorText;
 
-            menu.append(element);
+            menu.append(li);
+
+            return;
+        } else if ("checkbox" in navItem) {
+            const {
+                checkbox,
+                checkboxOptions
+            } = navItem;
+
+            // one checkbox returned, fetch second item of the array
+            const [, input] = Checkbox.makeStacksCheckboxes(
+                [checkbox],
+                checkboxOptions
+            );
+
+            li.append(input);
+            menu.append(li);
 
             return;
         }
 
         navItem.classes?.push(...childrenClasses);
 
-        const li = document.createElement("li");
         li.setAttribute("role", "menuitem");
 
         const item = Links.makeLink(
