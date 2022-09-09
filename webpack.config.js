@@ -6,7 +6,8 @@ module.exports = {
     mode: 'none',
     target: 'node',
     output: {
-        filename: './stacks_helpers.js'
+        filename: './stacks_helpers.js',
+        library: 'StacksHelpers'
     },
     resolve: {
         // Add '.ts' and '.tsx' as a resolvable extension.
