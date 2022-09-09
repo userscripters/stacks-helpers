@@ -24,15 +24,15 @@ export type StacksSelectOptions = StacksCommonOptions & {
  * @summary Creates a Stacks select element
  * @param {string} id The id of the select
  * @param {SelectOption[]} items The options to display in the select
- * @param {Label.StacksLabelOptions} [labelOptions] label configuration
  * @param {StacksSelectOptions} [options] configuration
+ * @param {Label.StacksLabelOptions} [labelOptions] label configuration
  * @returns {HTMLDivElement}
  */
 export const makeStacksSelect = (
     id: string,
     items: SelectOption[],
-    labelOptions?: Label.StacksLabelOptions,
     options: StacksSelectOptions = {},
+    labelOptions?: Label.StacksLabelOptions,
 ): HTMLDivElement => {
     const {
         disabled = false,

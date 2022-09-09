@@ -1070,11 +1070,11 @@ const index_1 = __webpack_require__(0);
  * @summary Creates a Stacks select element
  * @param {string} id The id of the select
  * @param {SelectOption[]} items The options to display in the select
- * @param {Label.StacksLabelOptions} [labelOptions] label configuration
  * @param {StacksSelectOptions} [options] configuration
+ * @param {Label.StacksLabelOptions} [labelOptions] label configuration
  * @returns {HTMLDivElement}
  */
-const makeStacksSelect = (id, items, labelOptions, options = {}) => {
+const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
     container.classList.add("d-flex", "gs4", "gsy", "fd-column");
