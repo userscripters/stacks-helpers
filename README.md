@@ -7,7 +7,7 @@
 | Name | @userscripters/stacks-helpers |
 | Description | A collection of helper functions to work with Stacks design |
 | License | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later) |
-| Version | 1.0.0-beta.8 |
+| Version | 1.0.0-beta.9 |
 
 
 # Support
