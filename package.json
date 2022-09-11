@@ -9,7 +9,7 @@
     "scripts": {
         "clean": "rm -rf dist",
         "lint": "eslint src --fix --ext .js,.ts",
-        "build": "npm run lint && webpack",
+        "build": "npm run lint && webpack && tsc",
         "readme": "generate-readme",
         "postversion": "bash ./scripts/postversion.sh",
         "test": ""
@@ -46,5 +46,5 @@
         "webpack-cli": "^4.10.0"
     },
     "types": "./dist/index.d.ts",
-    "main": "./dist/stacks_helpers.js"
+    "main": "./dist/index.js"
 }
