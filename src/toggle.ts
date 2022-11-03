@@ -19,7 +19,7 @@ export const makeStacksToggle = (
     ...classes: string[]
 ): HTMLDivElement => {
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs8", "ai-center", ...classes);
+    container.classList.add("d-flex", "g8", "ai-center", ...classes);
 
     const label = Label.makeStacksLabel(id, labelOptions);
 

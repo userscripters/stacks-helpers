@@ -67,7 +67,7 @@ export const makeStacksInput = (
         const label = Label.makeStacksLabel(id, labelOptions);
 
         const container = document.createElement("div");
-        container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+        container.classList.add("d-flex", "gy4", "fd-column");
 
         container.append(label, inputParent);
 

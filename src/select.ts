@@ -42,7 +42,7 @@ export const makeStacksSelect = (
     } = options;
 
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+    container.classList.add("d-flex", "gy4", "fd-column");
 
     if (labelOptions) {
         (labelOptions.parentClasses ||= []).push("flex--item");

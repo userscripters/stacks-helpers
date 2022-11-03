@@ -53,8 +53,7 @@ export const makeStacksToast = (
     const msgWrap = document.createElement("div");
     msgWrap.classList.add(
         "d-flex",
-        "gs16",
-        "gsx",
+        "gx16",
         "ai-center",
         "jc-space-between",
         ...msgClasses
