@@ -420,7 +420,7 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
         (_a = (labelOptions.parentClasses || (labelOptions.parentClasses = []))) === null || _a === void 0 ? void 0 : _a.push("flex--item");
         const label = index_1.Label.makeStacksLabel(id, labelOptions);
         const container = document.createElement("div");
-        container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+        container.classList.add("d-flex", "gy4", "fd-column");
         container.append(label, inputParent);
         return container;
     }
@@ -438,11 +438,11 @@ exports.makeStacksInput = makeStacksInput;
  */
 const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`s-${type}-group`);
+    fieldset.classList.add("s-check-group");
     if (options) {
         const { legendText = "", legendDescription = "", horizontal, classes = [], } = options;
         if (horizontal) {
-            fieldset.classList.add(`s-${type}-group__horizontal`);
+            fieldset.classList.add("s-check-group__horizontal");
         }
         fieldset.classList.add(...classes);
         const legend = document.createElement("legend");
@@ -474,7 +474,7 @@ exports.makeStacksRadiosOrCheckboxes = makeStacksRadiosOrCheckboxes;
 const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");
-    container.classList.add(`s-${type}-control`);
+    container.classList.add("s-check-control");
     const input = document.createElement("input");
     input.classList.add(`s-${type}`);
     input.type = type;
@@ -1077,7 +1077,7 @@ const index_1 = __webpack_require__(0);
 const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+    container.classList.add("d-flex", "gy4", "fd-column");
     if (labelOptions) {
         (labelOptions.parentClasses || (labelOptions.parentClasses = [])).push("flex--item");
         const label = index_1.Label.makeStacksLabel(id, labelOptions);
@@ -1258,7 +1258,7 @@ const index_1 = __webpack_require__(0);
 const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     const { value = "", classes = [], placeholder = "", title = "", size, validation, } = textareaOptions;
     const textareaParent = document.createElement("div");
-    textareaParent.classList.add("d-flex", "fd-column", "gs4", "gsy", ...classes);
+    textareaParent.classList.add("d-flex", "fd-column", "gy4", ...classes);
     if (labelOptions) {
         const label = index_1.Label.makeStacksLabel(id, labelOptions);
         textareaParent.append(label);
@@ -1362,18 +1362,14 @@ const index_1 = __webpack_require__(0);
  */
 const makeStacksToggle = (id, labelOptions, on = false, ...classes) => {
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs8", "ai-center", ...classes);
+    container.classList.add("d-flex", "g8", "ai-center", ...classes);
     const label = index_1.Label.makeStacksLabel(id, labelOptions);
-    const toggleParent = document.createElement("div");
-    toggleParent.classList.add("flex--item", "s-toggle-switch");
     const toggle = document.createElement("input");
     toggle.id = id;
+    toggle.classList.add("s-toggle-switch");
     toggle.type = "checkbox";
     toggle.checked = on;
-    const toggleSwitchDiv = document.createElement("div");
-    toggleSwitchDiv.classList.add("s-toggle-switch--indicator");
-    toggleParent.append(toggle, toggleSwitchDiv);
-    container.append(label, toggleParent);
+    container.append(label, toggle);
     return container;
 };
 exports.makeStacksToggle = makeStacksToggle;
@@ -1783,7 +1779,7 @@ const makeStacksModal = (id, options) => {
         modal.setAttribute("aria-describedby", bodyId);
     }
     const footer = document.createElement("div");
-    footer.classList.add("d-flex", "gs8", "gsx", "s-modal--footer", ...footerClasses);
+    footer.classList.add("d-flex", "gx8", "s-modal--footer", ...footerClasses);
     buttons.forEach((button) => {
         const { element, hideOnClick } = button;
         element.classList.add("flex--item");
@@ -1835,7 +1831,7 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     if (important)
         aside.classList.add("s-notice__important");
     const msgWrap = document.createElement("div");
-    msgWrap.classList.add("d-flex", "gs16", "gsx", "ai-center", "jc-space-between", ...msgClasses);
+    msgWrap.classList.add("d-flex", "gx16", "ai-center", "jc-space-between", ...msgClasses);
     const message = document.createElement("div");
     message.classList.add("flex--item");
     message.textContent = text;

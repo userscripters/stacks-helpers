@@ -14,7 +14,7 @@ const index_1 = require("./index");
 const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     const { value = "", classes = [], placeholder = "", title = "", size, validation, } = textareaOptions;
     const textareaParent = document.createElement("div");
-    textareaParent.classList.add("d-flex", "fd-column", "gs4", "gsy", ...classes);
+    textareaParent.classList.add("d-flex", "fd-column", "gy4", ...classes);
     if (labelOptions) {
         const label = index_1.Label.makeStacksLabel(id, labelOptions);
         textareaParent.append(label);

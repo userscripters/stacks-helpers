@@ -14,18 +14,14 @@ const index_1 = require("./index");
  */
 const makeStacksToggle = (id, labelOptions, on = false, ...classes) => {
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs8", "ai-center", ...classes);
+    container.classList.add("d-flex", "g8", "ai-center", ...classes);
     const label = index_1.Label.makeStacksLabel(id, labelOptions);
-    const toggleParent = document.createElement("div");
-    toggleParent.classList.add("flex--item", "s-toggle-switch");
     const toggle = document.createElement("input");
     toggle.id = id;
+    toggle.classList.add("s-toggle-switch");
     toggle.type = "checkbox";
     toggle.checked = on;
-    const toggleSwitchDiv = document.createElement("div");
-    toggleSwitchDiv.classList.add("s-toggle-switch--indicator");
-    toggleParent.append(toggle, toggleSwitchDiv);
-    container.append(label, toggleParent);
+    container.append(label, toggle);
     return container;
 };
 exports.makeStacksToggle = makeStacksToggle;

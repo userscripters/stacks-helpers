@@ -37,7 +37,7 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
         (_a = (labelOptions.parentClasses || (labelOptions.parentClasses = []))) === null || _a === void 0 ? void 0 : _a.push("flex--item");
         const label = index_1.Label.makeStacksLabel(id, labelOptions);
         const container = document.createElement("div");
-        container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+        container.classList.add("d-flex", "gy4", "fd-column");
         container.append(label, inputParent);
         return container;
     }
@@ -55,11 +55,11 @@ exports.makeStacksInput = makeStacksInput;
  */
 const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`s-${type}-group`);
+    fieldset.classList.add("s-check-group");
     if (options) {
         const { legendText = "", legendDescription = "", horizontal, classes = [], } = options;
         if (horizontal) {
-            fieldset.classList.add(`s-${type}-group__horizontal`);
+            fieldset.classList.add("s-check-group__horizontal");
         }
         fieldset.classList.add(...classes);
         const legend = document.createElement("legend");
@@ -91,7 +91,7 @@ exports.makeStacksRadiosOrCheckboxes = makeStacksRadiosOrCheckboxes;
 const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");
-    container.classList.add(`s-${type}-control`);
+    container.classList.add("s-check-control");
     const input = document.createElement("input");
     input.classList.add(`s-${type}`);
     input.type = type;

@@ -15,7 +15,7 @@ const index_1 = require("./index");
 const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
-    container.classList.add("d-flex", "gs4", "gsy", "fd-column");
+    container.classList.add("d-flex", "gy4", "fd-column");
     if (labelOptions) {
         (labelOptions.parentClasses || (labelOptions.parentClasses = [])).push("flex--item");
         const label = index_1.Label.makeStacksLabel(id, labelOptions);

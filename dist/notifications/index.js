@@ -23,7 +23,7 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     if (important)
         aside.classList.add("s-notice__important");
     const msgWrap = document.createElement("div");
-    msgWrap.classList.add("d-flex", "gs16", "gsx", "ai-center", "jc-space-between", ...msgClasses);
+    msgWrap.classList.add("d-flex", "gx16", "ai-center", "jc-space-between", ...msgClasses);
     const message = document.createElement("div");
     message.classList.add("flex--item");
     message.textContent = text;

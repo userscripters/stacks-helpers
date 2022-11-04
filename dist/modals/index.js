@@ -45,7 +45,7 @@ const makeStacksModal = (id, options) => {
         modal.setAttribute("aria-describedby", bodyId);
     }
     const footer = document.createElement("div");
-    footer.classList.add("d-flex", "gs8", "gsx", "s-modal--footer", ...footerClasses);
+    footer.classList.add("d-flex", "gx8", "s-modal--footer", ...footerClasses);
     buttons.forEach((button) => {
         const { element, hideOnClick } = button;
         element.classList.add("flex--item");
