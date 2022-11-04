@@ -119,7 +119,7 @@ export const makeStacksRadiosOrCheckboxes = (
     withoutFieldset?: boolean
 ): HTMLElement[] => {
     const fieldset = document.createElement("fieldset");
-    fieldset.classList.add(`s-${type}-group`);
+    fieldset.classList.add("s-check-group");
 
     if (options) {
         const {
@@ -130,7 +130,7 @@ export const makeStacksRadiosOrCheckboxes = (
         } = options;
 
         if (horizontal) {
-            fieldset.classList.add(`s-${type}-group__horizontal`);
+            fieldset.classList.add("s-check-group__horizontal");
         }
 
         fieldset.classList.add(...classes);
@@ -179,7 +179,7 @@ const makeFormContainer = (
     } = radioCheckbox;
 
     const container = document.createElement("div");
-    container.classList.add(`s-${type}-control`);
+    container.classList.add("s-check-control");
 
     const input = document.createElement("input");
     input.classList.add(`s-${type}`);
