@@ -9,7 +9,7 @@
     "scripts": {
         "clean": "rm -rf dist",
         "lint": "eslint src --fix --ext .js,.ts",
-        "build": "npm run lint && webpack && tsc",
+        "build-all": "npm run lint && webpack && tsc",
         "readme": "generate-readme",
         "postversion": "bash ./scripts/postversion.sh",
         "test": ""
