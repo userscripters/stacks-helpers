@@ -3,5 +3,5 @@ name: build
 on: [push, pull_request]
 
 jobs:
-    build:
-        uses: userscripters/shared-actions/.github/workflows/workflow-nodejs.yml@master
+  build:
+    uses: userscripters/shared-actions/.github/workflows/workflow-nodejs.yml@master
