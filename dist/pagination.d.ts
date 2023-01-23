@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksPaginationOptions = StacksCommonOptions & {
+export type StacksPaginationOptions = StacksCommonOptions & {
     /** The first batch */
     first: number[];
     /** The middle batch (optional) */

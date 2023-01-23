@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksBaseBarOptions = StacksCommonOptions & {
+export type StacksBaseBarOptions = StacksCommonOptions & {
     /** The width to colour */
     width: number;
     /** Optional colour variation */
@@ -14,7 +14,7 @@ export declare type StacksBaseBarOptions = StacksCommonOptions & {
  * @returns {HTMLDivElement}
  */
 export declare const makeBaseBar: (id: string, options: StacksBaseBarOptions) => HTMLDivElement;
-export declare type StacksCircularBarOptions = StacksCommonOptions & Omit<StacksBaseBarOptions, "coloring"> & {
+export type StacksCircularBarOptions = StacksCommonOptions & Omit<StacksBaseBarOptions, "coloring"> & {
     /** The size of the bar */
     size?: "sm" | "md" | "lg";
 };
@@ -27,7 +27,7 @@ export declare type StacksCircularBarOptions = StacksCommonOptions & Omit<Stacks
  * @returns {HTMLDivElement}
  */
 export declare const makeCircularBar: (id: string, options: StacksCircularBarOptions) => HTMLDivElement;
-export declare type StacksSegmentedBarOptions = StacksBaseBarOptions & {
+export type StacksSegmentedBarOptions = StacksBaseBarOptions & {
     /** The total number of segments to include */
     segments: number;
 };
@@ -40,7 +40,7 @@ export declare type StacksSegmentedBarOptions = StacksBaseBarOptions & {
  * @returns {HTMLDivElement}
  */
 export declare const makeSegmentedBar: (id: string, options: StacksSegmentedBarOptions) => HTMLDivElement;
-export declare type SteppedBarItem = {
+export type SteppedBarItem = {
     /** Whether the current stage has been completed or is active */
     status?: "complete" | "active";
     /** A short description of the stage */

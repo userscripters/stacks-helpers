@@ -4,7 +4,7 @@ export declare const validationIcons: {
     error: string[];
     success: string[];
 };
-export declare type StacksIconOptions = StacksCommonOptions & {
+export type StacksIconOptions = StacksCommonOptions & {
     /** The width of the icon */
     width?: number;
     /** The height of the icon */

@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksTagsOptions = StacksCommonOptions & {
+export type StacksTagsOptions = StacksCommonOptions & {
     /** The name of the tag */
     name: string;
     /** The URL the tag should link to */

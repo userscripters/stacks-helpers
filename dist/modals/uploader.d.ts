@@ -1,5 +1,5 @@
 import type { StacksCommonOptions } from "../index";
-export declare type StacksUploaderOptions = StacksCommonOptions & {
+export type StacksUploaderOptions = StacksCommonOptions & {
     /** Classes applied to the upload input */
     inputClasses?: string[];
     /** Handler called when the reset button is clicked */

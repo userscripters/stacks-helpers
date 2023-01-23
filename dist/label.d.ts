@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksLabelOptions = StacksCommonOptions & {
+export type StacksLabelOptions = StacksCommonOptions & {
     /** The text of the label (HTML allowed) */
     text: string;
     /** An optional description (HTML allowed) */

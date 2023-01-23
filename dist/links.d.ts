@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksLinksOptions = StacksCommonOptions & {
+export type StacksLinksOptions = StacksCommonOptions & {
     /** The anchor text */
     text: string;
     /** The href of the link */

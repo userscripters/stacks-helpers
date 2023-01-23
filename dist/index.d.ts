@@ -25,7 +25,7 @@ import * as Buttons from "./buttons";
 import * as Icons from "./icons";
 import * as Modals from "./modals";
 import * as Notifications from "./notifications";
-export declare type StacksCommonOptions = {
+export type StacksCommonOptions = {
     classes?: string[];
 };
 export { Avatar, Badges, Banners, Breadcrumb, ButtonGroup, Checkbox, Indicator, Input, Label, Links, Menu, Navigation, Notice, Pagination, Progress, Popover, Radio, Select, Spinner, Tag, Textarea, Toggle, UserCard, Buttons, Icons, Modals, Notifications, };

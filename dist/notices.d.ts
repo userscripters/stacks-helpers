@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksNoticesOptions = StacksCommonOptions & {
+export type StacksNoticesOptions = StacksCommonOptions & {
     /** The type of visual styles to be applied to the notice */
     type?: "info" | "success" | "warning" | "danger";
     /** Whether to apply important styles to the notice */

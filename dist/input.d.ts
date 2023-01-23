@@ -1,5 +1,5 @@
 import { StacksCommonOptions, Label } from "./index";
-export declare type StacksInputOptions = StacksCommonOptions & {
+export type StacksInputOptions = StacksCommonOptions & {
     /** The value of the input */
     value?: string;
     /** The title attached to the input */
@@ -19,7 +19,7 @@ export declare type StacksInputOptions = StacksCommonOptions & {
  * @returns {HTMLDivElement}
  */
 export declare const makeStacksInput: (id: string, inputOptions?: StacksInputOptions, labelOptions?: Label.StacksLabelOptions) => HTMLDivElement;
-export declare type StacksRadioCheckboxOptions = StacksCommonOptions & {
+export type StacksRadioCheckboxOptions = StacksCommonOptions & {
     /** The legend title */
     legendText?: string;
     /** An optional legend description */
@@ -29,7 +29,7 @@ export declare type StacksRadioCheckboxOptions = StacksCommonOptions & {
     /** Whether to just return the checkboxes or wrap them in a `<fieldset>` element */
     withoutFieldset?: boolean;
 };
-export declare type StacksInputTypes = {
+export type StacksInputTypes = {
     /** The checkbox id */
     id: string;
     /** The attached label text */

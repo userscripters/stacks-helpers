@@ -1,5 +1,5 @@
 import { StacksCommonOptions, Label } from "./index";
-export declare type StacksTextareaOptions = StacksCommonOptions & {
+export type StacksTextareaOptions = StacksCommonOptions & {
     /** The value of the textarea */
     value?: string;
     /** The title attached to the textarea */

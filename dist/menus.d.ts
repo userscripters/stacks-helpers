@@ -1,6 +1,6 @@
 import { StacksCommonOptions, Input, Links } from "./index";
-declare type BasicPlacement = "auto" | "top" | "right" | "bottom" | "left";
-declare type AllPlacements = BasicPlacement | `${BasicPlacement}-start` | `${BasicPlacement}-end`;
+type BasicPlacement = "auto" | "top" | "right" | "bottom" | "left";
+type AllPlacements = BasicPlacement | `${BasicPlacement}-start` | `${BasicPlacement}-end`;
 declare global {
     namespace Stacks {
         function setTooltipHtml(element: Element, html: string, options?: {
@@ -8,7 +8,7 @@ declare global {
         }): void;
     }
 }
-export declare type MenuItemPopover = {
+export type MenuItemPopover = {
     /** Attached popover config */
     popover?: {
         /** Stringified HTML/text to append */
@@ -17,7 +17,7 @@ export declare type MenuItemPopover = {
         position?: AllPlacements;
     };
 };
-export declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & MenuItemPopover | {
+export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & MenuItemPopover | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
@@ -28,7 +28,7 @@ export declare type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & Menu
     /** Input config */
     checkboxOptions?: Input.StacksRadioCheckboxOptions;
 } & MenuItemPopover;
-export declare type StacksMenuOptions = StacksCommonOptions & {
+export type StacksMenuOptions = StacksCommonOptions & {
     /** The type of the menu items */
     itemsType?: "a" | "button";
     /** Classes applied to all the menu items */

@@ -1,6 +1,6 @@
 import { StacksCommonOptions } from "./index";
-declare type BadgeTypes = "gold" | "silver" | "bronze" | "bounty" | "votes" | "answered" | "rep" | "rep-down" | "important" | "admin" | "moderator" | "staff" | "muted" | "filled" | "info" | "warning" | "danger";
-export declare type StacksBadgesOptions = StacksCommonOptions & {
+type BadgeTypes = "gold" | "silver" | "bronze" | "bounty" | "votes" | "answered" | "rep" | "rep-down" | "important" | "admin" | "moderator" | "staff" | "muted" | "filled" | "info" | "warning" | "danger";
+export type StacksBadgesOptions = StacksCommonOptions & {
     /** The type of the bling */
     blingColor?: "gold" | "silver" | "bronze";
     /** The type of the badge */

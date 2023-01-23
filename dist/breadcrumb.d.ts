@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type BreadcrumbItem = {
+export type BreadcrumbItem = {
     /** The text of the breadcrumb (HTML elements allowed) */
     label: string | HTMLElement;
     /** The link the item should point to */

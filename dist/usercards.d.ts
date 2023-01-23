@@ -1,5 +1,5 @@
 import { StacksCommonOptions, Avatar, Badges, Tag } from ".";
-declare type AllUserCardOptions = StacksCommonOptions & {
+type AllUserCardOptions = StacksCommonOptions & {
     /** Avatar configuration */
     avatar?: Avatar.StacksAvatarOptions;
     /** The time since the user made an action (e.g. 3 hours ago, yesterday) */
@@ -37,7 +37,7 @@ declare type AllUserCardOptions = StacksCommonOptions & {
     /** Whether the user has been deleted */
     deleted?: boolean;
 };
-export declare type FullUserCardOptions = Omit<AllUserCardOptions, "time" | "deleted" | "highlight">;
+export type FullUserCardOptions = Omit<AllUserCardOptions, "time" | "deleted" | "highlight">;
 /**
  * @see https://stackoverflow.design/product/components/user-cards/#full
  *
@@ -46,7 +46,7 @@ export declare type FullUserCardOptions = Omit<AllUserCardOptions, "time" | "del
  * @returns {HTMLDivElement}
  */
 export declare const makeFullUserCard: (options: FullUserCardOptions) => HTMLDivElement;
-export declare type BaseUserCardOptions = Omit<AllUserCardOptions, "user"> & {
+export type BaseUserCardOptions = Omit<AllUserCardOptions, "user"> & {
     user: Omit<AllUserCardOptions["user"], "role" | "location" | "tags">;
 };
 /**
@@ -57,7 +57,7 @@ export declare type BaseUserCardOptions = Omit<AllUserCardOptions, "user"> & {
  * @returns {HTMLDivElement}
  */
 export declare const makeBaseUserCard: (options: BaseUserCardOptions) => HTMLDivElement;
-export declare type SmallUserCardOptions = Pick<AllUserCardOptions, "avatar" | "classes"> & {
+export type SmallUserCardOptions = Pick<AllUserCardOptions, "avatar" | "classes"> & {
     user: Pick<AllUserCardOptions["user"], "badges" | "href" | "reputation">;
 };
 /**
@@ -68,7 +68,7 @@ export declare type SmallUserCardOptions = Pick<AllUserCardOptions, "avatar" | "
  * @returns {HTMLDivElement}
  */
 export declare const makeSmallUserCard: (options: SmallUserCardOptions) => HTMLDivElement;
-export declare type MinimalUserCardOptions = Omit<AllUserCardOptions, "highlight" | "userType" | "user"> & {
+export type MinimalUserCardOptions = Omit<AllUserCardOptions, "highlight" | "userType" | "user"> & {
     user: Pick<AllUserCardOptions["user"], "name" | "href" | "reputation">;
 };
 /**

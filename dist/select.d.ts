@@ -1,5 +1,5 @@
 import { StacksCommonOptions, Label } from "./index";
-export declare type SelectOption = {
+export type SelectOption = {
     /** The value of the option */
     value: string;
     /** The option visible text */
@@ -7,7 +7,7 @@ export declare type SelectOption = {
     /** Whether the option is selected */
     selected?: boolean;
 };
-export declare type StacksSelectOptions = StacksCommonOptions & {
+export type StacksSelectOptions = StacksCommonOptions & {
     /** Whether the select is disabled */
     disabled?: boolean;
     /** The size of the select element */

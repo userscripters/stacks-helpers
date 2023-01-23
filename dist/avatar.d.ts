@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksAvatarOptions = StacksCommonOptions & {
+export type StacksAvatarOptions = StacksCommonOptions & {
     /** The size of the avatar */
     size?: 24 | 32 | 48 | 64 | 96 | 128;
     /** The link that the avatar should redirect when clicked */

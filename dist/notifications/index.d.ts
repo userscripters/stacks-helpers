@@ -1,6 +1,6 @@
 import { StacksCommonOptions } from "../index";
-export declare type StacksToastType = "info" | "success" | "warning" | "danger" | "none";
-export declare type StacksToastOptions = StacksCommonOptions & Partial<{
+export type StacksToastType = "info" | "success" | "warning" | "danger" | "none";
+export type StacksToastOptions = StacksCommonOptions & Partial<{
     /** Action buttons on the toast */
     buttons: HTMLButtonElement[];
     /** Classes applied to the message element */

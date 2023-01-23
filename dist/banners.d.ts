@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksBannerOptions = StacksCommonOptions & {
+export type StacksBannerOptions = StacksCommonOptions & {
     /** The type of visual styles to be applied to the banner */
     style: "info" | "success" | "warning" | "danger";
     /** Whether to apply important styles to the banner */

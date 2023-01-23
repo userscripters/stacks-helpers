@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksNavItems = StacksCommonOptions & {
+export type StacksNavItems = StacksCommonOptions & {
     /** The item text */
     text: string;
     /** The item id */

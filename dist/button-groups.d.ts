@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type GroupButton = {
+export type GroupButton = {
     /** Button text (HTML allowed) */
     text: string | HTMLElement;
     /** Whether to select the button */
@@ -9,7 +9,7 @@ export declare type GroupButton = {
     /** Whether to wrap the button in a `<form>` element */
     form?: boolean;
 };
-export declare type StacksButtonGroupOptions = StacksCommonOptions;
+export type StacksButtonGroupOptions = StacksCommonOptions;
 /**
  * @see https://stackoverflow.design/product/components/button-groups/
  *

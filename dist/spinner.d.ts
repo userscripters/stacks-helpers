@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "./index";
-export declare type StacksSpinnerOptions = StacksCommonOptions & {
+export type StacksSpinnerOptions = StacksCommonOptions & {
     /** The size of the spinner */
     size?: "xs" | "sm" | "md" | "lg";
     /** Text visible to screen readers */

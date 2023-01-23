@@ -1,6 +1,6 @@
 import { StacksCommonOptions } from "./index";
-declare type PopoverPlacement = "auto" | "top" | "right" | "bottom" | "left";
-export declare type StacksPopoverOptions = StacksCommonOptions & {
+type PopoverPlacement = "auto" | "top" | "right" | "bottom" | "left";
+export type StacksPopoverOptions = StacksCommonOptions & {
     /** Designates the element to use as the popover reference. The value defaults to the controller element. */
     referenceSelector?: string;
     /** A space-delineated list of classes to be toggled on the originating element when the popover is shown or hidden. */
