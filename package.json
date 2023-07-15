@@ -36,10 +36,10 @@
     ],
     "license": "GPL-3.0-or-later",
     "devDependencies": {
-        "@typescript-eslint/eslint-plugin": "^5.61.0",
-        "@typescript-eslint/parser": "^5.61.0",
+        "@typescript-eslint/eslint-plugin": "^5.62.0",
+        "@typescript-eslint/parser": "^5.62.0",
         "@userscripters/generate-readme": "^2.3.1",
-        "eslint": "^8.44.0",
+        "eslint": "^8.45.0",
         "ts-loader": "^9.4.4",
         "typescript": "^5.1.6",
         "webpack": "^5.88.1",
