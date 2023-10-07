@@ -2,13 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksBanner = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/banners/
- *
- * @summary Creates a Stacks banner
- * @param {StacksBannerOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksBanner = (options) => {
     const { style, text, important = false, pinned = false, icon, classes = [], } = options;
     const banner = document.createElement("aside");

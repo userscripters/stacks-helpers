@@ -2,13 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksTag = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/tags/
- *
- * @summary Creates a Stacks tag
- * @param {StacksTagsOptions} options - configuration
- * @returns {AnchorElement}
- */
 const makeStacksTag = (options) => {
     const { classes = [], name, href = "#", moderator = false, selected = false, size = "", muted = false, required = false, sponsor = null, dismissable = false, onDismiss = null, watched = false, ignored = false, } = options;
     const tag = document.createElement("a");

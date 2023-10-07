@@ -1,14 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksLabel = void 0;
-/**
- * @see https://stackoverflow.design/product/components/labels/
- *
- * @summary creates a Stacks label
- * @param {string} forId the label htmlFor attribute
- * @param {StacksLabelOptions} labelOptions label configuration
- * @returns {HTMLDivElement | HTMLLabelElement}
- */
 const makeStacksLabel = (forId, labelOptions) => {
     const { classes = [], parentClasses = [], text, description, statusText, statusType } = labelOptions;
     const labelParent = document.createElement("div");
@@ -17,7 +9,6 @@ const makeStacksLabel = (forId, labelOptions) => {
     label.classList.add("s-label", ...classes);
     label.htmlFor = forId;
     label.innerHTML = text;
-    // https://stackoverflow.design/product/components/labels/#status
     if (statusText && statusType) {
         const status = document.createElement("span");
         status.innerHTML = statusText;
@@ -31,8 +22,6 @@ const makeStacksLabel = (forId, labelOptions) => {
         const p = document.createElement("p");
         p.classList.add("s-description", "mt2");
         p.innerHTML = description;
-        // if there's a description, the label
-        // must have a d-block class
         label.classList.add("d-block");
         label.append(p);
         labelParent.append(label);

@@ -2,13 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeMinimalUserCard = exports.makeSmallUserCard = exports.makeBaseUserCard = exports.makeFullUserCard = void 0;
 const _1 = require(".");
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#full
- *
- * @summary Creates a Stacks full user card
- * @param {FullUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeFullUserCard = (options) => {
     const { avatar, user: { name = "", href = "#", reputation = "1", badges, labels, role, location, tags }, userType, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -48,7 +41,6 @@ const makeFullUserCard = (options) => {
             var _a;
             (_a = config.classes) === null || _a === void 0 ? void 0 : _a.push("flex--item");
             if (!(config === null || config === void 0 ? void 0 : config.size)) {
-                // default tag size for full cards
                 config.size = "xs";
             }
             return _1.Tag.makeStacksTag(config);
@@ -66,13 +58,6 @@ const makeFullUserCard = (options) => {
     return userCard;
 };
 exports.makeFullUserCard = makeFullUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#base
- *
- * @summary Creates a Stacks base user card
- * @param {BaseUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeBaseUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", badges, labels, }, deleted, highlight, userType, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -99,11 +84,8 @@ const makeBaseUserCard = (options) => {
     }
     infoContainer.append(link);
     userCard.append(timeEl, avatarContainer, infoContainer);
-    // (if one is true, both are guaranteed to be true,
-    //  doing this to shut up the TS compiler)
     if (deleted || link instanceof HTMLDivElement) {
         userCard.classList.add("s-user-card__deleted");
-        // no more info for deleted users
         return userCard;
     }
     link.href = href;
@@ -118,13 +100,6 @@ const makeBaseUserCard = (options) => {
     return userCard;
 };
 exports.makeBaseUserCard = makeBaseUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#small
- *
- * @summary Creates a Stacks small user card
- * @param {SmallUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeSmallUserCard = (options) => {
     const { avatar, user: { badges, href = "#", reputation = "1", }, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -138,13 +113,6 @@ const makeSmallUserCard = (options) => {
     return userCard;
 };
 exports.makeSmallUserCard = makeSmallUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#minimal
- *
- * @summary Creates a Stacks minimal user card
- * @param {MinimalUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeMinimalUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", }, deleted, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -173,12 +141,6 @@ const makeMinimalUserCard = (options) => {
     return userCard;
 };
 exports.makeMinimalUserCard = makeMinimalUserCard;
-/**
- * @summary Helper for getting the user awards `<li>`
- * @param {string} reputation The user's reputation
- * @param {AllUserCardOptions["user"]["badge"]} badges The user's badges
- * @returns {HTMLUListElement}
- */
 const getUserAwards = (reputation, badges) => {
     const awards = document.createElement("ul");
     awards.classList.add("s-user-card--awards");
@@ -197,35 +159,20 @@ const getUserAwards = (reputation, badges) => {
     }
     return awards;
 };
-/**
- * @summary Helper for getting the user staff/admin/mod badges
- * @param {Required<AllUserCardOptions["user"]>["labels"]} labels badges configuration
- * @returns {HTMLSpanElement[]}
- */
 const getLabelElements = (labels) => {
     return labels.map((config) => {
         var _a;
         (_a = config.classes) === null || _a === void 0 ? void 0 : _a.push("flex--item");
         if (!config.size) {
-            // default badge size for full cards
             config.size = "xs";
         }
         return _1.Badges.makeStacksBadge(config);
     });
 };
-/**
- * @summary Helper for getting the default user avatar
- * @param {AllUserCardOptions["avatar"]} avatar avatar configuration
- * @param {string} defaultHref The default href to apply
- * @param {number} defaultSize The default size of the avatar
- * @param {boolean} deleted Whether the user is a deleted user
- * @returns {HTMLDivElement}
- */
 const getDefaultUserCardAvatar = (config, defaultHref, defaultSize, deleted) => {
     var _a;
     (_a = config === null || config === void 0 ? void 0 : config.classes) === null || _a === void 0 ? void 0 : _a.push("s-user-card--avatar");
     if (config && !config.size && defaultSize) {
-        // default size for base cards
         config.size = defaultSize;
     }
     if (config && !config.href) {

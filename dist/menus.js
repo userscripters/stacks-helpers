@@ -2,20 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeMenu = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/menus/
- *
- * @summary creates a Stacks menu
- * @param {StacksMenuOptions} options configuration
- * @returns {HTMLUListElement}
- */
 const makeMenu = (options = {}) => {
     const { itemsType = "a", childrenClasses = [], navItems, classes = [] } = options;
     const menu = document.createElement("ul");
     menu.classList.add("s-menu", ...classes);
     menu.setAttribute("role", "menu");
-    // TODO
-    // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         var _a;
         const li = document.createElement("li");
@@ -36,7 +27,6 @@ const makeMenu = (options = {}) => {
         }
         else if ("checkbox" in navItem) {
             const { checkbox, checkboxOptions } = navItem;
-            // one checkbox returned, fetch second item of the array
             const [, input] = index_1.Checkbox.makeStacksCheckboxes([checkbox], checkboxOptions);
             li.append(input);
             menu.append(li);

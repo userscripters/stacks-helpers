@@ -2,16 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toggleValidation = exports.makeStacksSelect = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/select/
- *
- * @summary Creates a Stacks select element
- * @param {string} id The id of the select
- * @param {SelectOption[]} items The options to display in the select
- * @param {StacksSelectOptions} [options] configuration
- * @param {Label.StacksLabelOptions} [labelOptions] label configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
@@ -49,14 +39,6 @@ const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     return container;
 };
 exports.makeStacksSelect = makeStacksSelect;
-/**
- * @see https://stackoverflow.design/product/components/select/#validation-states
- *
- * @summary Toggles validation styling to a select
- * @param {HTMLDivElement} container the select's container
- * @param {StacksSelectOptions["validation"]} [state] configuration
- * @returns {void}
- */
 const toggleValidation = (container, state) => {
     var _a, _b;
     container.classList.remove("has-success", "has-warning", "has-error");

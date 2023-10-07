@@ -2,14 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksModal = void 0;
 const index_1 = require("../index");
-/**
- * @see https://stackoverflow.design/product/components/modals/
- *
- * @summary creates a Stacks modal
- * @param {string} id the id of the modal
- * @param {StacksModalOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksModal = (id, options) => {
     const { classes = [], danger = false, fullscreen = false, celebratory = false, title: { text, id: titleId, classes: titleClasses = [] }, body: { bodyHtml, id: bodyId, classes: bodyClasses = [] }, footer: { buttons, classes: footerClasses = [] }, } = options;
     const modal = document.createElement("aside");

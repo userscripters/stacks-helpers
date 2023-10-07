@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeSpinner = void 0;
-/**
- * @see https://stackoverflow.design/product/components/spinner/
- *
- * @summary creates a Stacks spinner
- * @param {StacksSpinnerOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeSpinner = (options = {}) => {
     const { size = "", hiddenText = "", classes = [] } = options;
     const spinner = document.createElement("div");

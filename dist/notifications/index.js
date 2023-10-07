@@ -2,13 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.showToast = exports.hideToast = exports.toggleToast = exports.makeStacksToast = void 0;
 const index_1 = require("../icons/index");
-/**
- * @see https://stackoverflow.design/product/components/notices/
- *
- * @summary builder for Stacks notifications
- * @param {string} id the toast id
- * @param {string} text the message text
- */
 const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = [], type = "none", important = false, } = {}) => {
     const wrap = document.createElement("div");
     wrap.classList.add("s-toast", ...classes);
@@ -43,9 +36,6 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     return wrap;
 };
 exports.makeStacksToast = makeStacksToast;
-/**
- * @summary toggles the Stacks toast visibility
- */
 const toggleToast = (target, show) => {
     const toast = typeof target === "string" ? document.querySelector(target) : target;
     if (!toast)
@@ -55,18 +45,12 @@ const toggleToast = (target, show) => {
     return toast;
 };
 exports.toggleToast = toggleToast;
-/**
- * @summary hides the Stacks toast
- */
 const hideToast = (target, hideFor) => {
     const toast = (0, exports.toggleToast)(target, false);
     if (hideFor)
         setTimeout(() => (0, exports.showToast)(toast), hideFor * 1e3);
 };
 exports.hideToast = hideToast;
-/**
- * @summary shows the Stacks toast
- */
 const showToast = (target, showFor) => {
     const toast = (0, exports.toggleToast)(target, true);
     if (showFor)

@@ -3,64 +3,87 @@ var StacksHelpers;
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ([
 /* 0 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Notifications = exports.Modals = exports.Icons = exports.Buttons = exports.UserCard = exports.Toggle = exports.Textarea = exports.Tag = exports.Spinner = exports.Select = exports.Radio = exports.Popover = exports.Progress = exports.Pagination = exports.Notice = exports.Navigation = exports.Menu = exports.Links = exports.Label = exports.Input = exports.Indicator = exports.Checkbox = exports.ButtonGroup = exports.Breadcrumb = exports.Banners = exports.Badges = exports.Avatar = void 0;
-const Avatar = __webpack_require__(1);
+const Avatar = __importStar(__webpack_require__(1));
 exports.Avatar = Avatar;
-const Badges = __webpack_require__(2);
+const Badges = __importStar(__webpack_require__(2));
 exports.Badges = Badges;
-const Banners = __webpack_require__(3);
+const Banners = __importStar(__webpack_require__(3));
 exports.Banners = Banners;
-const Breadcrumb = __webpack_require__(4);
+const Breadcrumb = __importStar(__webpack_require__(4));
 exports.Breadcrumb = Breadcrumb;
-const ButtonGroup = __webpack_require__(5);
+const ButtonGroup = __importStar(__webpack_require__(5));
 exports.ButtonGroup = ButtonGroup;
-const Checkbox = __webpack_require__(6);
+const Checkbox = __importStar(__webpack_require__(6));
 exports.Checkbox = Checkbox;
-const Indicator = __webpack_require__(7);
+const Indicator = __importStar(__webpack_require__(7));
 exports.Indicator = Indicator;
-const Input = __webpack_require__(8);
+const Input = __importStar(__webpack_require__(8));
 exports.Input = Input;
-const Label = __webpack_require__(9);
+const Label = __importStar(__webpack_require__(9));
 exports.Label = Label;
-const Links = __webpack_require__(10);
+const Links = __importStar(__webpack_require__(10));
 exports.Links = Links;
-const Menu = __webpack_require__(11);
+const Menu = __importStar(__webpack_require__(11));
 exports.Menu = Menu;
-const Navigation = __webpack_require__(12);
+const Navigation = __importStar(__webpack_require__(12));
 exports.Navigation = Navigation;
-const Notice = __webpack_require__(13);
+const Notice = __importStar(__webpack_require__(13));
 exports.Notice = Notice;
-const Pagination = __webpack_require__(14);
+const Pagination = __importStar(__webpack_require__(14));
 exports.Pagination = Pagination;
-const Progress = __webpack_require__(15);
+const Progress = __importStar(__webpack_require__(15));
 exports.Progress = Progress;
-const Popover = __webpack_require__(16);
+const Popover = __importStar(__webpack_require__(16));
 exports.Popover = Popover;
-const Radio = __webpack_require__(17);
+const Radio = __importStar(__webpack_require__(17));
 exports.Radio = Radio;
-const Select = __webpack_require__(18);
+const Select = __importStar(__webpack_require__(18));
 exports.Select = Select;
-const Spinner = __webpack_require__(19);
+const Spinner = __importStar(__webpack_require__(19));
 exports.Spinner = Spinner;
-const Tag = __webpack_require__(20);
+const Tag = __importStar(__webpack_require__(20));
 exports.Tag = Tag;
-const Textarea = __webpack_require__(21);
+const Textarea = __importStar(__webpack_require__(21));
 exports.Textarea = Textarea;
-const Toggle = __webpack_require__(22);
+const Toggle = __importStar(__webpack_require__(22));
 exports.Toggle = Toggle;
-const UserCard = __webpack_require__(23);
+const UserCard = __importStar(__webpack_require__(23));
 exports.UserCard = UserCard;
-const Buttons = __webpack_require__(24);
+const Buttons = __importStar(__webpack_require__(24));
 exports.Buttons = Buttons;
-const Icons = __webpack_require__(25);
+const Icons = __importStar(__webpack_require__(25));
 exports.Icons = Icons;
-const Modals = __webpack_require__(26);
+const Modals = __importStar(__webpack_require__(26));
 exports.Modals = Modals;
-const Notifications = __webpack_require__(27);
+const Notifications = __importStar(__webpack_require__(27));
 exports.Notifications = Notifications;
 
 
@@ -71,18 +94,11 @@ exports.Notifications = Notifications;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeAvatar = void 0;
-/**
- * @see https://stackoverflow.design/product/components/avatar/
- *
- * @summary creates a Stacks avatar
- * @param {StacksAvatarOptions} options configuration
- * @returns {HTMLAnchorElement}
- */
 const makeAvatar = (options = {}, elementType = "a") => {
     const { size = "", href = "", src, classes = [] } = options;
     const avatar = document.createElement(elementType);
     avatar.classList.add("s-avatar", ...classes);
-    if (size) { // default 16px
+    if (size) {
         avatar.classList.add(`s-avatar__${size}`);
     }
     if (href && avatar instanceof HTMLAnchorElement) {
@@ -104,13 +120,6 @@ exports.makeAvatar = makeAvatar;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeBling = exports.makeStacksBadge = void 0;
-/**
- * @see https://stackoverflow.design/product/components/badges/
- *
- * @summary creates a Stacks badge
- * @param {StacksBadgesOptions} options configuration
- * @returns {HTMLSpanElement}
- */
 const makeStacksBadge = (options) => {
     const { classes = [], blingColor = "", type = "", size = "", text, icon, } = options;
     const badge = document.createElement("span");
@@ -136,13 +145,6 @@ const makeStacksBadge = (options) => {
     return badge;
 };
 exports.makeStacksBadge = makeStacksBadge;
-/**
- * @summary Creates gold/silver/bronze bling
- * @param {keyof HTMLElementTagNameMap} elementType The type of the container element
- * @param {"gold" | "silver" | "bronze"} color The badge colour
- * @param {string} count The badge count
- * @returns {HTMLElement}
- */
 const makeBling = (elementType, color, count) => {
     const element = document.createElement(elementType);
     element.classList.add("s-award-bling", `s-award-bling__${color}`);
@@ -160,13 +162,6 @@ exports.makeBling = makeBling;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksBanner = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/banners/
- *
- * @summary Creates a Stacks banner
- * @param {StacksBannerOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksBanner = (options) => {
     const { style, text, important = false, pinned = false, icon, classes = [], } = options;
     const banner = document.createElement("aside");
@@ -221,14 +216,6 @@ exports.makeStacksBanner = makeStacksBanner;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksBreadcrumb = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/breadcrumbs/
- *
- * @summary Creates a Stacks breadcrumb
- * @param {BreadcrumbItem[]} items An array of items to display in the breadcrumb
- * @param {StacksCommonOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksBreadcrumb = (items, options) => {
     const { classes = [] } = options;
     const nav = document.createElement("nav");
@@ -241,7 +228,6 @@ const makeStacksBreadcrumb = (items, options) => {
         breadcrumbLink.classList.add("s-breadcrumbs--link");
         breadcrumbLink.href = href;
         if (Array.isArray(label)) {
-            // this is an icon
             const [name, path] = label;
             const [icon] = index_1.Icons.makeStacksIcon(name, path, {
                 classes: ["mtn2"],
@@ -275,14 +261,6 @@ exports.makeStacksBreadcrumb = makeStacksBreadcrumb;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksButtonGroup = void 0;
-/**
- * @see https://stackoverflow.design/product/components/button-groups/
- *
- * @summary Creates a Stacks button group
- * @param {GroupButton[]} buttons the buttons to display in the group
- * @param {StacksButtonGroupOptions} [options] configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksButtonGroup = (buttons, options = {}) => {
     const { classes = [] } = options;
     const container = document.createElement("div");
@@ -328,14 +306,6 @@ exports.makeStacksButtonGroup = makeStacksButtonGroup;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksCheckboxes = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/checkbox/
- *
- * @summary Creates a Stacks checkbox
- * @param {Input.StacksInputTypes[]} checkboxes The checkboxes to create
- * @param {Input.StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLElement[]}
- */
 const makeStacksCheckboxes = (checkboxes, options) => {
     return index_1.Input.makeStacksRadiosOrCheckboxes(checkboxes, "checkbox", options);
 };
@@ -349,13 +319,6 @@ exports.makeStacksCheckboxes = makeStacksCheckboxes;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeIndicator = void 0;
-/**
- * @see https://stackoverflow.design/product/components/activity-indicator/
- *
- * @summary creates a Stacks activity indicator
- * @param {StacksIndicatorOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeIndicator = (options = {}) => {
     const { type = "", text = "", hiddenText = "", classes = [] } = options;
     const indicator = document.createElement("div");
@@ -385,15 +348,6 @@ exports.makeIndicator = makeIndicator;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksRadiosOrCheckboxes = exports.makeStacksInput = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/inputs/
- *
- * @summary creates a Stacks input
- * @param {string} id the input id
- * @param {StacksInputOptions} inputOptions input configuration
- * @param {StacksLabelOptions} [labelOptions] label configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     var _a;
     const { value = "", classes = [], placeholder = "", title, isSearch } = inputOptions;
@@ -427,15 +381,6 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     return inputParent;
 };
 exports.makeStacksInput = makeStacksInput;
-/**
- * @see https://stackoverflow.design/product/components/checkbox/
- * @see https://stackoverflow.design/product/components/radio/
- *
- * @summary Creates a Stacks input
- * @param {StacksInputTypes[]} inputs The checkboxes to create
- * @param {StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLElement[]} The checkboxes with or without the wrapper
- */
 const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
     fieldset.classList.add("s-check-group");
@@ -466,11 +411,6 @@ const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) =>
     }
 };
 exports.makeStacksRadiosOrCheckboxes = makeStacksRadiosOrCheckboxes;
-/**
- * @summary Helper for creating a checkbox/radio container
- * @param {StacksInputTypes} radioCheckbox input configuration
- * @returns {HTMLDivElement}
- */
 const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");
@@ -497,14 +437,6 @@ const makeFormContainer = (radioCheckbox, type) => {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksLabel = void 0;
-/**
- * @see https://stackoverflow.design/product/components/labels/
- *
- * @summary creates a Stacks label
- * @param {string} forId the label htmlFor attribute
- * @param {StacksLabelOptions} labelOptions label configuration
- * @returns {HTMLDivElement | HTMLLabelElement}
- */
 const makeStacksLabel = (forId, labelOptions) => {
     const { classes = [], parentClasses = [], text, description, statusText, statusType } = labelOptions;
     const labelParent = document.createElement("div");
@@ -513,7 +445,6 @@ const makeStacksLabel = (forId, labelOptions) => {
     label.classList.add("s-label", ...classes);
     label.htmlFor = forId;
     label.innerHTML = text;
-    // https://stackoverflow.design/product/components/labels/#status
     if (statusText && statusType) {
         const status = document.createElement("span");
         status.innerHTML = statusText;
@@ -527,8 +458,6 @@ const makeStacksLabel = (forId, labelOptions) => {
         const p = document.createElement("p");
         p.classList.add("s-description", "mt2");
         p.innerHTML = description;
-        // if there's a description, the label
-        // must have a d-block class
         label.classList.add("d-block");
         label.append(p);
         labelParent.append(label);
@@ -549,13 +478,6 @@ exports.makeStacksLabel = makeStacksLabel;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeLink = void 0;
-/**
- * @see https://stackoverflow.design/product/components/links/
- *
- * @summary creates a Stacks link
- * @param {StacksLinksOptions} options configuration
- * @returns {HTMLAnchorElement | HTMLButtonElement}
- */
 const makeLink = (options = {}) => {
     const { href = "", isButton = false, type = "", blockLink = null, text, click, classes = [] } = options;
     const anchor = document.createElement(isButton ? "button" : "a");
@@ -597,20 +519,11 @@ exports.makeLink = makeLink;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeMenu = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/menus/
- *
- * @summary creates a Stacks menu
- * @param {StacksMenuOptions} options configuration
- * @returns {HTMLUListElement}
- */
 const makeMenu = (options = {}) => {
     const { itemsType = "a", childrenClasses = [], navItems, classes = [] } = options;
     const menu = document.createElement("ul");
     menu.classList.add("s-menu", ...classes);
     menu.setAttribute("role", "menu");
-    // TODO
-    // https://stackoverflow.design/product/components/menus/#radio-groups
     navItems.forEach((navItem) => {
         var _a;
         const li = document.createElement("li");
@@ -631,7 +544,6 @@ const makeMenu = (options = {}) => {
         }
         else if ("checkbox" in navItem) {
             const { checkbox, checkboxOptions } = navItem;
-            // one checkbox returned, fetch second item of the array
             const [, input] = index_1.Checkbox.makeStacksCheckboxes([checkbox], checkboxOptions);
             li.append(input);
             menu.append(li);
@@ -658,15 +570,6 @@ exports.makeMenu = makeMenu;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeNavigation = void 0;
-/**
- * @see https://stackoverflow.design/product/components/navigation/
- *
- * @summary creates a Stacks navigation component
- * @param {StacksNavItems[]} navItems the children of the nav element
- * @param {"button" | "a"} type whether in-page navigation is used
- * @param {number} selectIndex the index of the item to select
- * @returns {HTMLElementTagNameMap["nav"]}
- */
 const makeNavigation = (navItems, type, selectIndex = 0) => {
     const navigation = document.createElement("nav");
     const ul = document.createElement("ul");
@@ -682,13 +585,6 @@ const makeNavigation = (navItems, type, selectIndex = 0) => {
     return navigation;
 };
 exports.makeNavigation = makeNavigation;
-/**
- * @summary creates a navigation item
- * @param {StacksNavItems} item info about the item to create
- * @param {"button" | "a"} type whether in-page navigation is used
- * @param {boolean} select whether the item should be selected
- * @returns {HTMLLIElement}
- */
 const createNavItem = ({ id, text, ariaControls }, type, select) => {
     const li = document.createElement("li");
     const wrapper = document.createElement(type);
@@ -716,13 +612,6 @@ const createNavItem = ({ id, text, ariaControls }, type, select) => {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksNotice = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/notices/
- *
- * @summary Creates a Stacks notice
- * @param {StacksNoticesOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksNotice = (options) => {
     const { type, important = false, icon, text, classes = [], } = options;
     const notice = document.createElement("aside");
@@ -764,13 +653,6 @@ exports.makeStacksNotice = makeStacksNotice;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makePagination = void 0;
-/**
- * @see https://stackoverflow.design/product/components/pagination/
- *
- * @summary Creates a Stacks pagination component
- * @param {StacksPaginationOptions} options
- * @returns {HTMLDivElement}
- */
 const makePagination = (options) => {
     const { first, middle, last, selectedPage = 1, generator, nextButtonHref = "#", classes = [] } = options;
     const container = document.createElement("div");
@@ -790,13 +672,6 @@ const makePagination = (options) => {
     return container;
 };
 exports.makePagination = makePagination;
-/**
- * @summary Creates a page button
- * @param {number} page - The page number
- * @param {string} url - The url for the page
- * @param {boolean} isSelected - Whether the page is selected
- * @returns {HTMLSpanElement | HTMLAnchorElement} The page button
- */
 const createPage = (page, url, isSelected) => {
     const element = document.createElement(isSelected ? "span" : "a");
     element.classList.add("s-pagination--item");
@@ -805,9 +680,6 @@ const createPage = (page, url, isSelected) => {
         element.href = url;
     }
     else {
-        //    element is not an anchor
-        // => element is a span
-        // => it should be selected
         element.classList.add("is-selected");
     }
     return element;
@@ -822,14 +694,6 @@ const createPage = (page, url, isSelected) => {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeSteppedBar = exports.makeSegmentedBar = exports.makeCircularBar = exports.makeBaseBar = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#base-style
- *
- * @summary Create a Stacks base progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksBaseBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeBaseBar = (id, options) => {
     const { width, coloring, classes = [], } = options;
     const bar = document.createElement("div");
@@ -849,14 +713,6 @@ const makeBaseBar = (id, options) => {
     return progress;
 };
 exports.makeBaseBar = makeBaseBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#circular
- *
- * @summary Create a Stacks circular progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksCircularBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeCircularBar = (id, options) => {
     const { width, classes = [], size } = options;
     const progress = document.createElement("div");
@@ -881,14 +737,6 @@ const makeCircularBar = (id, options) => {
     return progress;
 };
 exports.makeCircularBar = makeCircularBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#segmented
- *
- * @summary Create a Stacks segmented progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksSegmentedBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeSegmentedBar = (id, options) => {
     const { width, segments, coloring, classes = [], } = options;
     const progress = document.createElement("div");
@@ -914,15 +762,6 @@ const makeSegmentedBar = (id, options) => {
     return progress;
 };
 exports.makeSegmentedBar = makeSegmentedBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#stepped
- *
- * @summary Create a Stacks stepped progress bar
- * @param {string} id - the id of the progress bar
- * @param {SteppedBarItem[]} items - the items to display
- * @param {StacksCommonOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeSteppedBar = (id, items, options = {}) => {
     const { classes = [] } = options;
     const progress = document.createElement("div");
@@ -947,10 +786,10 @@ const makeSteppedBar = (id, items, options = {}) => {
         rightBar.classList.add("s-progress--bar", "s-progress--bar__right");
         const leftBar = document.createElement("div");
         leftBar.classList.add("s-progress--bar", "s-progress--bar__left");
-        if (index === 0) { // first item
+        if (index === 0) {
             step.append(rightBar);
         }
-        else if (index === items.length - 1) { // last item
+        else if (index === items.length - 1) {
             step.append(leftBar);
         }
         else {
@@ -975,14 +814,6 @@ exports.makeSteppedBar = makeSteppedBar;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksPopover = void 0;
-/**
- * @see https://stackoverflow.design/product/components/popovers
- *
- * @summary Creates a Stacks popover
- * @param {string} id The id of the popover
- * @param {HTMLElement} controller The controller element
- * @param {StacksPopoverOptions} options Popover configuration
- */
 const makeStacksPopover = (id, controller, options) => {
     const { referenceSelector, toggleClass, placement, toggle, autoShow, hideOnOutsideClick, manualArrowPositioning, callbacks, contentHtml, classes = [], } = options;
     controller.setAttribute("data-controller", "popover");
@@ -1039,14 +870,6 @@ exports.makeStacksPopover = makeStacksPopover;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksRadios = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/checkbox/
- *
- * @summary Creates a Stacks radio
- * @param {Input.StacksInputTypes[]} radios The radios to create
- * @param {Input.StacksRadioCheckboxOptions} [options] radio configuration
- * @returns {HTMLElement[]}
- */
 const makeStacksRadios = (radios, groupName, options) => {
     radios.forEach((radio) => {
         radio.name = groupName;
@@ -1064,16 +887,6 @@ exports.makeStacksRadios = makeStacksRadios;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.toggleValidation = exports.makeStacksSelect = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/select/
- *
- * @summary Creates a Stacks select element
- * @param {string} id The id of the select
- * @param {SelectOption[]} items The options to display in the select
- * @param {StacksSelectOptions} [options] configuration
- * @param {Label.StacksLabelOptions} [labelOptions] label configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
@@ -1111,14 +924,6 @@ const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     return container;
 };
 exports.makeStacksSelect = makeStacksSelect;
-/**
- * @see https://stackoverflow.design/product/components/select/#validation-states
- *
- * @summary Toggles validation styling to a select
- * @param {HTMLDivElement} container the select's container
- * @param {StacksSelectOptions["validation"]} [state] configuration
- * @returns {void}
- */
 const toggleValidation = (container, state) => {
     var _a, _b;
     container.classList.remove("has-success", "has-warning", "has-error");
@@ -1143,13 +948,6 @@ exports.toggleValidation = toggleValidation;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeSpinner = void 0;
-/**
- * @see https://stackoverflow.design/product/components/spinner/
- *
- * @summary creates a Stacks spinner
- * @param {StacksSpinnerOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeSpinner = (options = {}) => {
     const { size = "", hiddenText = "", classes = [] } = options;
     const spinner = document.createElement("div");
@@ -1176,13 +974,6 @@ exports.makeSpinner = makeSpinner;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksTag = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/tags/
- *
- * @summary Creates a Stacks tag
- * @param {StacksTagsOptions} options - configuration
- * @returns {AnchorElement}
- */
 const makeStacksTag = (options) => {
     const { classes = [], name, href = "#", moderator = false, selected = false, size = "", muted = false, required = false, sponsor = null, dismissable = false, onDismiss = null, watched = false, ignored = false, } = options;
     const tag = document.createElement("a");
@@ -1246,15 +1037,6 @@ exports.makeStacksTag = makeStacksTag;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.toggleValidation = exports.makeStacksTextarea = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/textarea/
- *
- * @summary creates a Stacks textarea
- * @param {string} id the textarea id
- * @param {StacksTextareaOptions} textareaOptions textarea configuration
- * @param {Label.StacksLabelOptions} [labelOptions] label configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     const { value = "", classes = [], placeholder = "", title = "", size, validation, } = textareaOptions;
     const textareaParent = document.createElement("div");
@@ -1279,20 +1061,11 @@ const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     return textareaParent;
 };
 exports.makeStacksTextarea = makeStacksTextarea;
-/**
- * @see https://stackoverflow.design/product/components/textarea/#validation-states
- *
- * @summary Toggles validation styling to a textarea
- * @param {HTMLDivElement} textareaParent the textarea's container
- * @param {StacksTextareaOptions["validation"]} validation configuration
- * @returns {void}
- */
 const toggleValidation = (textareaParent, validation) => {
     var _a, _b;
     textareaParent.classList.remove("has-success", "has-warning", "has-error");
     const oldTextarea = textareaParent.querySelector(".s-textarea");
     if (!validation) {
-        // toggle off all styles
         (_a = textareaParent.querySelector(".s-input-icon")) === null || _a === void 0 ? void 0 : _a.remove();
         (_b = textareaParent.querySelector(".s-input-message")) === null || _b === void 0 ? void 0 : _b.remove();
         const validationContainer = oldTextarea.parentElement;
@@ -1306,7 +1079,6 @@ const toggleValidation = (textareaParent, validation) => {
         classes: ["s-input-icon"],
         width: 18,
     });
-    // switch validation
     if (oldTextarea.nextElementSibling) {
         oldTextarea.nextElementSibling.replaceWith(icon);
         const inputMessage = textareaParent.querySelector(".s-input-message");
@@ -1323,7 +1095,6 @@ const toggleValidation = (textareaParent, validation) => {
         }
     }
     else {
-        // create validation
         const validationContainer = document.createElement("div");
         validationContainer.classList.add("d-flex", "ps-relative");
         validationContainer.append(oldTextarea, icon);
@@ -1350,16 +1121,6 @@ const createAndAppendDescription = (description, appendTo) => {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksToggle = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/toggle-switch/
- *
- * @summary Creates a Stacks toggle switch
- * @param {string} id the switch id
- * @param {StacksToggleOptions} labelOptions attached label configuration
- * @param {boolean} on the state of the switch
- * @param {string[]} classes the classes to apply to the container of the switch
- * @returns {HTMLDivElement}
- */
 const makeStacksToggle = (id, labelOptions, on = false, ...classes) => {
     const container = document.createElement("div");
     container.classList.add("d-flex", "g8", "ai-center", ...classes);
@@ -1383,13 +1144,6 @@ exports.makeStacksToggle = makeStacksToggle;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeMinimalUserCard = exports.makeSmallUserCard = exports.makeBaseUserCard = exports.makeFullUserCard = void 0;
 const _1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#full
- *
- * @summary Creates a Stacks full user card
- * @param {FullUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeFullUserCard = (options) => {
     const { avatar, user: { name = "", href = "#", reputation = "1", badges, labels, role, location, tags }, userType, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -1429,7 +1183,6 @@ const makeFullUserCard = (options) => {
             var _a;
             (_a = config.classes) === null || _a === void 0 ? void 0 : _a.push("flex--item");
             if (!(config === null || config === void 0 ? void 0 : config.size)) {
-                // default tag size for full cards
                 config.size = "xs";
             }
             return _1.Tag.makeStacksTag(config);
@@ -1447,13 +1200,6 @@ const makeFullUserCard = (options) => {
     return userCard;
 };
 exports.makeFullUserCard = makeFullUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#base
- *
- * @summary Creates a Stacks base user card
- * @param {BaseUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeBaseUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", badges, labels, }, deleted, highlight, userType, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -1480,11 +1226,8 @@ const makeBaseUserCard = (options) => {
     }
     infoContainer.append(link);
     userCard.append(timeEl, avatarContainer, infoContainer);
-    // (if one is true, both are guaranteed to be true,
-    //  doing this to shut up the TS compiler)
     if (deleted || link instanceof HTMLDivElement) {
         userCard.classList.add("s-user-card__deleted");
-        // no more info for deleted users
         return userCard;
     }
     link.href = href;
@@ -1499,13 +1242,6 @@ const makeBaseUserCard = (options) => {
     return userCard;
 };
 exports.makeBaseUserCard = makeBaseUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#small
- *
- * @summary Creates a Stacks small user card
- * @param {SmallUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeSmallUserCard = (options) => {
     const { avatar, user: { badges, href = "#", reputation = "1", }, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -1519,13 +1255,6 @@ const makeSmallUserCard = (options) => {
     return userCard;
 };
 exports.makeSmallUserCard = makeSmallUserCard;
-/**
- * @see https://stackoverflow.design/product/components/user-cards/#minimal
- *
- * @summary Creates a Stacks minimal user card
- * @param {MinimalUserCardOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeMinimalUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", }, deleted, classes = [], } = options;
     const userCard = document.createElement("div");
@@ -1554,12 +1283,6 @@ const makeMinimalUserCard = (options) => {
     return userCard;
 };
 exports.makeMinimalUserCard = makeMinimalUserCard;
-/**
- * @summary Helper for getting the user awards `<li>`
- * @param {string} reputation The user's reputation
- * @param {AllUserCardOptions["user"]["badge"]} badges The user's badges
- * @returns {HTMLUListElement}
- */
 const getUserAwards = (reputation, badges) => {
     const awards = document.createElement("ul");
     awards.classList.add("s-user-card--awards");
@@ -1578,35 +1301,20 @@ const getUserAwards = (reputation, badges) => {
     }
     return awards;
 };
-/**
- * @summary Helper for getting the user staff/admin/mod badges
- * @param {Required<AllUserCardOptions["user"]>["labels"]} labels badges configuration
- * @returns {HTMLSpanElement[]}
- */
 const getLabelElements = (labels) => {
     return labels.map((config) => {
         var _a;
         (_a = config.classes) === null || _a === void 0 ? void 0 : _a.push("flex--item");
         if (!config.size) {
-            // default badge size for full cards
             config.size = "xs";
         }
         return _1.Badges.makeStacksBadge(config);
     });
 };
-/**
- * @summary Helper for getting the default user avatar
- * @param {AllUserCardOptions["avatar"]} avatar avatar configuration
- * @param {string} defaultHref The default href to apply
- * @param {number} defaultSize The default size of the avatar
- * @param {boolean} deleted Whether the user is a deleted user
- * @returns {HTMLDivElement}
- */
 const getDefaultUserCardAvatar = (config, defaultHref, defaultSize, deleted) => {
     var _a;
     (_a = config === null || config === void 0 ? void 0 : config.classes) === null || _a === void 0 ? void 0 : _a.push("s-user-card--avatar");
     if (config && !config.size && defaultSize) {
-        // default size for base cards
         config.size = defaultSize;
     }
     if (config && !config.href) {
@@ -1624,15 +1332,6 @@ const getDefaultUserCardAvatar = (config, defaultHref, defaultSize, deleted) => 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksButton = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/buttons/
- *
- * @summary creates a stacks button
- * @param {string} id id of the button
- * @param {string} text text of the button
- * @param {StacksIconButtonOptions} [options] configuration
- * @returns {HTMLButtonElement}
- */
 const makeStacksButton = (id, text, options = {}) => {
     const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, click, classes = [], } = options;
     const btn = document.createElement("button");
@@ -1705,13 +1404,6 @@ exports.validationIcons = {
         "M16 4.41 14.59 3 6 11.59 2.41 8 1 9.41l5 5 10-10Z"
     ]
 };
-/**
- * @see https://stackoverflow.design/product/resources/icons/
- *
- * @summary makes Stacks icon
- * @param {string} name the name of the icon
- * @param {string} pathConfig the SVG's `path` attribute
- */
 const makeStacksIcon = (name, pathConfig, { classes = [], width = 14, height = width } = {}) => {
     const ns = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(ns, "svg");
@@ -1736,14 +1428,6 @@ exports.makeStacksIcon = makeStacksIcon;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.makeStacksModal = void 0;
 const index_1 = __webpack_require__(0);
-/**
- * @see https://stackoverflow.design/product/components/modals/
- *
- * @summary creates a Stacks modal
- * @param {string} id the id of the modal
- * @param {StacksModalOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksModal = (id, options) => {
     const { classes = [], danger = false, fullscreen = false, celebratory = false, title: { text, id: titleId, classes: titleClasses = [] }, body: { bodyHtml, id: bodyId, classes: bodyClasses = [] }, footer: { buttons, classes: footerClasses = [] }, } = options;
     const modal = document.createElement("aside");
@@ -1810,13 +1494,6 @@ exports.makeStacksModal = makeStacksModal;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.showToast = exports.hideToast = exports.toggleToast = exports.makeStacksToast = void 0;
 const index_1 = __webpack_require__(25);
-/**
- * @see https://stackoverflow.design/product/components/notices/
- *
- * @summary builder for Stacks notifications
- * @param {string} id the toast id
- * @param {string} text the message text
- */
 const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = [], type = "none", important = false, } = {}) => {
     const wrap = document.createElement("div");
     wrap.classList.add("s-toast", ...classes);
@@ -1851,9 +1528,6 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     return wrap;
 };
 exports.makeStacksToast = makeStacksToast;
-/**
- * @summary toggles the Stacks toast visibility
- */
 const toggleToast = (target, show) => {
     const toast = typeof target === "string" ? document.querySelector(target) : target;
     if (!toast)
@@ -1863,18 +1537,12 @@ const toggleToast = (target, show) => {
     return toast;
 };
 exports.toggleToast = toggleToast;
-/**
- * @summary hides the Stacks toast
- */
 const hideToast = (target, hideFor) => {
     const toast = (0, exports.toggleToast)(target, false);
     if (hideFor)
         setTimeout(() => (0, exports.showToast)(toast), hideFor * 1e3);
 };
 exports.hideToast = hideToast;
-/**
- * @summary shows the Stacks toast
- */
 const showToast = (target, showFor) => {
     const toast = (0, exports.toggleToast)(target, true);
     if (showFor)
@@ -1904,7 +1572,7 @@ exports.showToast = showToast;
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;

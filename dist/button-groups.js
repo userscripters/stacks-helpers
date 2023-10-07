@@ -1,14 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksButtonGroup = void 0;
-/**
- * @see https://stackoverflow.design/product/components/button-groups/
- *
- * @summary Creates a Stacks button group
- * @param {GroupButton[]} buttons the buttons to display in the group
- * @param {StacksButtonGroupOptions} [options] configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksButtonGroup = (buttons, options = {}) => {
     const { classes = [] } = options;
     const container = document.createElement("div");

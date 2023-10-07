@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack'); // for the banner plugin
+import path from 'path';
+import { Configuration } from 'webpack';
 
-module.exports = {
+const config: Configuration = {
     entry: './src/index.ts',
     mode: 'none',
     target: 'node',
@@ -24,3 +24,5 @@ module.exports = {
         ]
     }
 }
+
+export default config;

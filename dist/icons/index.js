@@ -15,13 +15,6 @@ exports.validationIcons = {
         "M16 4.41 14.59 3 6 11.59 2.41 8 1 9.41l5 5 10-10Z"
     ]
 };
-/**
- * @see https://stackoverflow.design/product/resources/icons/
- *
- * @summary makes Stacks icon
- * @param {string} name the name of the icon
- * @param {string} pathConfig the SVG's `path` attribute
- */
 const makeStacksIcon = (name, pathConfig, { classes = [], width = 14, height = width } = {}) => {
     const ns = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(ns, "svg");

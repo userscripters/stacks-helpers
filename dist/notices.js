@@ -2,13 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksNotice = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/notices/
- *
- * @summary Creates a Stacks notice
- * @param {StacksNoticesOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksNotice = (options) => {
     const { type, important = false, icon, text, classes = [], } = options;
     const notice = document.createElement("aside");

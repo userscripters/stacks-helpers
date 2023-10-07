@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeIndicator = void 0;
-/**
- * @see https://stackoverflow.design/product/components/activity-indicator/
- *
- * @summary creates a Stacks activity indicator
- * @param {StacksIndicatorOptions} options configuration
- * @returns {HTMLDivElement}
- */
 const makeIndicator = (options = {}) => {
     const { type = "", text = "", hiddenText = "", classes = [] } = options;
     const indicator = document.createElement("div");

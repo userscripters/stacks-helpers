@@ -2,14 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeSteppedBar = exports.makeSegmentedBar = exports.makeCircularBar = exports.makeBaseBar = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#base-style
- *
- * @summary Create a Stacks base progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksBaseBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeBaseBar = (id, options) => {
     const { width, coloring, classes = [], } = options;
     const bar = document.createElement("div");
@@ -29,14 +21,6 @@ const makeBaseBar = (id, options) => {
     return progress;
 };
 exports.makeBaseBar = makeBaseBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#circular
- *
- * @summary Create a Stacks circular progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksCircularBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeCircularBar = (id, options) => {
     const { width, classes = [], size } = options;
     const progress = document.createElement("div");
@@ -61,14 +45,6 @@ const makeCircularBar = (id, options) => {
     return progress;
 };
 exports.makeCircularBar = makeCircularBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#segmented
- *
- * @summary Create a Stacks segmented progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksSegmentedBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeSegmentedBar = (id, options) => {
     const { width, segments, coloring, classes = [], } = options;
     const progress = document.createElement("div");
@@ -94,15 +70,6 @@ const makeSegmentedBar = (id, options) => {
     return progress;
 };
 exports.makeSegmentedBar = makeSegmentedBar;
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#stepped
- *
- * @summary Create a Stacks stepped progress bar
- * @param {string} id - the id of the progress bar
- * @param {SteppedBarItem[]} items - the items to display
- * @param {StacksCommonOptions} options - configuration
- * @returns {HTMLDivElement}
- */
 const makeSteppedBar = (id, items, options = {}) => {
     const { classes = [] } = options;
     const progress = document.createElement("div");
@@ -127,10 +94,10 @@ const makeSteppedBar = (id, items, options = {}) => {
         rightBar.classList.add("s-progress--bar", "s-progress--bar__right");
         const leftBar = document.createElement("div");
         leftBar.classList.add("s-progress--bar", "s-progress--bar__left");
-        if (index === 0) { // first item
+        if (index === 0) {
             step.append(rightBar);
         }
-        else if (index === items.length - 1) { // last item
+        else if (index === items.length - 1) {
             step.append(leftBar);
         }
         else {

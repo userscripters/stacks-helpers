@@ -1,15 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeNavigation = void 0;
-/**
- * @see https://stackoverflow.design/product/components/navigation/
- *
- * @summary creates a Stacks navigation component
- * @param {StacksNavItems[]} navItems the children of the nav element
- * @param {"button" | "a"} type whether in-page navigation is used
- * @param {number} selectIndex the index of the item to select
- * @returns {HTMLElementTagNameMap["nav"]}
- */
 const makeNavigation = (navItems, type, selectIndex = 0) => {
     const navigation = document.createElement("nav");
     const ul = document.createElement("ul");
@@ -25,13 +16,6 @@ const makeNavigation = (navItems, type, selectIndex = 0) => {
     return navigation;
 };
 exports.makeNavigation = makeNavigation;
-/**
- * @summary creates a navigation item
- * @param {StacksNavItems} item info about the item to create
- * @param {"button" | "a"} type whether in-page navigation is used
- * @param {boolean} select whether the item should be selected
- * @returns {HTMLLIElement}
- */
 const createNavItem = ({ id, text, ariaControls }, type, select) => {
     const li = document.createElement("li");
     const wrapper = document.createElement(type);

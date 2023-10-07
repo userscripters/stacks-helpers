@@ -1,14 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksPopover = void 0;
-/**
- * @see https://stackoverflow.design/product/components/popovers
- *
- * @summary Creates a Stacks popover
- * @param {string} id The id of the popover
- * @param {HTMLElement} controller The controller element
- * @param {StacksPopoverOptions} options Popover configuration
- */
 const makeStacksPopover = (id, controller, options) => {
     const { referenceSelector, toggleClass, placement, toggle, autoShow, hideOnOutsideClick, manualArrowPositioning, callbacks, contentHtml, classes = [], } = options;
     controller.setAttribute("data-controller", "popover");

@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makePagination = void 0;
-/**
- * @see https://stackoverflow.design/product/components/pagination/
- *
- * @summary Creates a Stacks pagination component
- * @param {StacksPaginationOptions} options
- * @returns {HTMLDivElement}
- */
 const makePagination = (options) => {
     const { first, middle, last, selectedPage = 1, generator, nextButtonHref = "#", classes = [] } = options;
     const container = document.createElement("div");
@@ -27,13 +20,6 @@ const makePagination = (options) => {
     return container;
 };
 exports.makePagination = makePagination;
-/**
- * @summary Creates a page button
- * @param {number} page - The page number
- * @param {string} url - The url for the page
- * @param {boolean} isSelected - Whether the page is selected
- * @returns {HTMLSpanElement | HTMLAnchorElement} The page button
- */
 const createPage = (page, url, isSelected) => {
     const element = document.createElement(isSelected ? "span" : "a");
     element.classList.add("s-pagination--item");
@@ -42,9 +28,6 @@ const createPage = (page, url, isSelected) => {
         element.href = url;
     }
     else {
-        //    element is not an anchor
-        // => element is a span
-        // => it should be selected
         element.classList.add("is-selected");
     }
     return element;

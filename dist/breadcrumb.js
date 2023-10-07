@@ -2,14 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksBreadcrumb = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/breadcrumbs/
- *
- * @summary Creates a Stacks breadcrumb
- * @param {BreadcrumbItem[]} items An array of items to display in the breadcrumb
- * @param {StacksCommonOptions} options configuration
- * @returns {HTMLElement}
- */
 const makeStacksBreadcrumb = (items, options) => {
     const { classes = [] } = options;
     const nav = document.createElement("nav");
@@ -22,7 +14,6 @@ const makeStacksBreadcrumb = (items, options) => {
         breadcrumbLink.classList.add("s-breadcrumbs--link");
         breadcrumbLink.href = href;
         if (Array.isArray(label)) {
-            // this is an icon
             const [name, path] = label;
             const [icon] = index_1.Icons.makeStacksIcon(name, path, {
                 classes: ["mtn2"],

@@ -2,15 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksRadiosOrCheckboxes = exports.makeStacksInput = void 0;
 const index_1 = require("./index");
-/**
- * @see https://stackoverflow.design/product/components/inputs/
- *
- * @summary creates a Stacks input
- * @param {string} id the input id
- * @param {StacksInputOptions} inputOptions input configuration
- * @param {StacksLabelOptions} [labelOptions] label configuration
- * @returns {HTMLDivElement}
- */
 const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     var _a;
     const { value = "", classes = [], placeholder = "", title, isSearch } = inputOptions;
@@ -44,15 +35,6 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     return inputParent;
 };
 exports.makeStacksInput = makeStacksInput;
-/**
- * @see https://stackoverflow.design/product/components/checkbox/
- * @see https://stackoverflow.design/product/components/radio/
- *
- * @summary Creates a Stacks input
- * @param {StacksInputTypes[]} inputs The checkboxes to create
- * @param {StacksRadioCheckboxOptions} [options] checkbox configuration
- * @returns {HTMLElement[]} The checkboxes with or without the wrapper
- */
 const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
     fieldset.classList.add("s-check-group");
@@ -83,11 +65,6 @@ const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) =>
     }
 };
 exports.makeStacksRadiosOrCheckboxes = makeStacksRadiosOrCheckboxes;
-/**
- * @summary Helper for creating a checkbox/radio container
- * @param {StacksInputTypes} radioCheckbox input configuration
- * @returns {HTMLDivElement}
- */
 const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");

@@ -2,6 +2,10 @@
     "compileOnSave": true,
     "compilerOptions": {
         "strict": true,
+        "strictBindCallApply": false,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "skipLibCheck": true,

@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeBling = exports.makeStacksBadge = void 0;
-/**
- * @see https://stackoverflow.design/product/components/badges/
- *
- * @summary creates a Stacks badge
- * @param {StacksBadgesOptions} options configuration
- * @returns {HTMLSpanElement}
- */
 const makeStacksBadge = (options) => {
     const { classes = [], blingColor = "", type = "", size = "", text, icon, } = options;
     const badge = document.createElement("span");
@@ -33,13 +26,6 @@ const makeStacksBadge = (options) => {
     return badge;
 };
 exports.makeStacksBadge = makeStacksBadge;
-/**
- * @summary Creates gold/silver/bronze bling
- * @param {keyof HTMLElementTagNameMap} elementType The type of the container element
- * @param {"gold" | "silver" | "bronze"} color The badge colour
- * @param {string} count The badge count
- * @returns {HTMLElement}
- */
 const makeBling = (elementType, color, count) => {
     const element = document.createElement(elementType);
     element.classList.add("s-award-bling", `s-award-bling__${color}`);

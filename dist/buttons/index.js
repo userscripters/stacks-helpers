@@ -2,15 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksButton = void 0;
 const index_1 = require("../index");
-/**
- * @see https://stackoverflow.design/product/components/buttons/
- *
- * @summary creates a stacks button
- * @param {string} id id of the button
- * @param {string} text text of the button
- * @param {StacksIconButtonOptions} [options] configuration
- * @returns {HTMLButtonElement}
- */
 const makeStacksButton = (id, text, options = {}) => {
     const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, click, classes = [], } = options;
     const btn = document.createElement("button");

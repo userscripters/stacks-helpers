@@ -2,14 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksUploader = void 0;
 const index_1 = require("../buttons/index");
-/**
- * @see https://stackoverflow.design/product/components/uploader/
- *
- * @summary builds a Stacks uploader
- * @param id uploader element id
- * @param label uploader label text
- * @param options uploader configuration
- */
 const makeStacksUploader = (id, label, options) => {
     const { classes = [], inputClasses = [], resetter, onReset, onUpload, resetButtonClasses = [], state, uploadButtonClasses = [], uploader, } = options;
     const upl = document.createElement("div");

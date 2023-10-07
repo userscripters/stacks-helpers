@@ -1,13 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeLink = void 0;
-/**
- * @see https://stackoverflow.design/product/components/links/
- *
- * @summary creates a Stacks link
- * @param {StacksLinksOptions} options configuration
- * @returns {HTMLAnchorElement | HTMLButtonElement}
- */
 const makeLink = (options = {}) => {
     const { href = "", isButton = false, type = "", blockLink = null, text, click, classes = [] } = options;
     const anchor = document.createElement(isButton ? "button" : "a");
