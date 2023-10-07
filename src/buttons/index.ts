@@ -1,6 +1,6 @@
 import { Icons, StacksCommonOptions } from "../index";
 
-export type ButtonType = "outlined" | "link" | "filled" | "muted"
+export type ButtonType = "outlined" | "link" | "muted"
                        | "danger" | "dropdown" | "unset" | "link"
                        | "facebook" | "google" | "github";
 
@@ -85,7 +85,7 @@ export const makeStacksButton = (
     btn.setAttribute("aria-label", title || text);
 
     if (primary) {
-        btn.classList.add("s-btn__primary");
+        btn.classList.add("s-btn__filled");
     }
 
     if (loading) {
