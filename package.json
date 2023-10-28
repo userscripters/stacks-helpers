@@ -36,9 +36,9 @@
     ],
     "license": "GPL-3.0-or-later",
     "devDependencies": {
-        "@types/node": "^20.8.7",
-        "@typescript-eslint/eslint-plugin": "^6.8.0",
-        "@typescript-eslint/parser": "^6.8.0",
+        "@types/node": "^20.8.9",
+        "@typescript-eslint/eslint-plugin": "^6.9.0",
+        "@typescript-eslint/parser": "^6.9.0",
         "@userscripters/generate-readme": "^2.3.1",
         "eslint": "^8.52.0",
         "ts-loader": "^9.5.0",
