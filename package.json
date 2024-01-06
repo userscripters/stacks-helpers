@@ -9,7 +9,7 @@
     "scripts": {
         "clean": "rm -rf dist",
         "lint": "eslint src --fix --ext .js,.ts",
-        "build": "npm run lint && webpack && tsc",
+        "build": "npm run lint && node build.js && tsc",
         "readme": "generate-readme",
         "postversion": "bash ./scripts/postversion.sh",
         "test": "TS_NODE_PROJECT='./test/tsconfig.json' mocha test/**/*.spec.ts*"
@@ -44,14 +44,12 @@
         "@typescript-eslint/parser": "^6.17.0",
         "@userscripters/generate-readme": "^2.3.1",
         "chai": "^5.0.0",
+        "esbuild": "^0.19.11",
         "eslint": "^8.56.0",
         "jsdom": "^23.1.0",
         "mocha": "^10.2.0",
-        "ts-loader": "^9.5.1",
         "ts-node": "^10.9.2",
-        "typescript": "^5.3.3",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4"
+        "typescript": "^5.3.3"
     },
     "types": "./dist/index.d.ts",
     "main": "./dist/index.js",
