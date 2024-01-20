@@ -1,5 +1,5 @@
 import { StacksCommonOptions } from "../index";
-export type ButtonType = "outlined" | "link" | "filled" | "muted" | "danger" | "dropdown" | "unset" | "link" | "facebook" | "google" | "github";
+export type ButtonType = "outlined" | "link" | "muted" | "danger" | "dropdown" | "unset" | "link" | "facebook" | "google" | "github";
 export type StacksIconButtonOptions = StacksCommonOptions & {
     title?: string;
     type?: ButtonType[];

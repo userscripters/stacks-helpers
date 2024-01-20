@@ -12,7 +12,7 @@ const makeStacksButton = (id, text, options = {}) => {
     btn.setAttribute("role", "button");
     btn.setAttribute("aria-label", title || text);
     if (primary) {
-        btn.classList.add("s-btn__primary");
+        btn.classList.add("s-btn__filled");
     }
     if (loading) {
         btn.classList.add("is-loading");
