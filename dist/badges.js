@@ -29,7 +29,7 @@ exports.makeStacksBadge = makeStacksBadge;
 const makeBling = (elementType, color, count) => {
     const element = document.createElement(elementType);
     element.classList.add("s-award-bling", `s-award-bling__${color}`);
-    element.innerText = count;
+    element.textContent = count;
     return element;
 };
 exports.makeBling = makeBling;

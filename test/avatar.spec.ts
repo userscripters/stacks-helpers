@@ -1,23 +1,20 @@
 import { expect } from "chai";
 import { makeAvatar, StacksAvatarOptions } from "../src/avatar";
+import { getSample, appendScript } from "./index.spec";
 import { JSDOM } from "jsdom";
-import fs from "fs";
 
-describe('Avatar', () => {
-    const samplePath = new URL("avatar.html", import.meta.url);
-    const avatars = fs.readFileSync(samplePath, "utf-8").split("\n");
+describe("Avatar", function() {
+    const avatars = getSample(this.title.toLowerCase());
 
     let window: JSDOM["window"];
 
     beforeEach(() => {
-        window = new JSDOM(``, { runScripts: "dangerously" }).window;
-
-        const script = window.document.createElement("script");
-        script.textContent = `window.makeAvatar = ${makeAvatar}`;
-        window.document.body.append(script);
+        window = new JSDOM("", { runScripts: "dangerously" }).window;
+        appendScript(window, makeAvatar);
     });
 
-    it('should correctly generate avatars', () => {
+
+    it("should correctly generate avatars", () => {
         const avatar = window.makeAvatar as typeof makeAvatar;
 
         (
@@ -30,9 +27,7 @@ describe('Avatar', () => {
         ).forEach((data, index) => {
             const el = avatar(data);
 
-            expect(el.outerHTML).to.equal(avatars[index]);
+            expect(el.isEqualNode(avatars[index])).to.equal(true);
         });
-
-        expect(true).to.be.true;
     });
 });

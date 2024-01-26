@@ -3,12 +3,13 @@
     "noInlineConfig": true,
     "ignorePatterns": "",
     "env": {
-        "browser": true
+        "browser": true,
+        "mocha": true
     },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 6,
-        "project": "./tsconfig.json"
+        "project": ["./tsconfig.json", "./test/tsconfig.json"]
     },
     "plugins": [
         "@typescript-eslint"

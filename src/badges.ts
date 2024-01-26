@@ -86,7 +86,7 @@ export const makeBling = (
 ): HTMLElement => {
     const element = document.createElement(elementType);
     element.classList.add("s-award-bling", `s-award-bling__${color}`);
-    element.innerText = count;
+    element.textContent = count;
 
     return element;
 };
