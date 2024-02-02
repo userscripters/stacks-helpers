@@ -11,7 +11,7 @@ describe("Badges", function() {
 
     beforeEach(() => {
         window = new JSDOM("", { runScripts: "dangerously" }).window;
-        appendScript(window, makeStacksBadge, makeBling, makeStacksIcon);
+        appendScript(window, { makeStacksBadge, makeBling, makeStacksIcon });
     });
 
     it("should correctly generate badges", () => {

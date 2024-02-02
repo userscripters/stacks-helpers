@@ -3,10 +3,10 @@ import fs from "fs";
 
 export function appendScript(
     window: JSDOM["window"],
-    ...functions: Function[]
+    functions: { [key: string]: Function | Object }
 ) {
-    const scriptContent = functions
-        .map((func) => `window.${func.name} = ${func};`)
+    const scriptContent = Object.entries(functions)
+        .map(([name, func]) => `window.${name} = ${func};`)
         .join(" ");
 
     const script = window.document.createElement("script");

@@ -2,7 +2,7 @@ import { StacksCommonOptions, Icons } from "./index";
 
 export type BreadcrumbItem = {
     /** The text of the breadcrumb (HTML elements allowed) */
-    label: string | HTMLElement;
+    label: string | string[] | HTMLElement;
     /** The link the item should point to */
     href?: string;
 };
@@ -17,9 +17,9 @@ export type BreadcrumbItem = {
  */
 export const makeStacksBreadcrumb = (
     items: BreadcrumbItem[],
-    options: StacksCommonOptions,
+    options?: StacksCommonOptions,
 ): HTMLElement => {
-    const { classes = [] } = options;
+    const { classes = [] } = options || {};
 
     const nav = document.createElement("nav");
     nav.classList.add("s-breadcrumbs", "mb6", "sm:mb2", ...classes);

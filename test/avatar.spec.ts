@@ -10,7 +10,7 @@ describe("Avatar", function() {
 
     beforeEach(() => {
         window = new JSDOM("", { runScripts: "dangerously" }).window;
-        appendScript(window, makeAvatar);
+        appendScript(window, { makeAvatar });
     });
 
 
