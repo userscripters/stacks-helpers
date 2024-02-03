@@ -54,7 +54,7 @@ export type StacksIconButtonOptions = StacksCommonOptions & {
  */
 export const makeStacksButton = (
     id: string,
-    text: string,
+    text: string | HTMLElement,
     options: StacksIconButtonOptions = {}
 ): HTMLButtonElement => {
     const {
@@ -72,17 +72,26 @@ export const makeStacksButton = (
     } = options;
 
     const btn = document.createElement("button");
-    btn.id = id;
-    btn.textContent = text;
+    if (id !== "") {
+        btn.id = id;
+    }
+
     btn.classList.add(
         "s-btn",
         ...type.map((name) => `s-btn__${name}`),
         ...classes
     );
+    btn.append(text);
 
     btn.type = "button";
     btn.setAttribute("role", "button");
-    btn.setAttribute("aria-label", title || text);
+
+    const ariaLabel = title || (
+        text instanceof HTMLElement
+            ? text.textContent || ""
+            : text
+    );
+    btn.setAttribute("aria-label", ariaLabel);
 
     if (primary) {
         btn.classList.add("s-btn__filled");

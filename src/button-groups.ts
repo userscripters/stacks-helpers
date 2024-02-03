@@ -1,4 +1,5 @@
 import { StacksCommonOptions } from "./index";
+import { Buttons } from "./index";
 
 export type GroupButton = {
     /** Button text (HTML allowed) */
@@ -9,6 +10,8 @@ export type GroupButton = {
     count?: number;
     /** Whether to wrap the button in a `<form>` element */
     form?: boolean;
+    /** The type of the button (outlined and muted by default) */
+    types?: Omit<Buttons.ButtonType, "outlined" | "muted">[];
 };
 
 export type StacksButtonGroupOptions = StacksCommonOptions;
@@ -36,12 +39,14 @@ export const makeStacksButtonGroup = (
             selected = false,
             count,
             form = false,
+            types = []
         } = buttonConfig;
 
-        const button = document.createElement("button");
-        button.classList.add("s-btn", "s-btn__muted", "s-btn__outlined");
-        button.setAttribute("role", "button");
-        button.append(text);
+        const button = Buttons.makeStacksButton(
+            "",
+            text,
+            { type: ["muted", "outlined", ...(types as Buttons.ButtonType[])] }
+        );
 
         if (selected) {
             button.classList.add("is-selected");
@@ -61,7 +66,6 @@ export const makeStacksButtonGroup = (
 
         if (form) {
             const formContainer = document.createElement("form");
-            formContainer.classList.add("s-btn-group--container");
             formContainer.append(button);
 
             container.append(formContainer);
