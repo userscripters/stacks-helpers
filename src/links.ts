@@ -49,7 +49,7 @@ export const makeLink = (
 
     const anchor = document.createElement(isButton ? "button" : "a");
     anchor.classList.add("s-link", ...classes);
-    anchor.innerText = text;
+    anchor.textContent = text;
 
     if (type) {
         anchor.classList.add(`s-link__${type}`);
