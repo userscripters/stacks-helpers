@@ -29,7 +29,7 @@ export type MenuItemPopover = {
 };
 
 // either a nav item, a divider or a title
-export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & MenuItemPopover | {
+export type MenuItem = Links.StacksLinksOptions & MenuItemPopover | {
     /** The type of the separator (divider or title) */
     separatorType: "divider" | "title";
     /** The title (pass only if `type` is `title`) */
@@ -96,7 +96,7 @@ export const makeMenu = (
             li.setAttribute("role", "separator");
             li.classList.add(`s-menu--${separatorType}`);
 
-            if (separatorText) li.innerText = separatorText;
+            if (separatorText) li.textContent = separatorText;
 
             menu.append(li);
 
@@ -125,7 +125,7 @@ export const makeMenu = (
 
         const item = Links.makeLink(
             Object.assign({
-                isButton: itemsType === "button",
+                isButton: itemsType === "button" || navItem.isButton,
                 blockLink: {},
             }, navItem)
         );
