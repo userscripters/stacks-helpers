@@ -80,14 +80,19 @@ export const makePagination = (
  * @param {boolean} isSelected - Whether the page is selected
  * @returns {HTMLSpanElement | HTMLAnchorElement} The page button
  */
-const createPage = (
+export const createPage = (
     page: number,
     url: string,
     isSelected: boolean,
 ): HTMLSpanElement | HTMLAnchorElement => {
     const element = document.createElement(isSelected ? "span" : "a");
     element.classList.add("s-pagination--item");
-    element.textContent = page.toString();
+
+    const span = document.createElement("span");
+    span.classList.add("v-visible-sr");
+    span.textContent = "page";
+
+    element.append(span, page.toString());
 
     if (element instanceof HTMLAnchorElement) {
         element.href = url;
@@ -96,6 +101,7 @@ const createPage = (
         // => element is a span
         // => it should be selected
         element.classList.add("is-selected");
+        element.ariaCurrent = "page";
     }
 
     return element;
