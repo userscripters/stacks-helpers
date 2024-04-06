@@ -39,9 +39,9 @@
         "@types/chai": "^4.3.14",
         "@types/jsdom": "^21.1.6",
         "@types/mocha": "^10.0.6",
-        "@types/node": "^20.12.2",
-        "@typescript-eslint/eslint-plugin": "^7.4.0",
-        "@typescript-eslint/parser": "^7.4.0",
+        "@types/node": "^20.12.5",
+        "@typescript-eslint/eslint-plugin": "^7.5.0",
+        "@typescript-eslint/parser": "^7.5.0",
         "@userscripters/generate-readme": "^3.0.2",
         "chai": "^5.1.0",
         "esbuild": "^0.20.2",
@@ -49,7 +49,7 @@
         "jsdom": "^24.0.0",
         "mocha": "^10.4.0",
         "ts-node": "^10.9.2",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.4"
     },
     "types": "./dist/index.d.ts",
     "main": "./dist/index.js",
