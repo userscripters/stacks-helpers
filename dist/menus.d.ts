@@ -14,7 +14,7 @@ export type MenuItemPopover = {
         position?: AllPlacements;
     };
 };
-export type MenuItem = Omit<Links.StacksLinksOptions, "isButton"> & MenuItemPopover | {
+export type MenuItem = Links.StacksLinksOptions & MenuItemPopover | {
     separatorType: "divider" | "title";
     separatorText?: string;
 } | {

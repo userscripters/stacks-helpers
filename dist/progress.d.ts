@@ -8,10 +8,6 @@ export type StacksCircularBarOptions = StacksCommonOptions & Omit<StacksBaseBarO
     size?: "sm" | "md" | "lg";
 };
 export declare const makeCircularBar: (id: string, options: StacksCircularBarOptions) => HTMLDivElement;
-export type StacksSegmentedBarOptions = StacksBaseBarOptions & {
-    segments: number;
-};
-export declare const makeSegmentedBar: (id: string, options: StacksSegmentedBarOptions) => HTMLDivElement;
 export type SteppedBarItem = {
     status?: "complete" | "active";
     label: string;

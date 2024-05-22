@@ -21,7 +21,7 @@ const makeMenu = (options = {}) => {
             li.setAttribute("role", "separator");
             li.classList.add(`s-menu--${separatorType}`);
             if (separatorText)
-                li.innerText = separatorText;
+                li.textContent = separatorText;
             menu.append(li);
             return;
         }
@@ -35,7 +35,7 @@ const makeMenu = (options = {}) => {
         (_a = navItem.classes) === null || _a === void 0 ? void 0 : _a.push(...childrenClasses);
         li.setAttribute("role", "menuitem");
         const item = index_1.Links.makeLink(Object.assign({
-            isButton: itemsType === "button",
+            isButton: itemsType === "button" || navItem.isButton,
             blockLink: {},
         }, navItem));
         li.append(item);

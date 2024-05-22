@@ -5,8 +5,11 @@ const index_1 = require("./index");
 const makeStacksBanner = (options) => {
     const { style, text, important = false, pinned = false, icon, classes = [], } = options;
     const banner = document.createElement("aside");
-    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner", ...classes);
+    banner.classList.add("s-banner", "js-notice-banner", ...classes);
     banner.setAttribute("role", "alert");
+    if (style) {
+        banner.classList.add(`s-banner__${style}`);
+    }
     if (important) {
         banner.classList.add("s-banner__important");
     }

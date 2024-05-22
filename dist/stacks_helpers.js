@@ -91,8 +91,11 @@
       classes = []
     } = options;
     const banner = document.createElement("aside");
-    banner.classList.add("s-banner", `s-banner__${style}`, "js-notice-banner", ...classes);
+    banner.classList.add("s-banner", "js-notice-banner", ...classes);
     banner.setAttribute("role", "alert");
+    if (style) {
+      banner.classList.add(`s-banner__${style}`);
+    }
     if (important) {
       banner.classList.add("s-banner__important");
     }
@@ -142,7 +145,7 @@
     makeStacksBreadcrumb: () => makeStacksBreadcrumb
   });
   var makeStacksBreadcrumb = (items, options) => {
-    const { classes = [] } = options;
+    const { classes = [] } = options || {};
     const nav = document.createElement("nav");
     nav.classList.add("s-breadcrumbs", "mb6", "sm:mb2", ...classes);
     items.forEach((item, index) => {
@@ -197,12 +200,14 @@
         text,
         selected = false,
         count,
-        form = false
+        form = false,
+        types = []
       } = buttonConfig;
-      const button = document.createElement("button");
-      button.classList.add("s-btn", "s-btn__muted", "s-btn__outlined");
-      button.setAttribute("role", "button");
-      button.append(text);
+      const button = buttons_exports.makeStacksButton(
+        "",
+        text,
+        { type: ["muted", "outlined", ...types] }
+      );
       if (selected) {
         button.classList.add("is-selected");
       }
@@ -217,7 +222,6 @@
       }
       if (form) {
         const formContainer = document.createElement("form");
-        formContainer.classList.add("s-btn-group--container");
         formContainer.append(button);
         container.append(formContainer);
       } else {
@@ -246,7 +250,8 @@
       type = "",
       text = "",
       hiddenText = "",
-      classes = []
+      classes = [],
+      iconConfig
     } = options;
     const indicator = document.createElement("div");
     indicator.classList.add("s-activity-indicator", ...classes);
@@ -259,8 +264,17 @@
     if (hiddenText) {
       const hiddenElement = document.createElement("div");
       hiddenElement.classList.add("v-visible-sr");
-      hiddenElement.innerText = hiddenText;
+      hiddenElement.textContent = hiddenText;
       indicator.append(hiddenElement);
+    }
+    if (iconConfig) {
+      const { name, path, width, height } = iconConfig;
+      const [icon] = icons_exports.makeStacksIcon(name, path, { width, height });
+      const div = document.createElement("div");
+      div.classList.add("ps-relative");
+      indicator.classList.add("ps-absolute", "tn4", "rn4");
+      div.append(icon, indicator);
+      return div;
     }
     return indicator;
   };
@@ -287,8 +301,7 @@
     input.id = input.name = id;
     input.placeholder = placeholder;
     input.value = value;
-    if (title)
-      input.title = title;
+    if (title) input.title = title;
     if (isSearch) {
       input.classList.add("s-input__search");
       const [searchIcon] = icons_exports.makeStacksIcon(
@@ -429,7 +442,7 @@
     } = options;
     const anchor = document.createElement(isButton ? "button" : "a");
     anchor.classList.add("s-link", ...classes);
-    anchor.innerText = text;
+    anchor.textContent = text;
     if (type) {
       anchor.classList.add(`s-link__${type}`);
     }
@@ -489,8 +502,7 @@
         } = navItem;
         li.setAttribute("role", "separator");
         li.classList.add(`s-menu--${separatorType}`);
-        if (separatorText)
-          li.innerText = separatorText;
+        if (separatorText) li.textContent = separatorText;
         menu.append(li);
         return;
       } else if ("checkbox" in navItem) {
@@ -510,7 +522,7 @@
       li.setAttribute("role", "menuitem");
       const item = links_exports.makeLink(
         Object.assign({
-          isButton: itemsType === "button",
+          isButton: itemsType === "button" || navItem.isButton,
           blockLink: {}
         }, navItem)
       );
@@ -523,17 +535,43 @@
   // src/navigation.ts
   var navigation_exports = {};
   __export(navigation_exports, {
+    createNavItem: () => createNavItem,
     makeNavigation: () => makeNavigation
   });
-  var makeNavigation = (navItems, type, selectIndex = 0) => {
+  var makeNavigation = (options = {}) => {
+    const {
+      navItems,
+      type = "a",
+      selectIndex = 0,
+      ariaLabel,
+      navType,
+      classes = []
+    } = options;
     const navigation = document.createElement("nav");
+    if (classes.length > 0) {
+      navigation.classList.add(...classes);
+    }
+    if (ariaLabel) {
+      navigation.setAttribute("aria-label", ariaLabel);
+    }
     const ul = document.createElement("ul");
     ul.classList.add("s-navigation");
+    if (navType) {
+      ul.classList.add(`s-navigation__${navType}`);
+    }
     if (type === "button") {
       ul.setAttribute("role", "tablist");
       ul.setAttribute("data-controller", "s-navigation-tablist");
     }
-    const children = navItems.map((item, i) => createNavItem(item, type, i === selectIndex));
+    const children = navItems.map((item, i) => {
+      if ("title" in item) {
+        const li = document.createElement("li");
+        li.classList.add("s-navigation--title");
+        li.textContent = item.title;
+        return li;
+      }
+      return createNavItem(item, type, i === selectIndex);
+    });
     ul.append(...children);
     navigation.append(ul);
     return navigation;
@@ -541,20 +579,32 @@
   var createNavItem = ({
     id,
     text,
-    ariaControls
+    ariaControls,
+    dropdown,
+    href = "#",
+    classes = []
   }, type, select) => {
     const li = document.createElement("li");
+    if (classes.length > 0) {
+      li.classList.add(...classes);
+    }
     const wrapper = document.createElement(type);
-    wrapper.id = id;
-    wrapper.innerText = text;
+    wrapper.textContent = text;
+    if (id) {
+      wrapper.id = id;
+    }
+    if (wrapper instanceof HTMLAnchorElement) {
+      wrapper.href = href;
+    }
+    if (dropdown) {
+      wrapper.classList.add("s-navigation--item__dropdown");
+    }
     wrapper.classList.add("s-navigation--item");
-    if (select)
-      wrapper.classList.add("is-selected");
+    if (select) wrapper.classList.add("is-selected");
     if (type === "button") {
       wrapper.setAttribute("role", "tab");
       wrapper.type = "button";
-      if (ariaControls)
-        wrapper.setAttribute("aria-controls", ariaControls);
+      if (ariaControls) wrapper.setAttribute("aria-controls", ariaControls);
     }
     li.append(wrapper);
     return li;
@@ -605,6 +655,7 @@
   // src/pagination.ts
   var pagination_exports = {};
   __export(pagination_exports, {
+    createPage: () => createPage,
     makePagination: () => makePagination
   });
   var makePagination = (options) => {
@@ -645,11 +696,15 @@
   var createPage = (page, url, isSelected) => {
     const element = document.createElement(isSelected ? "span" : "a");
     element.classList.add("s-pagination--item");
-    element.textContent = page.toString();
+    const span = document.createElement("span");
+    span.classList.add("v-visible-sr");
+    span.textContent = "page";
+    element.append(span, page.toString());
     if (element instanceof HTMLAnchorElement) {
       element.href = url;
     } else {
       element.classList.add("is-selected");
+      element.ariaCurrent = "page";
     }
     return element;
   };
@@ -659,7 +714,6 @@
   __export(progress_exports, {
     makeBaseBar: () => makeBaseBar,
     makeCircularBar: () => makeCircularBar,
-    makeSegmentedBar: () => makeSegmentedBar,
     makeSteppedBar: () => makeSteppedBar
   });
   var makeBaseBar = (id, options) => {
@@ -709,35 +763,6 @@
     circle.setAttribute("r", "14");
     bar.append(circle, circle.cloneNode(true));
     progress.innerHTML = bar.outerHTML;
-    return progress;
-  };
-  var makeSegmentedBar = (id, options) => {
-    const {
-      width,
-      segments,
-      coloring,
-      classes = []
-    } = options;
-    const progress = document.createElement("div");
-    progress.id = id;
-    progress.classList.add("s-progress", "s-progress__segmented", ...classes);
-    if (coloring) {
-      progress.classList.add(`s-progress__${coloring}`);
-    }
-    const bar = document.createElement("div");
-    bar.classList.add("s-progress--bar");
-    bar.style.setProperty("width", `${width.toString()}%"`);
-    bar.setAttribute("role", "progressbar");
-    bar.setAttribute("aria-valuemin", "0");
-    bar.setAttribute("aria-valuemax", "100");
-    bar.setAttribute("aria-valuenow", width.toString());
-    const ol = document.createElement("ol");
-    ol.classList.add("s-progress--segments");
-    for (let i = 0; i < segments + 1; i++) {
-      const li = document.createElement("li");
-      ol.append(li);
-    }
-    progress.append(bar, ol);
     return progress;
   };
   var makeSteppedBar = (id, items, options = {}) => {
@@ -914,8 +939,7 @@
   var toggleValidation = (container, state) => {
     container.classList.remove("has-success", "has-warning", "has-error");
     container.querySelector(".s-input-icon")?.remove();
-    if (!state)
-      return;
+    if (!state) return;
     container.classList.add(`has-${state}`);
     const [name, path] = icons_exports.validationIcons[state];
     const [icon] = icons_exports.makeStacksIcon(name, path, {
@@ -1372,16 +1396,19 @@
       classes = []
     } = options;
     const btn = document.createElement("button");
-    btn.id = id;
-    btn.textContent = text;
+    if (id !== "") {
+      btn.id = id;
+    }
     btn.classList.add(
       "s-btn",
       ...type.map((name) => `s-btn__${name}`),
       ...classes
     );
+    btn.append(text);
     btn.type = "button";
     btn.setAttribute("role", "button");
-    btn.setAttribute("aria-label", title || text);
+    const ariaLabel = title || (text instanceof HTMLElement ? text.textContent || "" : text);
+    btn.setAttribute("aria-label", ariaLabel);
     if (primary) {
       btn.classList.add("s-btn__filled");
     }
@@ -1552,10 +1579,8 @@
     wrap.id = id;
     const aside = document.createElement("aside");
     aside.classList.add("s-notice", "p8", "pl16");
-    if (type !== "none")
-      aside.classList.add(`s-notice__${type}`);
-    if (important)
-      aside.classList.add("s-notice__important");
+    if (type !== "none") aside.classList.add(`s-notice__${type}`);
+    if (important) aside.classList.add("s-notice__important");
     const msgWrap = document.createElement("div");
     msgWrap.classList.add(
       "d-flex",
@@ -1587,8 +1612,7 @@
   };
   var toggleToast = (target, show) => {
     const toast = typeof target === "string" ? document.querySelector(target) : target;
-    if (!toast)
-      throw new ReferenceError(`missing toast: ${target}`);
+    if (!toast) throw new ReferenceError(`missing toast: ${target}`);
     const isShown = toast?.getAttribute("aria-hidden") !== "true";
     toast.setAttribute(
       "aria-hidden",
@@ -1598,12 +1622,10 @@
   };
   var hideToast = (target, hideFor) => {
     const toast = toggleToast(target, false);
-    if (hideFor)
-      setTimeout(() => showToast(toast), hideFor * 1e3);
+    if (hideFor) setTimeout(() => showToast(toast), hideFor * 1e3);
   };
   var showToast = (target, showFor) => {
     const toast = toggleToast(target, true);
-    if (showFor)
-      setTimeout(() => hideToast(toast), showFor * 1e3);
+    if (showFor) setTimeout(() => hideToast(toast), showFor * 1e3);
   };
 })();

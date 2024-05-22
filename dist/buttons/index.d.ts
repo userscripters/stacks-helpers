@@ -20,4 +20,4 @@ export type StacksIconButtonOptions = StacksCommonOptions & {
         options?: boolean | AddEventListenerOptions;
     };
 };
-export declare const makeStacksButton: (id: string, text: string, options?: StacksIconButtonOptions) => HTMLButtonElement;
+export declare const makeStacksButton: (id: string, text: string | HTMLElement, options?: StacksIconButtonOptions) => HTMLButtonElement;

@@ -5,12 +5,17 @@ const index_1 = require("../index");
 const makeStacksButton = (id, text, options = {}) => {
     const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, click, classes = [], } = options;
     const btn = document.createElement("button");
-    btn.id = id;
-    btn.textContent = text;
+    if (id !== "") {
+        btn.id = id;
+    }
     btn.classList.add("s-btn", ...type.map((name) => `s-btn__${name}`), ...classes);
+    btn.append(text);
     btn.type = "button";
     btn.setAttribute("role", "button");
-    btn.setAttribute("aria-label", title || text);
+    const ariaLabel = title || (text instanceof HTMLElement
+        ? text.textContent || ""
+        : text);
+    btn.setAttribute("aria-label", ariaLabel);
     if (primary) {
         btn.classList.add("s-btn__filled");
     }

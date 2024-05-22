@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeSteppedBar = exports.makeSegmentedBar = exports.makeCircularBar = exports.makeBaseBar = void 0;
+exports.makeSteppedBar = exports.makeCircularBar = exports.makeBaseBar = void 0;
 const index_1 = require("./index");
 const makeBaseBar = (id, options) => {
     const { width, coloring, classes = [], } = options;
@@ -45,31 +45,6 @@ const makeCircularBar = (id, options) => {
     return progress;
 };
 exports.makeCircularBar = makeCircularBar;
-const makeSegmentedBar = (id, options) => {
-    const { width, segments, coloring, classes = [], } = options;
-    const progress = document.createElement("div");
-    progress.id = id;
-    progress.classList.add("s-progress", "s-progress__segmented", ...classes);
-    if (coloring) {
-        progress.classList.add(`s-progress__${coloring}`);
-    }
-    const bar = document.createElement("div");
-    bar.classList.add("s-progress--bar");
-    bar.style.setProperty("width", `${width.toString()}%"`);
-    bar.setAttribute("role", "progressbar");
-    bar.setAttribute("aria-valuemin", "0");
-    bar.setAttribute("aria-valuemax", "100");
-    bar.setAttribute("aria-valuenow", width.toString());
-    const ol = document.createElement("ol");
-    ol.classList.add("s-progress--segments");
-    for (let i = 0; i < segments + 1; i++) {
-        const li = document.createElement("li");
-        ol.append(li);
-    }
-    progress.append(bar, ol);
-    return progress;
-};
-exports.makeSegmentedBar = makeSegmentedBar;
 const makeSteppedBar = (id, items, options = {}) => {
     const { classes = [] } = options;
     const progress = document.createElement("div");

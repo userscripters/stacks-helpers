@@ -8,3 +8,4 @@ export type StacksPaginationOptions = StacksCommonOptions & {
     nextButtonHref?: string;
 };
 export declare const makePagination: (options: StacksPaginationOptions) => HTMLDivElement;
+export declare const createPage: (page: number, url: string, isSelected: boolean) => HTMLSpanElement | HTMLAnchorElement;

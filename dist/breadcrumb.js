@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.makeStacksBreadcrumb = void 0;
 const index_1 = require("./index");
 const makeStacksBreadcrumb = (items, options) => {
-    const { classes = [] } = options;
+    const { classes = [] } = options || {};
     const nav = document.createElement("nav");
     nav.classList.add("s-breadcrumbs", "mb6", "sm:mb2", ...classes);
     items.forEach((item, index) => {
