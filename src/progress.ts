@@ -1,9 +1,5 @@
 import { Icons, StacksCommonOptions } from "./index";
 
-// TODO: are these needed?
-// - https://stackoverflow.design/product/components/progress-bars/#privileges
-// - https://stackoverflow.design/product/components/progress-bars/#badges
-
 export type StacksBaseBarOptions = StacksCommonOptions & {
     /** The width to colour */
     width: number;
@@ -12,7 +8,7 @@ export type StacksBaseBarOptions = StacksCommonOptions & {
 };
 
 /**
- * @see https://stackoverflow.design/product/components/progress-bars/#base-style
+ * @see https://stackoverflow.design/product/components/progress-bars
  *
  * @summary Create a Stacks base progress bar
  * @param {string} id - The id of the progress bar
@@ -98,60 +94,6 @@ export const makeCircularBar = (
     bar.append(circle, circle.cloneNode(true));
 
     progress.innerHTML = bar.outerHTML;
-
-    return progress;
-};
-
-export type StacksSegmentedBarOptions = StacksBaseBarOptions & {
-    /** The total number of segments to include */
-    segments: number;
-};
-
-/**
- * @see https://stackoverflow.design/product/components/progress-bars/#segmented
- *
- * @summary Create a Stacks segmented progress bar
- * @param {string} id - The id of the progress bar
- * @param {StacksSegmentedBarOptions} options - configuration
- * @returns {HTMLDivElement}
- */
-export const makeSegmentedBar = (
-    id: string,
-    options: StacksSegmentedBarOptions
-): HTMLDivElement => {
-    const {
-        width,
-        segments,
-        coloring,
-        classes = [],
-    } = options;
-
-    const progress = document.createElement("div");
-    progress.id = id;
-    progress.classList.add("s-progress", "s-progress__segmented", ...classes);
-
-    if (coloring) {
-        progress.classList.add(`s-progress__${coloring}`);
-    }
-
-    const bar = document.createElement("div");
-    bar.classList.add("s-progress--bar");
-    bar.style.setProperty("width", `${width.toString()}%"`);
-
-    bar.setAttribute("role", "progressbar");
-    bar.setAttribute("aria-valuemin", "0");
-    bar.setAttribute("aria-valuemax", "100");
-    bar.setAttribute("aria-valuenow", width.toString());
-
-    const ol = document.createElement("ol");
-    ol.classList.add("s-progress--segments");
-
-    for (let i = 0; i < segments + 1; i++) {
-        const li = document.createElement("li");
-        ol.append(li);
-    }
-
-    progress.append(bar, ol);
 
     return progress;
 };
