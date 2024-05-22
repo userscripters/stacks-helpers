@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeSpinner = void 0;
-const makeSpinner = (options = {}) => {
+export const makeSpinner = (options = {}) => {
     const { size = "", hiddenText = "", classes = [] } = options;
     const spinner = document.createElement("div");
     spinner.classList.add("s-spinner", ...classes);
@@ -16,4 +13,3 @@ const makeSpinner = (options = {}) => {
     }
     return spinner;
 };
-exports.makeSpinner = makeSpinner;

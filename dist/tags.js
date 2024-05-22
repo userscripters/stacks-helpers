@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksTag = void 0;
-const index_1 = require("./index");
-const makeStacksTag = (options) => {
+import { Icons } from "./index";
+export const makeStacksTag = (options) => {
     const { classes = [], name, href = "#", moderator = false, selected = false, size = "", muted = false, required = false, sponsor = null, dismissable = false, onDismiss = null, watched = false, ignored = false, } = options;
     const tag = document.createElement("a");
     tag.classList.add("s-tag", ...classes);
@@ -40,7 +37,7 @@ const makeStacksTag = (options) => {
         tag.prepend(" ", sponsorImg);
     }
     if (dismissable) {
-        const [iconClearSm] = index_1.Icons.makeStacksIcon("iconClearSm", "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z");
+        const [iconClearSm] = Icons.makeStacksIcon("iconClearSm", "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41Z");
         const dismiss = document.createElement("span");
         dismiss.classList.add("s-tag--dismiss");
         dismiss.append(iconClearSm);
@@ -54,4 +51,3 @@ const makeStacksTag = (options) => {
     }
     return tag;
 };
-exports.makeStacksTag = makeStacksTag;

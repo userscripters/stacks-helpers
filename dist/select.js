@@ -1,14 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.toggleValidation = exports.makeStacksSelect = void 0;
-const index_1 = require("./index");
-const makeStacksSelect = (id, items, options = {}, labelOptions) => {
+import { Label, Icons } from "./index";
+export const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     const { disabled = false, size, validation, classes = [] } = options;
     const container = document.createElement("div");
     container.classList.add("d-flex", "gy4", "fd-column");
     if (labelOptions) {
         (labelOptions.parentClasses || (labelOptions.parentClasses = [])).push("flex--item");
-        const label = index_1.Label.makeStacksLabel(id, labelOptions);
+        const label = Label.makeStacksLabel(id, labelOptions);
         container.append(label);
     }
     const selectContainer = document.createElement("div");
@@ -34,23 +31,21 @@ const makeStacksSelect = (id, items, options = {}, labelOptions) => {
     selectContainer.append(select);
     container.append(selectContainer);
     if (validation) {
-        (0, exports.toggleValidation)(container, validation);
+        toggleValidation(container, validation);
     }
     return container;
 };
-exports.makeStacksSelect = makeStacksSelect;
-const toggleValidation = (container, state) => {
+export const toggleValidation = (container, state) => {
     var _a, _b;
     container.classList.remove("has-success", "has-warning", "has-error");
     (_a = container.querySelector(".s-input-icon")) === null || _a === void 0 ? void 0 : _a.remove();
     if (!state)
         return;
     container.classList.add(`has-${state}`);
-    const [name, path] = index_1.Icons.validationIcons[state];
-    const [icon] = index_1.Icons.makeStacksIcon(name, path, {
+    const [name, path] = Icons.validationIcons[state];
+    const [icon] = Icons.makeStacksIcon(name, path, {
         classes: ["s-input-icon"],
         width: 18
     });
     (_b = container.querySelector(".s-select")) === null || _b === void 0 ? void 0 : _b.append(icon);
 };
-exports.toggleValidation = toggleValidation;

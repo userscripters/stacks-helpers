@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksPopover = void 0;
-const makeStacksPopover = (id, controller, options) => {
+export const makeStacksPopover = (id, controller, options) => {
     const { referenceSelector, toggleClass, placement, toggle, autoShow, hideOnOutsideClick, manualArrowPositioning, callbacks, contentHtml, classes = [], } = options;
     controller.setAttribute("data-controller", "popover");
     controller.setAttribute("aria-controls", id);
@@ -46,4 +43,3 @@ const makeStacksPopover = (id, controller, options) => {
     popover.append(arrow, contentHtml);
     return popover;
 };
-exports.makeStacksPopover = makeStacksPopover;

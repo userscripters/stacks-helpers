@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeLink = void 0;
-const makeLink = (options = {}) => {
+export const makeLink = (options = {}) => {
     const { href = "", isButton = false, type = "", blockLink = null, text, click, classes = [] } = options;
     const anchor = document.createElement(isButton ? "button" : "a");
     anchor.classList.add("s-link", ...classes);
@@ -31,4 +28,3 @@ const makeLink = (options = {}) => {
     }
     return anchor;
 };
-exports.makeLink = makeLink;

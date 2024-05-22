@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksButton = void 0;
-const index_1 = require("../index");
-const makeStacksButton = (id, text, options = {}) => {
+import { Icons } from "../index";
+export const makeStacksButton = (id, text, options = {}) => {
     const { title, type = [], primary = false, loading = false, selected = false, disabled = false, badge, size, iconConfig, click, classes = [], } = options;
     const btn = document.createElement("button");
     if (id !== "") {
@@ -46,7 +43,7 @@ const makeStacksButton = (id, text, options = {}) => {
     if (iconConfig) {
         btn.classList.add("s-btn__icon");
         const { name, path, width, height } = iconConfig;
-        const [icon] = index_1.Icons.makeStacksIcon(name, path, { width, height });
+        const [icon] = Icons.makeStacksIcon(name, path, { width, height });
         btn.prepend(icon, " ");
     }
     if (click) {
@@ -55,4 +52,3 @@ const makeStacksButton = (id, text, options = {}) => {
     }
     return btn;
 };
-exports.makeStacksButton = makeStacksButton;

@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeSteppedBar = exports.makeCircularBar = exports.makeBaseBar = void 0;
-const index_1 = require("./index");
-const makeBaseBar = (id, options) => {
+import { Icons } from "./index";
+export const makeBaseBar = (id, options) => {
     const { width, coloring, classes = [], } = options;
     const bar = document.createElement("div");
     bar.classList.add("s-progress--bar");
@@ -20,8 +17,7 @@ const makeBaseBar = (id, options) => {
     progress.append(bar);
     return progress;
 };
-exports.makeBaseBar = makeBaseBar;
-const makeCircularBar = (id, options) => {
+export const makeCircularBar = (id, options) => {
     const { width, classes = [], size } = options;
     const progress = document.createElement("div");
     progress.id = id;
@@ -44,8 +40,7 @@ const makeCircularBar = (id, options) => {
     progress.innerHTML = bar.outerHTML;
     return progress;
 };
-exports.makeCircularBar = makeCircularBar;
-const makeSteppedBar = (id, items, options = {}) => {
+export const makeSteppedBar = (id, items, options = {}) => {
     const { classes = [] } = options;
     const progress = document.createElement("div");
     progress.id = id;
@@ -61,7 +56,7 @@ const makeSteppedBar = (id, items, options = {}) => {
         stop.classList.add("s-progress--stop");
         stop.href = href;
         if (status === "complete") {
-            const [checkmark] = index_1.Icons.makeStacksIcon("iconCheckmarkSm", "M13 3.41 11.59 2 5 8.59 2.41 6 1 7.41l4 4 8-8Z");
+            const [checkmark] = Icons.makeStacksIcon("iconCheckmarkSm", "M13 3.41 11.59 2 5 8.59 2.41 6 1 7.41l4 4 8-8Z");
             stop.append(checkmark);
         }
         step.append(stop);
@@ -87,4 +82,3 @@ const makeSteppedBar = (id, items, options = {}) => {
     });
     return progress;
 };
-exports.makeSteppedBar = makeSteppedBar;

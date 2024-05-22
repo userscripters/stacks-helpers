@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksRadiosOrCheckboxes = exports.makeStacksInput = void 0;
-const index_1 = require("./index");
-const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
+import { Icons, Label } from "./index";
+export const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     var _a;
     const { value = "", classes = [], placeholder = "", title, isSearch } = inputOptions;
     const inputParent = document.createElement("div");
@@ -17,7 +14,7 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
         input.title = title;
     if (isSearch) {
         input.classList.add("s-input__search");
-        const [searchIcon] = index_1.Icons.makeStacksIcon("iconSearch", "m18 16.5-5.14-5.18h-.35a7 7 0 10-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 112 7a5 5 0 0110 0z", {
+        const [searchIcon] = Icons.makeStacksIcon("iconSearch", "m18 16.5-5.14-5.18h-.35a7 7 0 10-1.19 1.19v.35L16.5 18l1.5-1.5zM12 7A5 5 0 112 7a5 5 0 0110 0z", {
             classes: ["s-input-icon", "s-input-icon__search"],
             width: 18,
         });
@@ -26,7 +23,7 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     inputParent.prepend(input);
     if (labelOptions) {
         (_a = (labelOptions.parentClasses || (labelOptions.parentClasses = []))) === null || _a === void 0 ? void 0 : _a.push("flex--item");
-        const label = index_1.Label.makeStacksLabel(id, labelOptions);
+        const label = Label.makeStacksLabel(id, labelOptions);
         const container = document.createElement("div");
         container.classList.add("d-flex", "gy4", "fd-column");
         container.append(label, inputParent);
@@ -34,8 +31,7 @@ const makeStacksInput = (id, inputOptions = {}, labelOptions) => {
     }
     return inputParent;
 };
-exports.makeStacksInput = makeStacksInput;
-const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
+export const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) => {
     const fieldset = document.createElement("fieldset");
     fieldset.classList.add("s-check-group");
     if (options) {
@@ -64,7 +60,6 @@ const makeStacksRadiosOrCheckboxes = (inputs, type, options, withoutFieldset) =>
         return [fieldset, ...items];
     }
 };
-exports.makeStacksRadiosOrCheckboxes = makeStacksRadiosOrCheckboxes;
 const makeFormContainer = (radioCheckbox, type) => {
     const { id, labelConfig, selected = false, disabled = false, name } = radioCheckbox;
     const container = document.createElement("div");
@@ -78,7 +73,7 @@ const makeFormContainer = (radioCheckbox, type) => {
     if (name) {
         input.name = name;
     }
-    const label = index_1.Label.makeStacksLabel(id, labelConfig);
+    const label = Label.makeStacksLabel(id, labelConfig);
     container.append(input, label);
     return container;
 };

@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksBreadcrumb = void 0;
-const index_1 = require("./index");
-const makeStacksBreadcrumb = (items, options) => {
+import { Icons } from "./index";
+export const makeStacksBreadcrumb = (items, options) => {
     const { classes = [] } = options || {};
     const nav = document.createElement("nav");
     nav.classList.add("s-breadcrumbs", "mb6", "sm:mb2", ...classes);
@@ -15,7 +12,7 @@ const makeStacksBreadcrumb = (items, options) => {
         breadcrumbLink.href = href;
         if (Array.isArray(label)) {
             const [name, path] = label;
-            const [icon] = index_1.Icons.makeStacksIcon(name, path, {
+            const [icon] = Icons.makeStacksIcon(name, path, {
                 classes: ["mtn2"],
                 width: 18
             });
@@ -26,7 +23,7 @@ const makeStacksBreadcrumb = (items, options) => {
         }
         breadcrumbItem.append(breadcrumbLink);
         if (index !== items.length - 1) {
-            const [dividerIcon] = index_1.Icons.makeStacksIcon("iconArrowRightAltSm", "m4.38 4.62 1.24-1.24L9.24 7l-3.62 3.62-1.24-1.24L6.76 7 4.38 4.62Z", {
+            const [dividerIcon] = Icons.makeStacksIcon("iconArrowRightAltSm", "m4.38 4.62 1.24-1.24L9.24 7l-3.62 3.62-1.24-1.24L6.76 7 4.38 4.62Z", {
                 classes: ["s-breadcrumbs--divider"],
                 width: 13,
                 height: 14
@@ -37,4 +34,3 @@ const makeStacksBreadcrumb = (items, options) => {
     });
     return nav;
 };
-exports.makeStacksBreadcrumb = makeStacksBreadcrumb;

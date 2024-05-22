@@ -1,13 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.toggleValidation = exports.makeStacksTextarea = void 0;
-const index_1 = require("./index");
-const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
+import { Label, Icons } from "./index";
+export const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     const { value = "", classes = [], placeholder = "", title = "", size, validation, } = textareaOptions;
     const textareaParent = document.createElement("div");
     textareaParent.classList.add("d-flex", "fd-column", "gy4", ...classes);
     if (labelOptions) {
-        const label = index_1.Label.makeStacksLabel(id, labelOptions);
+        const label = Label.makeStacksLabel(id, labelOptions);
         textareaParent.append(label);
     }
     const textarea = document.createElement("textarea");
@@ -21,12 +18,11 @@ const makeStacksTextarea = (id, textareaOptions = {}, labelOptions) => {
     }
     textareaParent.append(textarea);
     if (validation) {
-        (0, exports.toggleValidation)(textareaParent, validation);
+        toggleValidation(textareaParent, validation);
     }
     return textareaParent;
 };
-exports.makeStacksTextarea = makeStacksTextarea;
-const toggleValidation = (textareaParent, validation) => {
+export const toggleValidation = (textareaParent, validation) => {
     var _a, _b;
     textareaParent.classList.remove("has-success", "has-warning", "has-error");
     const oldTextarea = textareaParent.querySelector(".s-textarea");
@@ -39,8 +35,8 @@ const toggleValidation = (textareaParent, validation) => {
     }
     const { state, description } = validation;
     textareaParent.classList.add(`has-${state}`);
-    const [iconName, iconPath] = index_1.Icons.validationIcons[state];
-    const [icon] = index_1.Icons.makeStacksIcon(iconName, iconPath, {
+    const [iconName, iconPath] = Icons.validationIcons[state];
+    const [icon] = Icons.makeStacksIcon(iconName, iconPath, {
         classes: ["s-input-icon"],
         width: 18,
     });
@@ -69,7 +65,6 @@ const toggleValidation = (textareaParent, validation) => {
         }
     }
 };
-exports.toggleValidation = toggleValidation;
 const createAndAppendDescription = (description, appendTo) => {
     const message = document.createElement("p");
     message.classList.add("flex--item", "s-input-message");

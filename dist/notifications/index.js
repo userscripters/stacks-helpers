@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.showToast = exports.hideToast = exports.toggleToast = exports.makeStacksToast = void 0;
-const index_1 = require("../icons/index");
-const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = [], type = "none", important = false, } = {}) => {
+import { makeStacksIcon } from "../icons/index";
+export const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = [], type = "none", important = false, } = {}) => {
     const wrap = document.createElement("div");
     wrap.classList.add("s-toast", ...classes);
     wrap.setAttribute("aria-hidden", "true");
@@ -27,7 +24,7 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     dismissBtn.classList.add("s-btn", "s-notice--btn");
     dismissBtn.setAttribute("aria-label", "Dismiss");
     buttons.push(dismissBtn);
-    const [dismissIcon] = (0, index_1.makeStacksIcon)("iconClearSm", "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z");
+    const [dismissIcon] = makeStacksIcon("iconClearSm", "M12 3.41 10.59 2 7 5.59 3.41 2 2 3.41 5.59 7 2 10.59 3.41 12 7 8.41 10.59 12 12 10.59 8.41 7 12 3.41z");
     dismissBtn.append(dismissIcon);
     btnWrap.append(...buttons);
     msgWrap.append(message, btnWrap);
@@ -35,8 +32,7 @@ const makeStacksToast = (id, text, { buttons = [], classes = [], msgClasses = []
     wrap.append(aside);
     return wrap;
 };
-exports.makeStacksToast = makeStacksToast;
-const toggleToast = (target, show) => {
+export const toggleToast = (target, show) => {
     const toast = typeof target === "string" ? document.querySelector(target) : target;
     if (!toast)
         throw new ReferenceError(`missing toast: ${target}`);
@@ -44,16 +40,13 @@ const toggleToast = (target, show) => {
     toast.setAttribute("aria-hidden", (show !== void 0 ? !show : isShown).toString());
     return toast;
 };
-exports.toggleToast = toggleToast;
-const hideToast = (target, hideFor) => {
-    const toast = (0, exports.toggleToast)(target, false);
+export const hideToast = (target, hideFor) => {
+    const toast = toggleToast(target, false);
     if (hideFor)
-        setTimeout(() => (0, exports.showToast)(toast), hideFor * 1e3);
+        setTimeout(() => showToast(toast), hideFor * 1e3);
 };
-exports.hideToast = hideToast;
-const showToast = (target, showFor) => {
-    const toast = (0, exports.toggleToast)(target, true);
+export const showToast = (target, showFor) => {
+    const toast = toggleToast(target, true);
     if (showFor)
-        setTimeout(() => (0, exports.hideToast)(toast), showFor * 1e3);
+        setTimeout(() => hideToast(toast), showFor * 1e3);
 };
-exports.showToast = showToast;

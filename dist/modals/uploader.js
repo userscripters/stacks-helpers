@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksUploader = void 0;
-const index_1 = require("../buttons/index");
-const makeStacksUploader = (id, label, options) => {
+import { makeStacksButton } from "../buttons/index";
+export const makeStacksUploader = (id, label, options) => {
     const { classes = [], inputClasses = [], resetter, onReset, onUpload, resetButtonClasses = [], state, uploadButtonClasses = [], uploader, } = options;
     const upl = document.createElement("div");
     const lbl = document.createElement("label");
@@ -29,14 +26,14 @@ const makeStacksUploader = (id, label, options) => {
     previews.dataset.target = "s-uploader.previews";
     previews.toggleAttribute("data-s-uploader-show-on-input");
     const actionWrap = document.createElement("div");
-    const uploadBtn = (0, index_1.makeStacksButton)(...uploader, {
+    const uploadBtn = makeStacksButton(...uploader, {
         classes: ["s-btn", "s-btn__primary"],
     });
     uploadBtn.addEventListener("click", (event) => onUpload(event, input.files));
     uploadBtn.classList.add(...uploadButtonClasses);
     uploadBtn.disabled = true;
     uploadBtn.toggleAttribute("data-s-uploader-enable-on-input");
-    const resetBtn = (0, index_1.makeStacksButton)(...resetter, {
+    const resetBtn = makeStacksButton(...resetter, {
         classes: ["s-btn", "d-none"],
     });
     resetBtn.classList.add(...resetButtonClasses);
@@ -49,4 +46,3 @@ const makeStacksUploader = (id, label, options) => {
     upl.append(lbl, wrap);
     return upl;
 };
-exports.makeStacksUploader = makeStacksUploader;

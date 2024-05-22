@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksLabel = void 0;
-const makeStacksLabel = (forId, labelOptions) => {
+export const makeStacksLabel = (forId, labelOptions) => {
     const { classes = [], parentClasses = [], text, description, statusText, statusType } = labelOptions;
     const labelParent = document.createElement("div");
     labelParent.classList.add(...parentClasses);
@@ -32,4 +29,3 @@ const makeStacksLabel = (forId, labelOptions) => {
         return label;
     }
 };
-exports.makeStacksLabel = makeStacksLabel;

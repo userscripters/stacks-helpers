@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeAvatar = void 0;
-const makeAvatar = (options = {}, elementType = "a") => {
+export const makeAvatar = (options = {}, elementType = "a") => {
     const { size = "", href = "", src, classes = [] } = options;
     const avatar = document.createElement(elementType);
     avatar.classList.add("s-avatar", ...classes);
@@ -17,4 +14,3 @@ const makeAvatar = (options = {}, elementType = "a") => {
     avatar.append(img);
     return avatar;
 };
-exports.makeAvatar = makeAvatar;

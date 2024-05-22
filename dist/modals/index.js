@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksModal = void 0;
-const index_1 = require("../index");
-const makeStacksModal = (id, options) => {
+import { Icons } from "../index";
+export const makeStacksModal = (id, options) => {
     const { classes = [], danger = false, fullscreen = false, celebratory = false, title: { text, id: titleId, classes: titleClasses = [] }, body: { bodyHtml, id: bodyId, classes: bodyClasses = [] }, footer: { buttons, classes: footerClasses = [] }, } = options;
     const modal = document.createElement("aside");
     modal.id = id;
@@ -46,7 +43,7 @@ const makeStacksModal = (id, options) => {
         }
         footer.append(element);
     });
-    const [iconClear] = index_1.Icons.makeStacksIcon("iconClear", "M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z", { width: 18 });
+    const [iconClear] = Icons.makeStacksIcon("iconClear", "M15 4.41 13.59 3 9 7.59 4.41 3 3 4.41 7.59 9 3 13.59 4.41 15 9 10.41 13.59 15 15 13.59 10.41 9 15 4.41Z", { width: 18 });
     const close = document.createElement("button");
     close.classList.add("s-modal--close", "s-btn", "s-btn__muted");
     close.setAttribute("type", "button");
@@ -57,4 +54,3 @@ const makeStacksModal = (id, options) => {
     modal.append(dialog);
     return modal;
 };
-exports.makeStacksModal = makeStacksModal;

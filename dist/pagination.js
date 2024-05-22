@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createPage = exports.makePagination = void 0;
-const makePagination = (options) => {
+export const makePagination = (options) => {
     const { first, middle, last, selectedPage = 1, generator, nextButtonHref = "#", classes = [] } = options;
     const container = document.createElement("div");
     container.classList.add("s-pagination", ...classes);
@@ -12,15 +9,14 @@ const makePagination = (options) => {
     nextButton.classList.add("s-pagination--item");
     nextButton.textContent = "Next";
     nextButton.href = nextButtonHref;
-    container.append(...first.map((page) => (0, exports.createPage)(page, generator(page), page === selectedPage)), clear.cloneNode(true));
+    container.append(...first.map((page) => createPage(page, generator(page), page === selectedPage)), clear.cloneNode(true));
     if (middle) {
-        container.append(...middle.map((page) => (0, exports.createPage)(page, generator(page), page === selectedPage)), clear.cloneNode(true));
+        container.append(...middle.map((page) => createPage(page, generator(page), page === selectedPage)), clear.cloneNode(true));
     }
-    container.append(...last.map((page) => (0, exports.createPage)(page, generator(page), page === selectedPage)), nextButton);
+    container.append(...last.map((page) => createPage(page, generator(page), page === selectedPage)), nextButton);
     return container;
 };
-exports.makePagination = makePagination;
-const createPage = (page, url, isSelected) => {
+export const createPage = (page, url, isSelected) => {
     const element = document.createElement(isSelected ? "span" : "a");
     element.classList.add("s-pagination--item");
     const span = document.createElement("span");
@@ -36,4 +32,3 @@ const createPage = (page, url, isSelected) => {
     }
     return element;
 };
-exports.createPage = createPage;

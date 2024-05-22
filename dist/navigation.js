@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createNavItem = exports.makeNavigation = void 0;
-const makeNavigation = (options = {}) => {
+export const makeNavigation = (options = {}) => {
     const { navItems, type = "a", selectIndex = 0, ariaLabel, navType, classes = [] } = options;
     const navigation = document.createElement("nav");
     if (classes.length > 0) {
@@ -27,14 +24,13 @@ const makeNavigation = (options = {}) => {
             li.textContent = item.title;
             return li;
         }
-        return (0, exports.createNavItem)(item, type, i === selectIndex);
+        return createNavItem(item, type, i === selectIndex);
     });
     ul.append(...children);
     navigation.append(ul);
     return navigation;
 };
-exports.makeNavigation = makeNavigation;
-const createNavItem = ({ id, text, ariaControls, dropdown, href = "#", classes = [] }, type, select) => {
+export const createNavItem = ({ id, text, ariaControls, dropdown, href = "#", classes = [] }, type, select) => {
     const li = document.createElement("li");
     if (classes.length > 0) {
         li.classList.add(...classes);
@@ -62,4 +58,3 @@ const createNavItem = ({ id, text, ariaControls, dropdown, href = "#", classes =
     li.append(wrapper);
     return li;
 };
-exports.createNavItem = createNavItem;

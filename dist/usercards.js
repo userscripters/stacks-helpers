@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeMinimalUserCard = exports.makeSmallUserCard = exports.makeBaseUserCard = exports.makeFullUserCard = void 0;
-const _1 = require(".");
-const makeFullUserCard = (options) => {
+import { Avatar, Badges, Tag } from ".";
+export const makeFullUserCard = (options) => {
     const { avatar, user: { name = "", href = "#", reputation = "1", badges, labels, role, location, tags }, userType, classes = [], } = options;
     const userCard = document.createElement("div");
     userCard.classList.add("s-user-card", "s-user-card__full", ...classes);
@@ -43,7 +40,7 @@ const makeFullUserCard = (options) => {
             if (!(config === null || config === void 0 ? void 0 : config.size)) {
                 config.size = "xs";
             }
-            return _1.Tag.makeStacksTag(config);
+            return Tag.makeStacksTag(config);
         });
         userTags.append(...tagsEls);
         infoContainer.append(userTags);
@@ -57,8 +54,7 @@ const makeFullUserCard = (options) => {
     }
     return userCard;
 };
-exports.makeFullUserCard = makeFullUserCard;
-const makeBaseUserCard = (options) => {
+export const makeBaseUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", badges, labels, }, deleted, highlight, userType, classes = [], } = options;
     const userCard = document.createElement("div");
     userCard.classList.add("s-user-card", ...classes);
@@ -99,8 +95,7 @@ const makeBaseUserCard = (options) => {
     }
     return userCard;
 };
-exports.makeBaseUserCard = makeBaseUserCard;
-const makeSmallUserCard = (options) => {
+export const makeSmallUserCard = (options) => {
     const { avatar, user: { badges, href = "#", reputation = "1", }, classes = [], } = options;
     const userCard = document.createElement("div");
     userCard.classList.add("s-user-card", "s-user-card__small", ...classes);
@@ -112,8 +107,7 @@ const makeSmallUserCard = (options) => {
     userCard.append(avatarContainer, infoContainer);
     return userCard;
 };
-exports.makeSmallUserCard = makeSmallUserCard;
-const makeMinimalUserCard = (options) => {
+export const makeMinimalUserCard = (options) => {
     const { avatar, time = "", user: { name = "", href = "#", reputation = "1", }, deleted, classes = [], } = options;
     const userCard = document.createElement("div");
     userCard.classList.add("s-user-card", "s-user-card__minimal", ...classes);
@@ -140,7 +134,6 @@ const makeMinimalUserCard = (options) => {
     userCard.append(infoContainer, timeEl);
     return userCard;
 };
-exports.makeMinimalUserCard = makeMinimalUserCard;
 const getUserAwards = (reputation, badges) => {
     const awards = document.createElement("ul");
     awards.classList.add("s-user-card--awards");
@@ -153,7 +146,7 @@ const getUserAwards = (reputation, badges) => {
             .entries(badges)
             .map(([color, count]) => {
             const badgeColor = color;
-            return _1.Badges.makeBling("li", badgeColor, count.toString());
+            return Badges.makeBling("li", badgeColor, count.toString());
         });
         awards.append(...badgesEls);
     }
@@ -166,7 +159,7 @@ const getLabelElements = (labels) => {
         if (!config.size) {
             config.size = "xs";
         }
-        return _1.Badges.makeStacksBadge(config);
+        return Badges.makeStacksBadge(config);
     });
 };
 const getDefaultUserCardAvatar = (config, defaultHref, defaultSize, deleted) => {
@@ -178,5 +171,5 @@ const getDefaultUserCardAvatar = (config, defaultHref, defaultSize, deleted) => 
     if (config && !config.href) {
         config.href = defaultHref;
     }
-    return _1.Avatar.makeAvatar(config, deleted ? "div" : "a");
+    return Avatar.makeAvatar(config, deleted ? "div" : "a");
 };

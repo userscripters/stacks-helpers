@@ -1,8 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeIndicator = void 0;
-const index_1 = require("./index");
-const makeIndicator = (options = {}) => {
+import { Icons } from "./index";
+export const makeIndicator = (options = {}) => {
     const { type = "", text = "", hiddenText = "", classes = [], iconConfig } = options;
     const indicator = document.createElement("div");
     indicator.classList.add("s-activity-indicator", ...classes);
@@ -20,7 +17,7 @@ const makeIndicator = (options = {}) => {
     }
     if (iconConfig) {
         const { name, path, width, height } = iconConfig;
-        const [icon] = index_1.Icons.makeStacksIcon(name, path, { width, height });
+        const [icon] = Icons.makeStacksIcon(name, path, { width, height });
         const div = document.createElement("div");
         div.classList.add("ps-relative");
         indicator.classList.add("ps-absolute", "tn4", "rn4");
@@ -29,4 +26,3 @@ const makeIndicator = (options = {}) => {
     }
     return indicator;
 };
-exports.makeIndicator = makeIndicator;

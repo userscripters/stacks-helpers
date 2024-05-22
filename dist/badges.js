@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeBling = exports.makeStacksBadge = void 0;
-const makeStacksBadge = (options) => {
+export const makeStacksBadge = (options) => {
     const { classes = [], blingColor = "", type = "", size = "", text, icon, } = options;
     const badge = document.createElement("span");
     badge.classList.add("s-badge", ...classes);
@@ -17,7 +14,7 @@ const makeStacksBadge = (options) => {
         badge.append(icon, " ");
     }
     if (blingColor) {
-        const bling = (0, exports.makeBling)("span", blingColor, text);
+        const bling = makeBling("span", blingColor, text);
         badge.append(bling);
     }
     else {
@@ -25,11 +22,9 @@ const makeStacksBadge = (options) => {
     }
     return badge;
 };
-exports.makeStacksBadge = makeStacksBadge;
-const makeBling = (elementType, color, count) => {
+export const makeBling = (elementType, color, count) => {
     const element = document.createElement(elementType);
     element.classList.add("s-award-bling", `s-award-bling__${color}`);
     element.textContent = count;
     return element;
 };
-exports.makeBling = makeBling;

@@ -1,14 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.makeStacksButtonGroup = void 0;
-const index_1 = require("./index");
-const makeStacksButtonGroup = (buttons, options = {}) => {
+import { Buttons } from "./index";
+export const makeStacksButtonGroup = (buttons, options = {}) => {
     const { classes = [] } = options;
     const container = document.createElement("div");
     container.classList.add("s-btn-group", ...classes);
     buttons.forEach((buttonConfig) => {
         const { text, selected = false, count, form = false, types = [] } = buttonConfig;
-        const button = index_1.Buttons.makeStacksButton("", text, { type: ["muted", "outlined", ...types] });
+        const button = Buttons.makeStacksButton("", text, { type: ["muted", "outlined", ...types] });
         if (selected) {
             button.classList.add("is-selected");
         }
@@ -32,4 +29,3 @@ const makeStacksButtonGroup = (buttons, options = {}) => {
     });
     return container;
 };
-exports.makeStacksButtonGroup = makeStacksButtonGroup;
