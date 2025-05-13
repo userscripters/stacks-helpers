@@ -28,7 +28,7 @@ export type StacksIconButtonOptions = StacksCommonOptions & {
         /** The name of the SVG */
         name: string;
         /** The path of the SVG */
-        path: string;
+        path: string | string[];
         /** The width of the SVG */
         width?: number;
         /** The height of the SVG */

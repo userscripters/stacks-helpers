@@ -20,8 +20,20 @@ export const makeStacksIcon = (name, pathConfig, { classes = [], width = 14, hei
     svg.setAttribute("height", height.toString());
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     svg.setAttribute("aria-hidden", "true");
-    const path = document.createElementNS(ns, "path");
-    path.setAttribute("d", pathConfig);
-    svg.append(path);
-    return [svg, path];
+    if (typeof pathConfig === "string") {
+        const path = document.createElementNS(ns, "path");
+        path.setAttribute("d", pathConfig);
+        svg.append(path);
+        return [svg, path];
+    }
+    else {
+        const paths = [];
+        pathConfig.forEach((svgPath) => {
+            const path = document.createElementNS(ns, "path");
+            path.setAttribute("d", svgPath);
+            svg.append(path);
+            paths.push(path);
+        });
+        return [svg, paths[0]];
+    }
 };

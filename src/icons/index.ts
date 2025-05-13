@@ -30,7 +30,7 @@ export type StacksIconOptions = StacksCommonOptions & {
  */
 export const makeStacksIcon = (
     name: string,
-    pathConfig: string,
+    pathConfig: string | string[],
     { classes = [], width = 14, height = width }: StacksIconOptions = {}
 ): [SVGSVGElement, SVGPathElement] => {
     const ns = "http://www.w3.org/2000/svg";
@@ -42,9 +42,23 @@ export const makeStacksIcon = (
     svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     svg.setAttribute("aria-hidden", "true");
 
-    const path = document.createElementNS(ns, "path");
-    path.setAttribute("d", pathConfig);
+    if (typeof pathConfig === "string") {
+        const path = document.createElementNS(ns, "path");
+        path.setAttribute("d", pathConfig);
 
-    svg.append(path);
-    return [svg, path];
+        svg.append(path);
+
+        return [svg, path];
+    } else {
+        const paths: SVGPathElement[] = [];
+        pathConfig.forEach((svgPath) => {
+            const path = document.createElementNS(ns, "path");
+            path.setAttribute("d", svgPath);
+
+            svg.append(path);
+            paths.push(path);
+        });
+
+        return [svg, paths[0]];
+    }
 };

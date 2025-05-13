@@ -8,4 +8,4 @@ export type StacksIconOptions = StacksCommonOptions & {
     width?: number;
     height?: number;
 };
-export declare const makeStacksIcon: (name: string, pathConfig: string, { classes, width, height }?: StacksIconOptions) => [SVGSVGElement, SVGPathElement];
+export declare const makeStacksIcon: (name: string, pathConfig: string | string[], { classes, width, height }?: StacksIconOptions) => [SVGSVGElement, SVGPathElement];

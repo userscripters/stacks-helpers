@@ -11,7 +11,7 @@ export type StacksIconButtonOptions = StacksCommonOptions & {
     size?: "xs" | "sm" | "md";
     iconConfig?: {
         name: string;
-        path: string;
+        path: string | string[];
         width?: number;
         height?: number;
     };
